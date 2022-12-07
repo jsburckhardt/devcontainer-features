@@ -4,5 +4,14 @@
         "features": {
             "flux": {}
         }
+    },
+    "flux-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "flux": {
+                "version": "v0.37.0"
+            }
+        }
     }
+    
 }

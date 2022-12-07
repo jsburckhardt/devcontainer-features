@@ -2,6 +2,6 @@
 
 set -e
 source dev-container-features-test-lib
-check "flux" flux
+check "flux" flux version --client
 
 reportResults
