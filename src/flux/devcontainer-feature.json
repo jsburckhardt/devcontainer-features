@@ -1,0 +1,13 @@
+{
+    "name": "flux",
+    "id": "flux",
+    "version": "1.0.0",
+    "description": "Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration (like Git repositories and OCI artifacts), and automating updates to configuration when there is new code to deploy.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of flux2 to install. Accepts versions with 'v' prefix."
+        }
+    }
+}

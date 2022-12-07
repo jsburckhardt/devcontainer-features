@@ -13,8 +13,7 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - flux
         baseImage:
           - debian:latest
           - ubuntu:latest
