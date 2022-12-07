@@ -50,7 +50,7 @@ validate_version_exists() {
 }
 
 # make sure we have curl
-check_packages curl tar jq
+check_packages curl tar jq ca-certificates
 
 # make sure version is available
 if [ "${FLUX2_VERSION}" = "latest" ]; then FLUX2_VERSION=$(curl -sL https://api.github.com/repos/fluxcd/flux2/releases/latest | jq -r ".tag_name"); fi
