@@ -3,5 +3,5 @@
 set -e
 
 source dev-container-features-test-lib
-check "flux" flux
+check "notation" notation
 reportResults

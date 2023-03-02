@@ -2,7 +2,8 @@
     "all-tools": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "flux": {}
+            "flux": {},
+            "notation": {}
         }
     },
     "flux-specific-version": {
@@ -10,6 +11,14 @@
         "features": {
             "flux": {
                 "version": "v0.37.0"
+            }
+        }
+    },
+    "notation-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "notation": {
+                "version": "v1.0.0-rc.2"
             }
         }
     }

@@ -17,6 +17,17 @@ aarch64 | armv8*) architecture="arm64" ;;
 	;;
 esac
 
+# check if linux/windows/macOS
+platform="$(uname -s)"
+case ${platform} in
+Linux) platform="linux" ;;
+Darwin) platform="darwin" ;;
+*)
+	echo "(!) Platform ${platform} unsupported"
+	exit 1
+	;;
+esac
+
 if [ "$(id -u)" -ne 0 ]; then
 	echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
 	exit 1
@@ -55,7 +66,7 @@ if [ "${NOTATION_VERSION}" = "latest" ]; then NOTATION_VERSION=$(curl -sL https:
 validate_version_exists NOTATION_VERSION "${NOTATION_VERSION}"
 
 # download and install binary
-NOTATION_FILENAME=notation_${NOTATION_VERSION:1}_linux_${architecture}.tar.gz
+NOTATION_FILENAME=notation_${NOTATION_VERSION:1}_${platform}_${architecture}.tar.gz
 echo "Downloading ${NOTATION_FILENAME}..."
 url="https://github.com/notaryproject/notation/releases/download/${NOTATION_VERSION}/${NOTATION_FILENAME}"
 echo "Downloading ${url}..."
