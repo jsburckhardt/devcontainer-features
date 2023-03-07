@@ -1,6 +1,6 @@
 {
     "name": "crane",
-    "id": "crame",
+    "id": "crane",
     "version": "1.0.0",
     "description": "crane is a tool for interacting with remote images and registries.",
     "options": {
