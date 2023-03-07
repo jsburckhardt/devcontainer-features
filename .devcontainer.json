@@ -3,7 +3,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "mads-hartmann.bash-ide-vscode"
+                "mads-hartmann.bash-ide-vscode",
+                "gencay.vscode-chatgpt"
             ]
         }
     },
