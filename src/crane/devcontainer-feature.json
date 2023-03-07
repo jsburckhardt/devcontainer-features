@@ -1,0 +1,13 @@
+{
+    "name": "crane",
+    "id": "crame",
+    "version": "1.0.0",
+    "description": "crane is a tool for interacting with remote images and registries.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of crane to install. Accepts versions with 'v' prefix."
+        }
+    }
+}
