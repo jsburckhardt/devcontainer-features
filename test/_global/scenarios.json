@@ -21,6 +21,14 @@
                 "version": "v1.0.0-rc.2"
             }
         }
+    },
+    "crane-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "crane": {
+                "version": "v0.13.0"
+            }
+        }
     }
     
 }
