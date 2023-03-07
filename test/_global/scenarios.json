@@ -3,7 +3,8 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "flux": {},
-            "notation": {}
+            "notation": {},
+            "crane": {}
         }
     },
     "flux-specific-version": {

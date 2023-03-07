@@ -15,6 +15,7 @@ jobs:
         features:
           - flux
           - notation
+          - crane
         baseImage:
           - debian:latest
           - ubuntu:latest
