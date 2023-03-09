@@ -11,6 +11,8 @@ This repository contains a _collection_ of Features.
 | flux   | https://fluxcd.io/flux/installation/ | Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration |
 | notation | https://notaryproject.dev/ | Notation is a CLI project to add signatures as standard items in the registry ecosystem, and to build a set of simple tooling for signing and verifying these signatures. This should be viewed as similar security to checking git commit signatures, although the signatures are generic and can be used for additional purposes. Notation is an implementation of the Notary v2 specifications.|
 | crane | https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md | crane is a tool for interacting with remote images and registries.|
+| skopeo | https://github.com/containers/skopeo | skopeo is a command line utility that performs various operations on container images and image repositories. It is install through package managers |
+
 
 ### `flux`
 
@@ -61,4 +63,21 @@ Running `crane` inside the built container will print the help menu of notation.
 
 ```bash
 $ crane
+```
+
+### `skopeo`
+
+Running `skopeo` inside the built container will print the help menu of notation.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/skopeo:1": {}
+    }
+}
+```
+
+```bash
+$ skopeo
 ```
