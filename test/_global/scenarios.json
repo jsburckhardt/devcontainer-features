@@ -4,7 +4,8 @@
         "features": {
             "flux": {},
             "notation": {},
-            "crane": {}
+            "crane": {},
+            "skopeo": {}
         }
     },
     "flux-specific-version": {

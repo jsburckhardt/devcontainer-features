@@ -16,6 +16,7 @@ jobs:
           - flux
           - notation
           - crane
+          - skopeo
         baseImage:
           - debian:latest
           - ubuntu:latest
