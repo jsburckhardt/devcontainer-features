@@ -5,7 +5,8 @@
             "flux": {},
             "notation": {},
             "crane": {},
-            "skopeo": {}
+            "skopeo": {},
+            "kyverno": {}
         }
     },
     "flux-specific-version": {
@@ -31,6 +32,13 @@
                 "version": "v0.13.0"
             }
         }
-    }
-    
+    },
+    "kyverno-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "kyverno": {
+                "version": "v1.9.1"
+            }
+        }
+    }    
 }
