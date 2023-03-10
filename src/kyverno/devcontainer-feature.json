@@ -1,0 +1,13 @@
+{
+    "name": "Kyverno CLI",
+    "id": "kyverno-cli",
+    "version": "1.0.0",
+    "description": "Kyverno (Greek for “govern”) is a policy engine designed specifically for Kubernetes.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of kyverno to install. Accepts versions with 'v' prefix."
+        }
+    }
+}

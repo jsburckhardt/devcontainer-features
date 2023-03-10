@@ -17,6 +17,7 @@ jobs:
           - notation
           - crane
           - skopeo
+          - kyverno
         baseImage:
           - debian:latest
           - ubuntu:latest
