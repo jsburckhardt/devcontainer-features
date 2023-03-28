@@ -40,5 +40,13 @@
                 "version": "v1.9.1"
             }
         }
-    }    
+    },
+    "cyclonedx-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "cyclonedx": {
+                "version": "v0.24.2"
+            }
+        }
+    } 
 }
