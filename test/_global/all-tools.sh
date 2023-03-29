@@ -7,5 +7,6 @@ check "notation" notation version
 check "crane" crane version
 check "skopeo" skopeo --version
 check "kyverno" kyverno version
+check "cyclonedx" cyclonedx --version
 
 reportResults

@@ -18,6 +18,7 @@ jobs:
           - crane
           - skopeo
           - kyverno
+          - cyclonedx
         baseImage:
           - debian:latest
           - ubuntu:latest

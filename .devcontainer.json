@@ -3,9 +3,9 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "mads-hartmann.bash-ide-vscode",
-                "gencay.vscode-chatgpt"
-            ]
+				"mads-hartmann.bash-ide-vscode",
+				"GitHub.copilot-nightly"
+			]
         }
     },
     "features": {
