@@ -13,6 +13,7 @@ This repository contains a _collection_ of Features.
 | crane | https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md | crane is a tool for interacting with remote images and registries.|
 | skopeo | https://github.com/containers/skopeo | skopeo is a command line utility that performs various operations on container images and image repositories. It is install through package managers |
 | kyverno | https://kyverno.io/docs/introduction/ | Kyverno (Greek for “govern”) is a policy engine designed specifically for Kubernetes. |
+| cyclonedx | https://cyclonedx.org/ | cyclonedx is a command-line tool for working with Software Bill of Materials (SBOM). |
 
 
 ### `flux`
@@ -98,4 +99,21 @@ Running `kyverno` inside the built container will print the help menu of notatio
 
 ```bash
 $ kyverno
+```
+
+### `cyclonedx cli`
+
+Running `cyclonedx` inside the built container will print the help menu of notation.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/cyclonedx:1": {}
+    }
+}
+```
+
+```bash
+$ cyclonedx --version
 ```
