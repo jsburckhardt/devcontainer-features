@@ -6,7 +6,8 @@
             "notation": {},
             "crane": {},
             "skopeo": {},
-            "kyverno": {}
+            "kyverno": {},
+            "cyclonedx": {}
         }
     },
     "flux-specific-version": {
