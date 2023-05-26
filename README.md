@@ -14,6 +14,8 @@ This repository contains a _collection_ of Features.
 | skopeo | https://github.com/containers/skopeo | skopeo is a command line utility that performs various operations on container images and image repositories. It is install through package managers |
 | kyverno | https://kyverno.io/docs/introduction/ | Kyverno (Greek for “govern”) is a policy engine designed specifically for Kubernetes. |
 | cyclonedx | https://cyclonedx.org/ | cyclonedx is a command-line tool for working with Software Bill of Materials (SBOM). |
+| Copacelic | https://project-copacetic.github.io/copacetic/website/ | Project Copacetic: Directly patch container image vulnerabilities. Copa is a CLI tool written in Go and based on buildkit that can be used to directly patch container images given the vulnerability scanning results from popular tools like Trivy. |
+
 
 
 ### `flux`
@@ -52,7 +54,7 @@ $ notation
 
 ### `crane`
 
-Running `crane` inside the built container will print the help menu of notation.
+Running `crane` inside the built container will print the help menu of crane.
 
 ```jsonc
 {
@@ -69,7 +71,7 @@ $ crane
 
 ### `skopeo`
 
-Running `skopeo` inside the built container will print the help menu of notation.
+Running `skopeo` inside the built container will print the help menu of skopeo.
 
 ```jsonc
 {
@@ -86,7 +88,7 @@ $ skopeo
 
 ### `kyverno`
 
-Running `kyverno` inside the built container will print the help menu of notation.
+Running `kyverno` inside the built container will print the help menu of kyverno.
 
 ```jsonc
 {
@@ -103,7 +105,7 @@ $ kyverno
 
 ### `cyclonedx cli`
 
-Running `cyclonedx` inside the built container will print the help menu of notation.
+Running `cyclonedx` inside the built container will print the help menu of cyclonedx.
 
 ```jsonc
 {
@@ -116,4 +118,21 @@ Running `cyclonedx` inside the built container will print the help menu of notat
 
 ```bash
 $ cyclonedx --version
+```
+
+### `Copacetic cli`
+
+Running `copa` inside the built container will print the help menu of copa.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/copa:1": {}
+    }
+}
+```
+
+```bash
+$ copa
 ```
