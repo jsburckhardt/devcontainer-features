@@ -3,5 +3,5 @@
 set -e
 
 source dev-container-features-test-lib
-check "cyclonedx" cyclonedx
+check "cyclonedx" cyclonedx --version
 reportResults
