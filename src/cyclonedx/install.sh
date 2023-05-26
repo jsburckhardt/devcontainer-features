@@ -62,7 +62,7 @@ validate_version_exists() {
 }
 
 # make sure we have curl
-check_packages curl tar jq ca-certificates
+check_packages curl tar jq ca-certificates libicu-dev
 
 # make sure version is available
 if [ "${CYCLONEDX_VERSION}" = "latest" ]; then CYCLONEDX_VERSION=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name"); fi
