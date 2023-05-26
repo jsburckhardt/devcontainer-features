@@ -7,7 +7,8 @@
             "crane": {},
             "skopeo": {},
             "kyverno": {},
-            "cyclonedx": {}
+            "cyclonedx": {},
+            "copa": {}
         }
     },
     "flux-specific-version": {
@@ -49,5 +50,5 @@
                 "version": "v0.24.2"
             }
         }
-    } 
+    }
 }

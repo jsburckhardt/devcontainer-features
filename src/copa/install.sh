@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-CYCLONEDX_VERSION="${VERSION:-"latest"}"
-GITHUB_API_REPO_URL="https://api.github.com/repos/CycloneDX/cyclonedx-cli/releases"
-URL_RELEASES="https://github.com/CycloneDX/cyclonedx-cli/releases"
+COPA_VERSION="${VERSION:-"latest"}"
+GITHUB_API_REPO_URL="https://api.github.com/repos/project-copacetic/copacetic/releases"
+URL_RELEASES="https://github.com/project-copacetic/copacetic/releases"
 
 set -e
 
@@ -12,19 +12,18 @@ rm -rf /var/lib/apt/lists/*
 ARCH="$(uname -m)"
 # if ARCH is not arm64, x86_64, armv6, i386, s390x exit 1
 case ${ARCH} in
-arm64) ARCH="arm64" ;;
-x86_64) ARCH="x64" ;;
+x86_64) ARCH="amd64"  ;;
 *)
 	echo "(!) Architecture ${ARCH} unsupported"
 	exit 1
 	;;
 esac
 
+
 # check if linux/windows/macOS
 OS="$(uname -s)"
 case ${OS} in
 Linux) OS="linux" ;;
-Darwin) OS="osx" ;;
 *)
 	echo "(!) Platform ${OS} unsupported"
 	exit 1
@@ -62,21 +61,24 @@ validate_version_exists() {
 }
 
 # make sure we have curl
-check_packages curl tar jq ca-certificates libicu-dev
+check_packages curl tar jq ca-certificates
 
 # make sure version is available
-if [ "${CYCLONEDX_VERSION}" = "latest" ]; then CYCLONEDX_VERSION=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name"); fi
-validate_version_exists CYCLONEDX_VERSION "${CYCLONEDX_VERSION}"
+if [ "${COPA_VERSION}" = "latest" ]; then COPA_VERSION=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name"); fi
+validate_version_exists COPA_VERSION "${COPA_VERSION}"
+
+# create COPA_VERSION_NUMBER (remove v from version COPA_VERSION if it has it)
+COPA_VERSION_NUMBER=$(echo "${COPA_VERSION}" | sed 's/v//g')
 
 # download and install binary
-CYCLONEDX_FILENAME=cyclonedx-${OS}-${ARCH}
-echo "Downloading ${CYCLONEDX_FILENAME}..."
+COPA_FILENAME=copa_${COPA_VERSION_NUMBER}_${OS}_${ARCH}.tar.gz
+echo "Downloading ${COPA_FILENAME}..."
 
-url="${URL_RELEASES}/download/${CYCLONEDX_VERSION}/${CYCLONEDX_FILENAME}"
+url="${URL_RELEASES}/download/${COPA_VERSION}/${COPA_FILENAME}"
 echo "Downloading ${url}..."
-curl -sSL $url -o "${CYCLONEDX_FILENAME}"
-chmod +x "${CYCLONEDX_FILENAME}"
-mv "${CYCLONEDX_FILENAME}" /usr/local/bin/cyclonedx
+curl -sSL $url -o "${COPA_FILENAME}"
+tar -zxvf "${COPA_FILENAME}" -C /usr/local/bin/ copa
+rm "${COPA_FILENAME}"
 
 
 # Clean up

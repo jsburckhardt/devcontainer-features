@@ -19,6 +19,7 @@ jobs:
           - skopeo
           - kyverno
           - cyclonedx
+          - copa
         baseImage:
           - debian:latest
           - ubuntu:latest

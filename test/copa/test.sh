@@ -3,5 +3,5 @@
 set -e
 
 source dev-container-features-test-lib
-check "cyclonedx" cyclonedx --version
+check "copa" copa
 reportResults

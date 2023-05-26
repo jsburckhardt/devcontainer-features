@@ -1,7 +1,7 @@
 {
     "name": "CycloneDX CLI",
     "id": "cyclonedx",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "cyclonedx is a command-line tool for working with Software Bill of Materials (SBOM). It can perform various operations on SBOMs, such as analysis, modification, diffing, merging, format conversion, signing and verification.",
     "options": {
         "version": {
