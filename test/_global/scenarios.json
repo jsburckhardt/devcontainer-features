@@ -59,5 +59,11 @@
                 "version": "v8.17.0"
             }
         }
+    },
+    "skopeo-debian": {
+        "image": "mcr.microsoft.com/devcontainers/base:debian",
+        "features": {
+            "skopeo": {}
+        }
     }
 }
