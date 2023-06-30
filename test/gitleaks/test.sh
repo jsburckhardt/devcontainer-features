@@ -3,5 +3,5 @@
 set -e
 
 source dev-container-features-test-lib
-check "skopeo" skopeo --version
+check "gitleaks" gitleaks
 reportResults

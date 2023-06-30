@@ -12,5 +12,8 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "remoteUser": "node",
-    "postCreateCommand": "npm install -g @devcontainers/cli"
+    "postCreateCommand": "npm install -g @devcontainers/cli",
+	"mounts": [
+		"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+	]
 }

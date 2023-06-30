@@ -8,5 +8,6 @@ check "crane" crane version
 check "skopeo" skopeo --version
 check "kyverno" kyverno version
 check "cyclonedx" cyclonedx --version
+check "gitleaks" gitleaks version
 
 reportResults

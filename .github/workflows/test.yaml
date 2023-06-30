@@ -20,6 +20,7 @@ jobs:
           - kyverno
           - cyclonedx
           - copa
+          - gitleaks
         baseImage:
           - debian:latest
           - ubuntu:latest
