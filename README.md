@@ -15,6 +15,7 @@ This repository contains a _collection_ of Features.
 | kyverno | https://kyverno.io/docs/introduction/ | Kyverno (Greek for “govern”) is a policy engine designed specifically for Kubernetes. |
 | cyclonedx | https://cyclonedx.org/ | cyclonedx is a command-line tool for working with Software Bill of Materials (SBOM). |
 | Copacelic | https://project-copacetic.github.io/copacetic/website/ | Project Copacetic: Directly patch container image vulnerabilities. Copa is a CLI tool written in Go and based on buildkit that can be used to directly patch container images given the vulnerability scanning results from popular tools like Trivy. |
+| Gitleaks | https://gitleaks.io/ | Gitleaks is a SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos. Gitleaks is an easy-to-use, all-in-one solution for detecting secrets, past or present, in your code. |
 
 
 
@@ -135,4 +136,21 @@ Running `copa` inside the built container will print the help menu of copa.
 
 ```bash
 $ copa
+```
+
+### `Gitleaks`
+
+Running `gitleaks` inside the built container will print the help menu of gitleaks.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/gitleaks:1": {}
+    }
+}
+```
+
+```bash
+$ gitleaks
 ```

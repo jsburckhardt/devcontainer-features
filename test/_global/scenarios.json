@@ -8,7 +8,8 @@
             "skopeo": {},
             "kyverno": {},
             "cyclonedx": {},
-            "copa": {}
+            "copa": {},
+            "gitleaks": {}
         }
     },
     "flux-specific-version": {
@@ -48,6 +49,14 @@
         "features": {
             "cyclonedx": {
                 "version": "v0.24.2"
+            }
+        }
+    },
+    "gitleaks-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "gitleaks": {
+                "version": "v8.17.0"
             }
         }
     }
