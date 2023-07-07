@@ -9,5 +9,6 @@ check "skopeo" skopeo --version
 check "kyverno" kyverno version
 check "cyclonedx" cyclonedx --version
 check "gitleaks" gitleaks version
+check "zarf" zarf version
 
 reportResults

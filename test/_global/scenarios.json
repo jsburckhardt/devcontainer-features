@@ -9,7 +9,8 @@
             "kyverno": {},
             "cyclonedx": {},
             "copa": {},
-            "gitleaks": {}
+            "gitleaks": {},
+            "zarf": {}
         }
     },
     "flux-specific-version": {
@@ -64,6 +65,14 @@
         "image": "mcr.microsoft.com/devcontainers/base:debian",
         "features": {
             "skopeo": {}
+        }
+    },
+    "zarf-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "zarf": {
+                "version": "v0.28.1"
+            }
         }
     }
 }

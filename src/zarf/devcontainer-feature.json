@@ -1,0 +1,18 @@
+{
+    "name": "zarf",
+    "id": "zarf",
+    "version": "1.0.0",
+    "description": "Zarf eliminates the complexity of air gap software delivery for Kubernetes clusters and cloud native workloads using a declarative packaging strategy to support DevSecOps in offline and semi-connected environments",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of Zarf to install. Accepts versions with 'v' prefix."
+        },
+        "initfile": {
+            "type": "bool",
+            "default": false,
+            "description": "flag to download the init package into /tmp folder"
+        }
+    }
+}
