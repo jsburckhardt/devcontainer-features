@@ -10,7 +10,7 @@
             "description": "Version of Zarf to install. Accepts versions with 'v' prefix."
         },
         "initfile": {
-            "type": "bool",
+            "type": "boolean",
             "default": false,
             "description": "flag to download the init package into /tmp folder"
         }
