@@ -16,6 +16,7 @@ This repository contains a _collection_ of Features.
 | cyclonedx | https://cyclonedx.org/ | cyclonedx is a command-line tool for working with Software Bill of Materials (SBOM). |
 | Copacelic | https://project-copacetic.github.io/copacetic/website/ | Project Copacetic: Directly patch container image vulnerabilities. Copa is a CLI tool written in Go and based on buildkit that can be used to directly patch container images given the vulnerability scanning results from popular tools like Trivy. |
 | Gitleaks | https://gitleaks.io/ | Gitleaks is a SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos. Gitleaks is an easy-to-use, all-in-one solution for detecting secrets, past or present, in your code. |
+| Zarf | https://zarf.dev/ | Zarf eliminates the complexity of air gap software delivery for Kubernetes clusters and cloud-native workloads using a declarative packaging strategy to support DevSecOps in offline and semi-connected environments. |
 
 
 
@@ -153,4 +154,21 @@ Running `gitleaks` inside the built container will print the help menu of gitlea
 
 ```bash
 $ gitleaks
+```
+
+### `Zarf`
+
+Running `zarf` inside the built container will print the help menu of zarf.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/zarf:1": {}
+    }
+}
+```
+
+```bash
+$ zarf
 ```
