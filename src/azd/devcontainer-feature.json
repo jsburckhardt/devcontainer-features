@@ -2,12 +2,12 @@
     "name": "Azure Development CLI",
     "id": "azd",
     "version": "1.0.0",
-    "description": "Gitleaks is a SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos. Gitleaks is an easy-to-use, all-in-one solution for detecting secrets, past or present, in your code.",
+    "description": "Azure Developer CLI (azd) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure.",
     "options": {
         "version": {
             "type": "string",
             "default": "latest",
-            "description": "Version of gitleaks to install. Accepts versions with 'v' prefix."
+            "description": "Version of azd to install. Accepts versions with 'v' prefix."
         }
     }
 }
