@@ -10,7 +10,8 @@
             "cyclonedx": {},
             "copa": {},
             "gitleaks": {},
-            "zarf": {}
+            "zarf": {},
+            "azd": {}
         }
     },
     "flux-specific-version": {
@@ -72,6 +73,14 @@
         "features": {
             "zarf": {
                 "version": "v0.28.1"
+            }
+        }
+    },
+    "azd-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "azd": {
+                "version": "v1.0.2"
             }
         }
     }
