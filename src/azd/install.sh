@@ -58,17 +58,23 @@ validate_version_exists() {
 		exit 1
 	fi
 	echo $requested_version
-	echo "${variable_name}=${requested_version#azure-dev-cli_}"
+	echo "${variable_name}=${requested_version}"
 }
 
 # make sure we have curl
 check_packages curl tar jq ca-certificates
 
 # make sure version is available
-if [ "${AZURE_DEV_VERSION}" = "latest" ]; then AZURE_DEV_VERSION=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name"); fi
+if [ "${AZURE_DEV_VERSION}" = "latest" ]; then
+	AZURE_DEV_VERSION=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name")
+else
+	AZURE_DEV_VERSION="azure-dev-cli_${AZURE_DEV_VERSION#v}"
+fi
+
 validate_version_exists AZURE_DEV_VERSION "${AZURE_DEV_VERSION}"
 
-$AZURE_DEV_VERSION
+# remove azure-dev-cli_ prefix
+AZURE_DEV_VERSION=${AZURE_DEV_VERSION#azure-dev-cli_}
 
 curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --version $AZURE_DEV_VERSION
 

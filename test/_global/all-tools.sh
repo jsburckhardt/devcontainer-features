@@ -10,5 +10,6 @@ check "kyverno" kyverno version
 check "cyclonedx" cyclonedx --version
 check "gitleaks" gitleaks version
 check "zarf" zarf version
+check "azd" azd version
 
 reportResults
