@@ -17,6 +17,12 @@ Azure Developer CLI (azd) is an open-source tool that accelerates the time it ta
 |-----|-----|-----|-----|
 | version | Version of azd to install. Accepts versions with 'v' prefix. | string | latest |
 
+## Customizations
+
+### VS Code Extensions
+
+- `ms-azuretools.azure-dev`
+
 
 
 ---
