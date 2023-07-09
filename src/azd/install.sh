@@ -62,7 +62,7 @@ validate_version_exists() {
 }
 
 # make sure we have curl
-check_packages curl tar jq ca-certificates
+check_packages curl tar jq ca-certificates xdg-utils
 
 # make sure version is available
 if [ "${AZURE_DEV_VERSION}" = "latest" ]; then
