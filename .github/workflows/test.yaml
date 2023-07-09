@@ -21,6 +21,7 @@ jobs:
           - cyclonedx
           - copa
           - gitleaks
+          - azd
         baseImage:
           - debian:latest
           - ubuntu:latest

@@ -1,7 +1,7 @@
 {
     "name": "Azure Development CLI",
     "id": "azd",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Azure Developer CLI (azd) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure.",
     "options": {
         "version": {
