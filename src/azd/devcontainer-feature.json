@@ -9,5 +9,12 @@
             "default": "latest",
             "description": "Version of azd to install. Accepts versions with 'v' prefix."
         }
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-azuretools.azure-dev"
+        ]
+      }
     }
 }
