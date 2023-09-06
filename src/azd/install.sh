@@ -76,7 +76,7 @@ validate_version_exists AZURE_DEV_VERSION "${AZURE_DEV_VERSION}"
 # remove azure-dev-cli_ prefix
 AZURE_DEV_VERSION=${AZURE_DEV_VERSION#azure-dev-cli_}
 
-curl -fsSL https://aka.ms/install-azd.sh | bash -s -- --version $AZURE_DEV_VERSION
+curl -fsSL https://aka.ms/install-azd.sh | bash -s -- -a $architecture --version $AZURE_DEV_VERSION
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
