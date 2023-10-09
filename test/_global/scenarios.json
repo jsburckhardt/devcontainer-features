@@ -10,7 +10,7 @@
             "cyclonedx": {},
             "copa": {},
             "gitleaks": {},
-            "zarf": {},
+            "zarf": {}
         }
     },
     "flux-specific-version": {
