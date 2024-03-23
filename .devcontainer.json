@@ -1,19 +1,41 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+    "name": "devo",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
     "customizations": {
         "vscode": {
+            "settings": {
+                "files.insertFinalNewline": true,
+                "files.trimTrailingWhitespace": true,
+                "editor.tabSize": 2,
+                "json.schemas": [
+                    {
+                        "fileMatch": [
+                            "*/devcontainer-feature.json"
+                        ],
+                        "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
+                    }
+                ]
+            },
             "extensions": [
-				"mads-hartmann.bash-ide-vscode",
-				"GitHub.copilot-nightly"
-			]
+                "mads-hartmann.bash-ide-vscode",
+                "ms-azuretools.vscode-docker",
+				"yzhang.markdown-all-in-one",
+				"donjayamanne.githistory",
+				"eamodio.gitlens",
+				"GitHub.copilot",
+				"Gruntfuggly.todo-tree",
+				"ionutvmi.path-autocomplete",
+				"ms-vsliveshare.vsliveshare",
+				"timonwong.shellcheck",
+				"GitHub.vscode-pull-request-github"
+            ]
         }
     },
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+
     },
     "remoteUser": "node",
-    "postCreateCommand": "npm install -g @devcontainers/cli",
-	"mounts": [
-		"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
-	]
+    "updateContentCommand": "npm install -g @devcontainers/cli"
 }

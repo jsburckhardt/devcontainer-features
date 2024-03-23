@@ -1,0 +1,13 @@
+{
+    "name": "jnv",
+    "id": "jnv",
+    "version": "1.0.0",
+    "description": "jnv is designed for navigating JSON, offering an interactive JSON viewer and jq filter editor.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of jnv to install. Accepts versions with 'v' prefix."
+        }
+    }
+}
