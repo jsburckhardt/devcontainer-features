@@ -36,6 +36,10 @@
         "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
 
     },
+    "updateContentCommand": "npm install -g @devcontainers/cli",
     "remoteUser": "node",
-    "updateContentCommand": "npm install -g @devcontainers/cli"
+    "mounts": [
+		// map host ssh to container
+		"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+	]
 }
