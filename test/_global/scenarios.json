@@ -10,6 +10,7 @@
             "cyclonedx": {},
             "copa": {},
             "gitleaks": {},
+            "jnv": {},
             "zarf": {}
         }
     },
@@ -41,7 +42,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "kyverno": {
-                "version": "v1.9.1"
+                "version": "v1.11.4"
             }
         }
     },
@@ -58,6 +59,14 @@
         "features": {
             "gitleaks": {
                 "version": "v8.17.0"
+            }
+        }
+    },
+    "jnv-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "jnv": {
+                "version": "v0.1.2"
             }
         }
     },
