@@ -15,6 +15,21 @@ fi
 # Clean up
 rm -rf /var/lib/apt/lists/*
 
+check_packages() {
+	if ! dpkg -s "$@" >/dev/null 2>&1; then
+		if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
+			echo "Running apt-get update..."
+			apt-get update -y
+		fi
+		apt-get -y install --no-install-recommends "$@"
+	fi
+}
+
+
+# make sure we have packages
+check_packages curl tar jq
+
+
 # Function to get the latest version from GitHub API
 get_latest_version() {
     LATEST_URL="https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases/latest"
