@@ -3,5 +3,5 @@
 set -e
 
 source dev-container-features-test-lib
-check "gic" gic
+check "gic" gic -h
 reportResults
