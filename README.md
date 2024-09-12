@@ -15,6 +15,7 @@ This repository contains a _collection_ of Features.
 | kyverno | https://kyverno.io/docs/introduction/ | Kyverno (Greek for “govern”) is a policy engine designed specifically for Kubernetes. |
 | cyclonedx | https://cyclonedx.org/ | cyclonedx is a command-line tool for working with Software Bill of Materials (SBOM). |
 | Copacelic | https://project-copacetic.github.io/copacetic/website/ | Project Copacetic: Directly patch container image vulnerabilities. Copa is a CLI tool written in Go and based on buildkit that can be used to directly patch container images given the vulnerability scanning results from popular tools like Trivy. |
+| Gic | https://github.com/jsburckhardt/gic | Reducing cognitive load by automating commit message generation, allowing developers to focus on coding instead of crafting messages. |
 | Gitleaks | https://gitleaks.io/ | Gitleaks is a SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos. Gitleaks is an easy-to-use, all-in-one solution for detecting secrets, past or present, in your code. |
 | Zarf | https://zarf.dev/ | Zarf eliminates the complexity of air gap software delivery for Kubernetes clusters and cloud-native workloads using a declarative packaging strategy to support DevSecOps in offline and semi-connected environments. |
 | jnv | https://github.com/ynqa/jnv | jnv is designed for navigating JSON, offering an interactive JSON viewer and jq filter editor. |
@@ -138,6 +139,23 @@ Running `copa` inside the built container will print the help menu of copa.
 
 ```bash
 $ copa
+```
+
+### `Gic`
+
+Running `Gic` inside the built container will print the help menu of gic.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/gic:1": {}
+    }
+}
+```
+
+```bash
+$ gic --version
 ```
 
 ### `Gitleaks`

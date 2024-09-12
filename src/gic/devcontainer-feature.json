@@ -1,0 +1,13 @@
+{
+    "name": "gic",
+    "id": "gic",
+    "version": "1.0.0",
+    "description": "Reducing cognitive load by automating commit message generation, allowing developers to focus on coding instead of crafting messages.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of GIC to install. Accepts versions with 'v' prefix."
+        }
+    }
+}
