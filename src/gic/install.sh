@@ -5,6 +5,16 @@ REPO_OWNER="jsburckhardt"
 REPO_NAME="gic"
 BINARY_NAME="gic"
 
+set -e
+
+if [ "$(id -u)" -ne 0 ]; then
+	echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
+	exit 1
+fi
+
+# Clean up
+rm -rf /var/lib/apt/lists/*
+
 # Function to get the latest version from GitHub API
 get_latest_version() {
     LATEST_URL="https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases/latest"
@@ -52,7 +62,7 @@ tar -xzf "${REPO_NAME}_$(echo "$OS" | sed 's/.*/\u&/')_$ARCH.tar.gz"
 
 # Move the binary to /usr/local/bin
 echo "Installing $BINARY_NAME"
-sudo mv $BINARY_NAME /usr/local/bin/
+mv $BINARY_NAME /usr/local/bin/
 
 # Cleanup
 cd - || exit
