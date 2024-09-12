@@ -20,6 +20,7 @@ jobs:
           - kyverno
           - cyclonedx
           - copa
+          - gic
           - gitleaks
           - jnv
         baseImage:

@@ -9,6 +9,7 @@ check "skopeo" skopeo --version
 check "kyverno" kyverno version
 check "cyclonedx" cyclonedx --version
 check "gitleaks" gitleaks version
+check "gic" gic --version
 check "jnv" jnv -V
 check "zarf" zarf version
 
