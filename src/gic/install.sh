@@ -27,7 +27,7 @@ check_packages() {
 
 
 # make sure we have packages
-check_packages curl tar jq
+check_packages curl tar jq ca-certificates
 
 
 # Function to get the latest version from GitHub API
