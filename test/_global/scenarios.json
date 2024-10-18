@@ -10,6 +10,7 @@
             "cyclonedx": {},
             "copa": {},
             "gic": {},
+            "uv": {},
             "gitleaks": {},
             "jnv": {},
             "zarf": {}
@@ -43,7 +44,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "kyverno": {
-                "version": "v1.11.4"
+                "version": "v1.12.6"
             }
         }
     },
@@ -60,6 +61,14 @@
         "features": {
             "gic": {
                 "version": "v2.1.0"
+            }
+        }
+    },
+    "uv-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "uv": {
+                "version": "v0.4.23"
             }
         }
     },
@@ -89,7 +98,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "zarf": {
-                "version": "v0.30.0"
+                "version": "v0.41.0"
             }
         }
     }

@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Variables
-REPO_OWNER="jsburckhardt"
-REPO_NAME="gic"
-BINARY_NAME="gic"
+REPO_OWNER="astral-sh"
+REPO_NAME="uv"
+BINARY_NAME="uv"
 
 set -e
 
@@ -34,12 +34,13 @@ get_latest_version() {
     curl -s "$LATEST_URL" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 }
 
-# Check if a version is provided via environment variable or passed as an argument
+# Check if a version is passed as an argument
 if [ -z "$VERSION" ] || [ "$VERSION" == "latest" ]; then
+    # No version provided, get the latest version
     VERSION=$(get_latest_version)
     echo "No version provided or 'latest' specified, installing the latest version: $VERSION"
 else
-    # trim the v from the version
+    VERSION=${VERSION#"v"}
     echo "Installing version from environment variable: $VERSION"
 fi
 
@@ -47,18 +48,45 @@ fi
 OS=$(uname | tr '[:upper:]' '[:lower:]')
 ARCH=$(uname -m)
 
-if [ "$ARCH" == "x86_64" ]; then
-    ARCH="x86_64"
-elif [ "$ARCH" == "i686" ]; then
-    ARCH="i386"
-elif [ "$ARCH" == "armv7l" ]; then
-    ARCH="armv7"
-elif [ "$ARCH" == "aarch64" ]; then
-    ARCH="arm64"
-fi
+case "$ARCH" in
+    x86_64)
+        ARCH="x86_64"
+        ;;
+    i686)
+        ARCH="i686"
+        ;;
+    armv7l)
+        ARCH="armv7"
+        ;;
+    aarch64)
+        ARCH="aarch64"
+        ;;
+    powerpc64)
+        ARCH="powerpc64"
+        ;;
+    powerpc64le)
+        ARCH="powerpc64le"
+        ;;
+    s390x)
+        ARCH="s390x"
+        ;;
+    *)
+        echo "Unsupported architecture: $ARCH"
+        exit 1
+        ;;
+esac
 
 # Construct the download URL to match the naming template
-DOWNLOAD_URL="https://github.com/$REPO_OWNER/$REPO_NAME/releases/download/$VERSION/${REPO_NAME}_$(echo "$OS" | sed 's/.*/\u&/')_$ARCH.tar.gz"
+if [[ "$OS" == "darwin" ]]; then
+    OS="apple-darwin"
+elif [[ "$OS" == "linux" ]]; then
+    OS="unknown-linux-gnu"
+else
+    echo "Unsupported OS: $OS"
+    exit 1
+fi
+
+DOWNLOAD_URL="https://github.com/$REPO_OWNER/$REPO_NAME/releases/download/$VERSION/${REPO_NAME}-${ARCH}-${OS}.tar.gz"
 
 # Create a temporary directory for the download
 TMP_DIR=$(mktemp -d)
@@ -70,11 +98,12 @@ curl -LO "$DOWNLOAD_URL"
 
 # Extract the tarball
 echo "Extracting the tarball"
-tar -xzf "${REPO_NAME}_$(echo "$OS" | sed 's/.*/\u&/')_$ARCH.tar.gz"
+tar -xzf "${REPO_NAME}-${ARCH}-${OS}.tar.gz"
 
 # Move the binary to /usr/local/bin
 echo "Installing $BINARY_NAME"
-mv $BINARY_NAME /usr/local/bin/
+mv ${REPO_NAME}-${ARCH}-${OS}/* /usr/local/bin/
+
 
 # Cleanup
 cd - || exit
