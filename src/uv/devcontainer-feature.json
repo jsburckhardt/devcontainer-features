@@ -1,0 +1,13 @@
+{
+    "name": "uv/uvx",
+    "id": "uv",
+    "version": "1.0.0",
+    "description": "A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of UV to install. Accepts versions with 'v' prefix."
+        }
+    }
+}

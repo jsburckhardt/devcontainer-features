@@ -10,6 +10,7 @@ check "kyverno" kyverno version
 check "cyclonedx" cyclonedx --version
 check "gitleaks" gitleaks version
 check "gic" gic --version
+check "uv" uv --version
 check "jnv" jnv -V
 check "zarf" zarf version
 
