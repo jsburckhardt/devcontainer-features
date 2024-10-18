@@ -35,18 +35,13 @@ get_latest_version() {
 }
 
 # Check if a version is passed as an argument
-if [ -z "$1" ]; then
+if [ -z "$VERSION" ] || [ "$VERSION" == "latest" ]; then
     # No version provided, get the latest version
     VERSION=$(get_latest_version)
-    echo "No version provided, installing the latest version: $VERSION"
+    echo "No version provided or 'latest' specified, installing the latest version: $VERSION"
 else
-    # if the version provided, starts with v, remove it
-    if [[ $1 == v* ]]; then
-        VERSION=${1:1}
-    else
-        VERSION=$1
-    fi
-    echo "Installing specified version: $VERSION"
+    VERSION=${VERSION#"v"}
+    echo "Installing version from environment variable: $VERSION"
 fi
 
 # Determine the OS and architecture following the naming template
