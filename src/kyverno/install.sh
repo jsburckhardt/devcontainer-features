@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 KYVERNO_VERSION="${VERSION:-"latest"}"
 GITHUB_API_REPO_URL="https://api.github.com/repos/kyverno/kyverno/releases"
 URL_RELEASES="https://github.com/kyverno/kyverno/releases"
@@ -73,7 +72,7 @@ echo "Downloading ${KYVERNO_FILENAME}..."
 
 url="${URL_RELEASES}/download/${KYVERNO_VERSION}/${KYVERNO_FILENAME}"
 echo "Downloading ${url}..."
-curl -sSL $url -o "${KYVERNO_FILENAME}"
+curl -sSL "$url" -o "${KYVERNO_FILENAME}"
 tar -zxvf "${KYVERNO_FILENAME}" -C /usr/local/bin/ kyverno
 rm "${KYVERNO_FILENAME}"
 
