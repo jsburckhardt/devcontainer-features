@@ -14,7 +14,7 @@ llm_instructions: |
   [optional footer(s)]
   ~~~
 
-  return ONLY and ONLY the commit message with no ~~~.
+  return ONLY and ONLY the commit message with no ~~~ and no ```.
 
   If more than one action is performed, use the following order:
   feat, fix, chore, docs, style, refactor, test, build, ci, perf, revert
