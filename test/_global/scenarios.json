@@ -2,17 +2,18 @@
     "all-tools": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "flux": {},
-            "notation": {},
-            "crane": {},
-            "skopeo": {},
-            "kyverno": {},
-            "cyclonedx": {},
             "copa": {},
+            "crane": {},
+            "cyclonedx": {},
+            "flux": {},
             "gic": {},
-            "uv": {},
             "gitleaks": {},
             "jnv": {},
+            "kyverno": {},
+            "notation": {},
+            "ruff": {},
+            "skopeo": {},
+            "uv": {},
             "zarf": {}
         }
     },
@@ -69,6 +70,14 @@
         "features": {
             "uv": {
                 "version": "v0.4.23"
+            }
+        }
+    },
+    "ruff-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ruff": {
+                "version": "v0.7.0"
             }
         }
     },

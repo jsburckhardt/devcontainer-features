@@ -1,0 +1,13 @@
+{
+  "id": "ruff",
+  "version": "1.0.0",
+  "name": "ruff",
+  "description": "Ruff is a fast Python linter, written in Rust.",
+  "options": {
+    "version": {
+      "type": "string",
+      "description": "Version of ruff to install. Accepts versions with 'v' prefix.",
+      "default": "latest"
+    }
+  }
+}
