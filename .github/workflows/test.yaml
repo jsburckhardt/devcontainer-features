@@ -13,17 +13,18 @@ jobs:
     strategy:
       matrix:
         features:
-          - flux
-          - notation
-          - crane
-          - skopeo
-          - kyverno
-          - cyclonedx
           - copa
+          - crane
+          - cyclonedx
+          - flux
           - gic
-          - uv
           - gitleaks
           - jnv
+          - kyverno
+          - notation
+          - ruff
+          - skopeo
+          - uv
         baseImage:
           - debian:latest
           - ubuntu:latest

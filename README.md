@@ -16,10 +16,11 @@ This repository contains a _collection_ of Features.
 | cyclonedx | https://cyclonedx.org/ | cyclonedx is a command-line tool for working with Software Bill of Materials (SBOM). |
 | Copacelic | https://project-copacetic.github.io/copacetic/website/ | Project Copacetic: Directly patch container image vulnerabilities. Copa is a CLI tool written in Go and based on buildkit that can be used to directly patch container images given the vulnerability scanning results from popular tools like Trivy. |
 | Gic | https://github.com/jsburckhardt/gic | Reducing cognitive load by automating commit message generation, allowing developers to focus on coding instead of crafting messages. |
-| UV/UVX | https://docs.astral.sh/uv/ | An extremely fast Python package and project manager, written in Rust. A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more. |
 | Gitleaks | https://gitleaks.io/ | Gitleaks is a SAST tool for detecting and preventing hardcoded secrets like passwords, api keys, and tokens in git repos. Gitleaks is an easy-to-use, all-in-one solution for detecting secrets, past or present, in your code. |
 | Zarf | https://zarf.dev/ | Zarf eliminates the complexity of air gap software delivery for Kubernetes clusters and cloud-native workloads using a declarative packaging strategy to support DevSecOps in offline and semi-connected environments. |
 | jnv | https://github.com/ynqa/jnv | jnv is designed for navigating JSON, offering an interactive JSON viewer and jq filter editor. |
+| UV/UVX | https://docs.astral.sh/uv/ | An extremely fast Python package and project manager, written in Rust. A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more. |
+| Ruff | https://docs.astral.sh/ruff/ | An extremely fast Python linter and code formatter, written in Rust. |
 
 
 
@@ -37,7 +38,7 @@ Running `flux` inside the built container will print the help menu of flux.
 ```
 
 ```bash
-$ flux
+flux
 ```
 
 ### `notation`
@@ -54,7 +55,7 @@ Running `notation` inside the built container will print the help menu of notati
 ```
 
 ```bash
-$ notation
+notation
 ```
 
 ### `crane`
@@ -71,7 +72,7 @@ Running `crane` inside the built container will print the help menu of crane.
 ```
 
 ```bash
-$ crane
+crane
 ```
 
 ### `skopeo`
@@ -88,7 +89,7 @@ Running `skopeo` inside the built container will print the help menu of skopeo.
 ```
 
 ```bash
-$ skopeo
+skopeo
 ```
 
 ### `kyverno`
@@ -105,7 +106,7 @@ Running `kyverno` inside the built container will print the help menu of kyverno
 ```
 
 ```bash
-$ kyverno
+kyverno
 ```
 
 ### `cyclonedx cli`
@@ -122,7 +123,7 @@ Running `cyclonedx` inside the built container will print the help menu of cyclo
 ```
 
 ```bash
-$ cyclonedx --version
+cyclonedx --version
 ```
 
 ### `Copacetic cli`
@@ -139,7 +140,7 @@ Running `copa` inside the built container will print the help menu of copa.
 ```
 
 ```bash
-$ copa
+copa
 ```
 
 ### `Gic`
@@ -156,7 +157,7 @@ Running `Gic` inside the built container will print the help menu of gic.
 ```
 
 ```bash
-$ gic --version
+gic --version
 ```
 
 ### `Gitleaks`
@@ -173,7 +174,7 @@ Running `gitleaks` inside the built container will print the help menu of gitlea
 ```
 
 ```bash
-$ gitleaks
+gitleaks
 ```
 
 ### `Zarf`
@@ -190,7 +191,7 @@ Running `zarf` inside the built container will print the help menu of zarf.
 ```
 
 ```bash
-$ zarf
+zarf
 ```
 
 ### `jnv`
@@ -207,12 +208,12 @@ Running `jnv -h` inside the built container will print the help menu of jnv.
 ```
 
 ```bash
-$ jnv -h
+jnv -h
 ```
 
 ### `UV/UVX`
 
-Running `uv` or `uvx` inside the built container will print the help menu of gic.
+Running `uv` or `uvx` inside the built container will print the help menu of uv/uvx.
 
 ```jsonc
 {
@@ -224,5 +225,22 @@ Running `uv` or `uvx` inside the built container will print the help menu of gic
 ```
 
 ```bash
-$ uv --version
+uv --version
+```
+
+### `Ruff`
+
+Running `ruff` inside the built container will print the help menu of ruff.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/ruff:1": {}
+    }
+}
+```
+
+```bash
+ruff --version
 ```
