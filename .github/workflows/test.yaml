@@ -25,6 +25,7 @@ jobs:
           - ruff
           - skopeo
           - uv
+          - k3s
         baseImage:
           - debian:latest
           - ubuntu:latest
