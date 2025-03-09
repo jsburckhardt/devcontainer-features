@@ -1,0 +1,13 @@
+{
+    "name": "k3s",
+    "id": "k3s",
+    "version": "1.0.0",
+    "description": "Lightweight Kubernetes",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of k3s to install. Accepts versions with 'v' prefix."
+        }
+    }
+}
