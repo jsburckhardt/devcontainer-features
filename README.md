@@ -21,6 +21,7 @@ This repository contains a _collection_ of Features.
 | jnv | https://github.com/ynqa/jnv | jnv is designed for navigating JSON, offering an interactive JSON viewer and jq filter editor. |
 | UV/UVX | https://docs.astral.sh/uv/ | An extremely fast Python package and project manager, written in Rust. A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more. |
 | Ruff | https://docs.astral.sh/ruff/ | An extremely fast Python linter and code formatter, written in Rust. |
+| Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
 
 
 
@@ -243,4 +244,21 @@ Running `ruff` inside the built container will print the help menu of ruff.
 
 ```bash
 ruff --version
+```
+
+### `Codex-CLI`
+
+Running `codex` inside the built container will print the help menu of codex.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/codex:1": {}
+    }
+}
+```
+
+```bash
+codex --version
 ```

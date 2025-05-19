@@ -14,5 +14,6 @@ check "uv" uv --version
 check "ruff" ruff --version
 check "jnv" jnv -V
 check "zarf" zarf version
+check "codex" codex --version
 
 reportResults
