@@ -14,7 +14,8 @@
             "ruff": {},
             "skopeo": {},
             "uv": {},
-            "zarf": {}
+            "zarf": {},
+            "codex": {}
         }
     },
     "flux-specific-version": {

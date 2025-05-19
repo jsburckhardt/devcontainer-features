@@ -25,6 +25,7 @@ jobs:
           - ruff
           - skopeo
           - uv
+          - codex
         baseImage:
           - debian:latest
           - ubuntu:latest
