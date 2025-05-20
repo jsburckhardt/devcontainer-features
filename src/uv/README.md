@@ -1,9 +1,15 @@
 
 # uv/uvx (uv)
 
-A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more.
 
-## Example Usage
+
+## Description
+
+
+
+## Installation
+
+This feature can be added to your devcontainer by adding it to your `devcontainer.json` file.
 
 ```json
 "features": {
@@ -11,6 +17,23 @@ A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and mo
 }
 ```
 
+## Example Usage
+
+```jsonc
+{
+    "name": "My Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {}
+    }
+}
+```
+
+Basic usage:
+
+```bash
+uv
+```
 ## Options
 
 | Options Id | Description | Type | Default Value |

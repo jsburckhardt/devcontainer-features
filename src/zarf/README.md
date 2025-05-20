@@ -1,9 +1,15 @@
 
 # zarf (zarf)
 
-Zarf eliminates the complexity of air gap software delivery for Kubernetes clusters and cloud native workloads using a declarative packaging strategy to support DevSecOps in offline and semi-connected environments
 
-## Example Usage
+
+## Description
+
+
+
+## Installation
+
+This feature can be added to your devcontainer by adding it to your `devcontainer.json` file.
 
 ```json
 "features": {
@@ -11,6 +17,23 @@ Zarf eliminates the complexity of air gap software delivery for Kubernetes clust
 }
 ```
 
+## Example Usage
+
+```jsonc
+{
+    "name": "My Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/zarf:1": {}
+    }
+}
+```
+
+Basic usage:
+
+```bash
+zarf
+```
 ## Options
 
 | Options Id | Description | Type | Default Value |

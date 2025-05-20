@@ -1,9 +1,15 @@
 
 # ruff (ruff)
 
-Ruff is a fast Python linter, written in Rust.
 
-## Example Usage
+
+## Description
+
+
+
+## Installation
+
+This feature can be added to your devcontainer by adding it to your `devcontainer.json` file.
 
 ```json
 "features": {
@@ -11,6 +17,23 @@ Ruff is a fast Python linter, written in Rust.
 }
 ```
 
+## Example Usage
+
+```jsonc
+{
+    "name": "My Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/ruff:1": {}
+    }
+}
+```
+
+Basic usage:
+
+```bash
+ruff
+```
 ## Options
 
 | Options Id | Description | Type | Default Value |

@@ -3,7 +3,13 @@
 
 skopeo is a command line utility that performs various operations on container images and image repositories.
 
-## Example Usage
+## Description
+
+skopeo is a command line utility that performs various operations on container images and image repositories. It allows you to inspect, copy, delete, and sign container images across different registries without having to pull the entire image locally.
+
+## Installation
+
+This feature can be added to your devcontainer by adding it to your `devcontainer.json` file.
 
 ```json
 "features": {
@@ -11,6 +17,23 @@ skopeo is a command line utility that performs various operations on container i
 }
 ```
 
+## Example Usage
+
+```jsonc
+{
+    "name": "My Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/skopeo:1": {}
+    }
+}
+```
+
+Basic usage:
+
+```bash
+skopeo
+```
 ## Options
 
 | Options Id | Description | Type | Default Value |

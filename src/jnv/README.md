@@ -1,9 +1,15 @@
 
 # jnv (jnv)
 
-jnv is designed for navigating JSON, offering an interactive JSON viewer and jq filter editor.
 
-## Example Usage
+
+## Description
+
+
+
+## Installation
+
+This feature can be added to your devcontainer by adding it to your `devcontainer.json` file.
 
 ```json
 "features": {
@@ -11,6 +17,23 @@ jnv is designed for navigating JSON, offering an interactive JSON viewer and jq 
 }
 ```
 
+## Example Usage
+
+```jsonc
+{
+    "name": "My Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/jnv:1": {}
+    }
+}
+```
+
+Basic usage:
+
+```bash
+jnv
+```
 ## Options
 
 | Options Id | Description | Type | Default Value |
