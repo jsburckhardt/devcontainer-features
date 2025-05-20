@@ -3,12 +3,36 @@
 
 Reducing cognitive load by automating commit message generation, allowing developers to focus on coding instead of crafting messages.
 
-## Example Usage
+## Description
+
+GIC is a tool that helps developers automating commit message generation, allowing them to focus on coding instead of crafting messages.
+
+## Installation
+
+This feature can be added to your devcontainer by adding it to your `devcontainer.json` file.
 
 ```json
 "features": {
     "ghcr.io/jsburckhardt/devcontainer-features/gic:1": {}
 }
+```
+
+## Example Usage
+
+```jsonc
+{
+    "name": "My Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/gic:1": {}
+    }
+}
+```
+
+Basic usage:
+
+```bash
+gic --version
 ```
 
 ## Options

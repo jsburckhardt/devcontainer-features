@@ -3,12 +3,36 @@
 
 crane is a tool for interacting with remote images and registries.
 
-## Example Usage
+## Description
+
+crane is a tool for interacting with remote container images and registries. It provides simple and powerful commands for working with container images, including pushing, pulling, copying, and inspecting container images.
+
+## Installation
+
+This feature can be added to your devcontainer by adding it to your `devcontainer.json` file.
 
 ```json
 "features": {
     "ghcr.io/jsburckhardt/devcontainer-features/crane:1": {}
 }
+```
+
+## Example Usage
+
+```jsonc
+{
+    "name": "My Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/crane:1": {}
+    }
+}
+```
+
+Basic usage:
+
+```bash
+crane
 ```
 
 ## Options
