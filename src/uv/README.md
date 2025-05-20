@@ -1,11 +1,11 @@
 
 # uv/uvx (uv)
 
-
+An extremely fast Python package and project manager, written in Rust. A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more.
 
 ## Description
 
-
+UV is an extremely fast Python package and project manager, written in Rust. It's designed to be a single tool that can replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more. UV offers significant performance improvements over traditional Python package managers and provides a more streamlined workflow for Python development.
 
 ## Installation
 
@@ -32,7 +32,7 @@ This feature can be added to your devcontainer by adding it to your `devcontaine
 Basic usage:
 
 ```bash
-uv
+uv --version
 ```
 ## Options
 

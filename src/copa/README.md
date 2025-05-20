@@ -1,11 +1,11 @@
 
 # Copacetic CLI (copa)
 
-
+Project Copacetic: Directly patch container image vulnerabilities. Copa is a CLI tool written in Go and based on buildkit that can be used to directly patch container images given the vulnerability scanning results from popular tools like Trivy.
 
 ## Description
 
-
+Project Copacetic is a tool for directly patching container image vulnerabilities. Copa is a CLI tool written in Go and based on buildkit that can be used to directly patch container images given the vulnerability scanning results from popular tools like Trivy. It helps you address security vulnerabilities in container images without needing to rebuild them from scratch.
 
 ## Installation
 

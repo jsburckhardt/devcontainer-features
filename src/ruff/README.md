@@ -1,11 +1,11 @@
 
 # ruff (ruff)
 
-
+An extremely fast Python linter and code formatter, written in Rust.
 
 ## Description
 
-
+Ruff is an extremely fast Python linter and code formatter, written in Rust. It can replace several Python tools like flake8, black, isort, pydocstyle, pyupgrade, and more. Ruff provides significant performance improvements over traditional Python linting and formatting tools, often running 10-100x faster.
 
 ## Installation
 
@@ -32,7 +32,7 @@ This feature can be added to your devcontainer by adding it to your `devcontaine
 Basic usage:
 
 ```bash
-ruff
+ruff --version
 ```
 ## Options
 

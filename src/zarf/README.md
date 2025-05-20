@@ -1,11 +1,11 @@
 
 # zarf (zarf)
 
-
+Zarf eliminates the complexity of air gap software delivery for Kubernetes clusters and cloud-native workloads using a declarative packaging strategy to support DevSecOps in offline and semi-connected environments.
 
 ## Description
 
-
+Zarf is a tool designed to eliminate the complexity of air gap software delivery for Kubernetes clusters and cloud-native workloads. It uses a declarative packaging strategy to support DevSecOps in offline and semi-connected environments. Zarf makes it possible to package, distribute, and deploy complex applications in environments with limited or no internet connectivity.
 
 ## Installation
 

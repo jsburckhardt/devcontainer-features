@@ -1,11 +1,11 @@
 
 # jnv (jnv)
 
-
+jnv is designed for navigating JSON, offering an interactive JSON viewer and jq filter editor.
 
 ## Description
 
-
+jnv (JSON Navigator) is a tool designed for navigating and exploring JSON data. It offers an interactive JSON viewer and jq filter editor that makes it easy to browse through complex JSON structures and apply filters to extract specific information. It's particularly useful for working with large JSON files or API responses.
 
 ## Installation
 
@@ -32,7 +32,7 @@ This feature can be added to your devcontainer by adding it to your `devcontaine
 Basic usage:
 
 ```bash
-jnv
+jnv -h
 ```
 ## Options
 
