@@ -52,11 +52,14 @@ check_packages() {
 # Figure out correct version of a three part version number is not passed
 validate_version_exists() {
     local variable_name=$1
-    local requested_version=$2
-    if [ "${requested_version}" = "latest" ]; then requested_version=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name"); fi
+    local requested_version=${2}
+    if [ "${requested_version}" = "latest" ]; then 
+        requested_version=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name")
+        echo "Latest version is ${requested_version}"
+    fi
     local version_list
     version_list=$(curl -sL ${GITHUB_API_REPO_URL} | jq -r ".[].tag_name")
-    if [ -z "${variable_name}" ] || ! echo "${version_list}" | grep "${requested_version}" >/dev/null 2>&1; then
+    if ! echo "${version_list}" | grep "${requested_version}" >/dev/null 2>&1; then
         echo -e "Invalid ${variable_name} value: ${requested_version}\nValid values:\n${version_list}" >&2
         exit 1
     fi
@@ -67,7 +70,10 @@ validate_version_exists() {
 check_packages curl jq ca-certificates
 
 # Make sure version is available
-if [ "${K3D_VERSION}" = "latest" ]; then K3D_VERSION=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name"); fi
+if [ "${K3D_VERSION}" = "latest" ]; then 
+    K3D_VERSION=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name")
+    echo "Latest version is ${K3D_VERSION}"
+fi
 validate_version_exists K3D_VERSION "${K3D_VERSION}"
 
 # Download and install binary
@@ -76,7 +82,7 @@ echo "Downloading ${K3D_DIST} version ${K3D_VERSION}..."
 
 url="${URL_RELEASES}/download/${K3D_VERSION}/${K3D_DIST}"
 echo "Downloading ${url}..."
-curl -sSL "$url" -o /usr/local/bin/k3d
+curl -sSL --insecure "$url" -o /usr/local/bin/k3d
 chmod +x /usr/local/bin/k3d
 
 # Clean up
