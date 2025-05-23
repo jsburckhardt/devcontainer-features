@@ -13,6 +13,7 @@ This repository contains a _collection_ of Features.
 | crane | https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md | crane is a tool for interacting with remote images and registries.|
 | skopeo | https://github.com/containers/skopeo | skopeo is a command line utility that performs various operations on container images and image repositories. It is install through package managers |
 | kyverno | https://kyverno.io/docs/introduction/ | Kyverno (Greek for “govern”) is a policy engine designed specifically for Kubernetes. |
+| k3d | https://k3d.io/ | K3d is a lightweight wrapper to run k3s (Rancher Lab's minimal Kubernetes distribution) in docker. |
 | cyclonedx | https://cyclonedx.org/ | cyclonedx is a command-line tool for working with Software Bill of Materials (SBOM). |
 | Copacelic | https://project-copacetic.github.io/copacetic/website/ | Project Copacetic: Directly patch container image vulnerabilities. Copa is a CLI tool written in Go and based on buildkit that can be used to directly patch container images given the vulnerability scanning results from popular tools like Trivy. |
 | Gic | https://github.com/jsburckhardt/gic | Reducing cognitive load by automating commit message generation, allowing developers to focus on coding instead of crafting messages. |
@@ -246,6 +247,23 @@ Running `ruff` inside the built container will print the help menu of ruff.
 ruff --version
 ```
 
+
+### `k3d`
+
+Running `k3d` inside the built container will print the help menu of k3d.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/k3d:1": {}
+    }
+}
+```
+
+```bash
+k3d --version
+```
 ### `Codex-CLI`
 
 Running `codex` inside the built container will print the help menu of codex.

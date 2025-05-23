@@ -1,0 +1,13 @@
+{
+    "name": "K3D",
+    "id": "k3d",
+    "version": "1.0.0",
+    "description": "K3d is a lightweight wrapper to run k3s (Rancher Lab's minimal Kubernetes distribution) in docker.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of k3d to install."
+        }
+    }
+}
