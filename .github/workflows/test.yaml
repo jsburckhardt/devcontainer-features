@@ -20,6 +20,7 @@ jobs:
           - gic
           - gitleaks
           - jnv
+          - k3d
           - kyverno
           - notation
           - ruff

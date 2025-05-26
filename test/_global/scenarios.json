@@ -9,6 +9,7 @@
             "gic": {},
             "gitleaks": {},
             "jnv": {},
+            "k3d": {},
             "kyverno": {},
             "notation": {},
             "ruff": {},
@@ -109,6 +110,14 @@
         "features": {
             "zarf": {
                 "version": "v0.41.0"
+            }
+        }
+    },
+    "k3d-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "k3d": {
+                "version": "v5.6.0"
             }
         }
     }
