@@ -3,5 +3,5 @@
 set -e
 
 source dev-container-features-test-lib
-check "bat" bat --version
+check "bat" bat -h
 reportResults
