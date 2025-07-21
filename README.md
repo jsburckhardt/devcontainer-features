@@ -8,6 +8,7 @@ This repository contains a _collection_ of Features.
 
 | Name | URL | Description |
 | ---  | --- | ---         |
+| bat | https://github.com/sharkdp/bat | A cat(1) clone with syntax highlighting and Git integration. |
 | flux   | https://fluxcd.io/flux/installation/ | Flux is a tool for keeping Kubernetes clusters in sync with sources of configuration |
 | notation | https://notaryproject.dev/ | Notation is a CLI project to add signatures as standard items in the registry ecosystem, and to build a set of simple tooling for signing and verifying these signatures. This should be viewed as similar security to checking git commit signatures, although the signatures are generic and can be used for additional purposes. Notation is an implementation of the Notary v2 specifications.|
 | crane | https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md | crane is a tool for interacting with remote images and registries.|
@@ -25,6 +26,23 @@ This repository contains a _collection_ of Features.
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
 
 
+
+### `bat`
+
+Running `bat` inside the built container will print the help menu of bat.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/bat:1": {}
+    }
+}
+```
+
+```bash
+bat --version
+```
 
 ### `flux`
 
