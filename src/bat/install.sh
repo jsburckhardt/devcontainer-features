@@ -27,9 +27,6 @@ echo "Installing bat..."
 check_packages bat
 
 # Verify installation
-echo "Verifying bat installation..."
-
-# In Ubuntu, bat is installed as 'batcat' to avoid conflicts
 if command -v batcat >/dev/null 2>&1; then
 	echo "batcat installed successfully!"
 	batcat --version
