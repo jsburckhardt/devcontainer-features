@@ -7,7 +7,7 @@
         "version": {
             "type": "string",
             "default": "latest",
-            "description": "Version of bat to install from GitHub releases."
+            "description": "Version of bat to install from GitHub releases e.g. v0.22.0"
         }
     }
 }

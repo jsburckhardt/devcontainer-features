@@ -27,6 +27,7 @@ jobs:
           - skopeo
           - uv
           - codex
+          - bat
         baseImage:
           - debian:latest
           - ubuntu:latest
