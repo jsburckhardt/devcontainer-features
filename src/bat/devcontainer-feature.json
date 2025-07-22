@@ -1,0 +1,13 @@
+{
+    "name": "bat",
+    "id": "bat",
+    "version": "1.0.0",
+    "description": "A cat(1) clone with syntax highlighting and Git integration.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of bat to install from GitHub releases e.g. v0.22.0"
+        }
+    }
+}

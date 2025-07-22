@@ -2,6 +2,7 @@
     "all-tools": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
+            "bat": {},
             "copa": {},
             "crane": {},
             "cyclonedx": {},
@@ -23,7 +24,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "flux": {
-                "version": "v0.37.0"
+                "version": "v2.6.4"
             }
         }
     },
@@ -87,7 +88,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "gitleaks": {
-                "version": "v8.17.0"
+                "version": "v8.28.0"
             }
         }
     },
@@ -118,6 +119,14 @@
         "features": {
             "k3d": {
                 "version": "v5.6.0"
+            }
+        }
+    },
+    "bat-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "bat": {
+                "version": "v0.25.0"
             }
         }
     }
