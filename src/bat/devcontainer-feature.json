@@ -7,7 +7,7 @@
         "version": {
             "type": "string",
             "default": "latest",
-            "description": "Version of bat to install (currently installs from Ubuntu package repository)."
+            "description": "Version of bat to install from GitHub releases."
         }
     }
 }
