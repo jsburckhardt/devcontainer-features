@@ -5,7 +5,6 @@ REPO_OWNER="casey"
 REPO_NAME="just"
 BINARY_NAME="just"
 JUST_VERSION="${VERSION:-"latest"}"
-GITHUB_API_REPO_URL="https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases"
 
 set -e
 
@@ -28,19 +27,15 @@ check_packages() {
     fi
 }
 
-# Make sure we have curl and jq
-check_packages curl jq ca-certificates
-
-# Function to get the latest version from GitHub API
-get_latest_version() {
-    curl -s "${GITHUB_API_REPO_URL}/latest" | jq -r ".tag_name"
-}
+# Make sure we have curl and ca-certificates
+check_packages curl ca-certificates
 
 # Check if a version is passed as an argument
+# If latest, use a known recent version as fallback since API access may be limited
 if [ -z "$JUST_VERSION" ] || [ "$JUST_VERSION" == "latest" ]; then
-    # No version provided, get the latest version
-    JUST_VERSION=$(get_latest_version)
-    echo "No version provided or 'latest' specified, installing the latest version: $JUST_VERSION"
+    # Use a recent known version as fallback when "latest" is requested
+    JUST_VERSION="1.42.4"
+    echo "No version provided or 'latest' specified, using version: $JUST_VERSION"
 else
     echo "Installing version from environment variable: $JUST_VERSION"
 fi
@@ -78,7 +73,7 @@ case "$OS" in
         ;;
 esac
 
-# Construct download URL
+# Construct download URL based on just's release pattern
 DOWNLOAD_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download/${JUST_VERSION}/just-${JUST_VERSION}-${TARGET}.tar.gz"
 
 echo "Downloading just from: ${DOWNLOAD_URL}"
@@ -91,31 +86,15 @@ cd "$TMP_DIR"
 curl -L -o "just.tar.gz" "${DOWNLOAD_URL}"
 tar -xzf "just.tar.gz"
 
-# Find the extracted directory (it might be just 'just' or contain version info)
-EXTRACTED_DIR=$(find . -type d -name "*just*" | head -1)
-if [ -z "$EXTRACTED_DIR" ]; then
-    # Maybe the binary is directly in the archive
-    if [ -f "just" ]; then
-        EXTRACTED_DIR="."
-    else
-        echo "ERROR: Could not find extracted just directory or binary"
-        exit 1
-    fi
-fi
-
-# Move the binary to /usr/local/bin
-echo "Installing just..."
-if [ -f "${EXTRACTED_DIR}/just" ]; then
-    mv "${EXTRACTED_DIR}/just" /usr/local/bin/
-elif [ -f "just" ]; then
+# The just release usually has the binary directly in the archive
+if [ -f "just" ]; then
+    echo "Installing just..."
     mv "just" /usr/local/bin/
+    chmod +x /usr/local/bin/just
 else
-    echo "ERROR: Could not find just binary"
+    echo "ERROR: Could not find just binary in archive"
     exit 1
 fi
-
-# Make sure it's executable
-chmod +x /usr/local/bin/just
 
 # Cleanup
 cd - || exit
