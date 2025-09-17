@@ -299,3 +299,20 @@ Running `codex` inside the built container will print the help menu of codex.
 ```bash
 codex --version
 ```
+
+### `just`
+
+Running `just` inside the built container will print the help menu of just.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/just:1": {}
+    }
+}
+```
+
+```bash
+just --version
+```
