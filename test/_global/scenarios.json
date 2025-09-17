@@ -17,7 +17,8 @@
             "skopeo": {},
             "uv": {},
             "zarf": {},
-            "codex": {}
+            "codex": {},
+            "just": {}
         }
     },
     "flux-specific-version": {
@@ -127,6 +128,14 @@
         "features": {
             "bat": {
                 "version": "v0.25.0"
+            }
+        }
+    },
+    "just-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "just": {
+                "version": "1.42.0"
             }
         }
     }

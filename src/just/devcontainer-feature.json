@@ -1,0 +1,13 @@
+{
+    "name": "just",
+    "id": "just",
+    "version": "1.0.0",
+    "description": "A command runner. Just is a handy way to save and run project-specific commands.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of just to install from GitHub releases e.g. 1.22.0"
+        }
+    }
+}
