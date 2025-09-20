@@ -49,7 +49,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "kyverno": {
-                "version": "v1.12.6"
+                "version": "v1.15.2"
             }
         }
     },
