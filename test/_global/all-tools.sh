@@ -17,5 +17,6 @@ check "jnv" jnv -V
 check "zarf" zarf version
 check "codex" codex --version
 check "just" just --version
+check "opencode" opencode --version
 
 reportResults
