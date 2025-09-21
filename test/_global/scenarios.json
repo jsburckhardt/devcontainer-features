@@ -17,7 +17,8 @@
             "skopeo": {},
             "uv": {},
             "zarf": {},
-            "codex": {}
+            "codex": {},
+            "just": {}
         }
     },
     "flux-specific-version": {
@@ -48,7 +49,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "kyverno": {
-                "version": "v1.12.6"
+                "version": "v1.15.2"
             }
         }
     },
@@ -110,7 +111,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "zarf": {
-                "version": "v0.41.0"
+                "version": "v0.61.2"
             }
         }
     },
@@ -127,6 +128,14 @@
         "features": {
             "bat": {
                 "version": "v0.25.0"
+            }
+        }
+    },
+    "just-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "just": {
+                "version": "1.42.0"
             }
         }
     }

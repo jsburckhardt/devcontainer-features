@@ -28,6 +28,7 @@ jobs:
           - uv
           - codex
           - bat
+          - just
         baseImage:
           - debian:latest
           - ubuntu:latest
