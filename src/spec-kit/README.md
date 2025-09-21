@@ -1,6 +1,6 @@
 # spec-kit (spec-kit)
 
-Spec-kit provides tools for working with API specifications and schemas.
+Spec-kit provides tools for working with API specifications and schemas. This implementation includes a stub version that can be replaced with the actual spec-kit binary when it becomes available.
 
 ## Example Usage
 
