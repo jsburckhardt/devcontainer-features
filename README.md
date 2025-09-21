@@ -24,6 +24,7 @@ This repository contains a _collection_ of Features.
 | just | https://github.com/casey/just | A command runner. Just is a handy way to save and run project-specific commands. |
 | UV/UVX | https://docs.astral.sh/uv/ | An extremely fast Python package and project manager, written in Rust. A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more. |
 | Ruff | https://docs.astral.sh/ruff/ | An extremely fast Python linter and code formatter, written in Rust. |
+| OpenCode | https://opencode.ai/ | AI coding agent, built for the terminal. An open-source alternative to Claude Code with support for multiple LLM providers. |
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
 
 
@@ -283,6 +284,24 @@ Running `k3d` inside the built container will print the help menu of k3d.
 ```bash
 k3d --version
 ```
+
+### `opencode`
+
+Running `opencode` inside the built container will allow you to use the AI coding agent.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/opencode:1": {}
+    }
+}
+```
+
+```bash
+opencode --version
+```
+
 ### `Codex-CLI`
 
 Running `codex` inside the built container will print the help menu of codex.

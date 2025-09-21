@@ -14,3 +14,4 @@ When creating a new feature, follow these steps:
 - Update the ../../test/_global/all-tools.sh to validate the new feature is installed.
 - Update the ../../test/_global/scenarios.json to include the new feature.
 - include the feature in the workflows
+- run `devcontainer features test -f $(feature) -i ubuntu:latest`

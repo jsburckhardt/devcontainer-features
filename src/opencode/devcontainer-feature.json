@@ -1,0 +1,21 @@
+{
+    "name": "OpenCode",
+    "id": "opencode",
+    "version": "1.0.0",
+    "description": "AI coding agent, built for the terminal. An open-source alternative to Claude Code with support for multiple LLM providers.",
+    "documentationURL": "https://opencode.ai/docs",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of opencode to install from GitHub releases e.g. 0.10.4"
+        }
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "sst-dev.opencode"
+        ]
+      }
+    }
+}

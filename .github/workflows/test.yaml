@@ -29,6 +29,7 @@ jobs:
           - codex
           - bat
           - just
+          - opencode
         baseImage:
           - debian:latest
           - ubuntu:latest

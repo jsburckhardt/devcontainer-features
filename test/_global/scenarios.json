@@ -18,7 +18,8 @@
             "uv": {},
             "zarf": {},
             "codex": {},
-            "just": {}
+            "just": {},
+            "opencode": {}
         }
     },
     "flux-specific-version": {
@@ -136,6 +137,14 @@
         "features": {
             "just": {
                 "version": "1.42.0"
+            }
+        }
+    },
+    "opencode-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "opencode": {
+                "version": "0.10.0"
             }
         }
     }
