@@ -34,9 +34,7 @@
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/gic:1": {}
-
-
+        "ghcr.io/devcontainers/features/github-cli:latest": {}
     },
     "updateContentCommand": "npm install -g @devcontainers/cli",
     "remoteUser": "node",
