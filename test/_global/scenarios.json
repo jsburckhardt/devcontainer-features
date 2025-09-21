@@ -19,7 +19,8 @@
             "zarf": {},
             "codex": {},
             "just": {},
-            "opencode": {}
+            "opencode": {},
+            "spec-kit": {}
         }
     },
     "flux-specific-version": {
@@ -145,6 +146,14 @@
         "features": {
             "opencode": {
                 "version": "0.10.0"
+            }
+        }
+    },
+    "spec-kit-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "spec-kit": {
+                "version": "0.1.0"
             }
         }
     }

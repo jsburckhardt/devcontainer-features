@@ -335,3 +335,20 @@ Running `just` inside the built container will print the help menu of just.
 ```bash
 just --version
 ```
+
+### `spec-kit`
+
+Running `spec-kit` inside the built container provides tools for working with API specifications and schemas.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/spec-kit:1": {}
+    }
+}
+```
+
+```bash
+spec-kit version
+```

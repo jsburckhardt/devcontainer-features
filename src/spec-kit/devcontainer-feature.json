@@ -1,0 +1,13 @@
+{
+    "name": "spec-kit",
+    "id": "spec-kit",
+    "version": "1.0.0",
+    "description": "Spec-kit provides tools for working with API specifications and schemas.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of spec-kit to install. Accepts versions with 'v' prefix or 'latest'."
+        }
+    }
+}

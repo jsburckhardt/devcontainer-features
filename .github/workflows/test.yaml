@@ -30,6 +30,7 @@ jobs:
           - bat
           - just
           - opencode
+          - spec-kit
         baseImage:
           - debian:latest
           - ubuntu:latest
