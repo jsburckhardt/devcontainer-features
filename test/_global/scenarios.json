@@ -98,7 +98,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "jnv": {
-                "version": "v0.1.2"
+                "version": "v0.6.1"
             }
         }
     },
