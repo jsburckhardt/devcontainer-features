@@ -26,6 +26,7 @@ This repository contains a _collection_ of Features.
 | Ruff | https://docs.astral.sh/ruff/ | An extremely fast Python linter and code formatter, written in Rust. |
 | OpenCode | https://opencode.ai/ | AI coding agent, built for the terminal. An open-source alternative to Claude Code with support for multiple LLM providers. |
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
+| inspector | https://github.com/modelcontextprotocol/inspector | The MCP inspector is a developer tool for testing and debugging MCP servers. Includes both CLI and UI modes for interactive debugging. |
 
 
 
@@ -334,4 +335,21 @@ Running `just` inside the built container will print the help menu of just.
 
 ```bash
 just --version
+```
+
+### `inspector`
+
+Running `inspector` inside the built container will allow you to use the MCP Inspector for debugging MCP servers.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/inspector:1": {}
+    }
+}
+```
+
+```bash
+inspector --help
 ```

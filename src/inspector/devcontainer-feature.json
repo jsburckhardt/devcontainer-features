@@ -1,0 +1,13 @@
+{
+    "name": "inspector",
+    "id": "inspector",
+    "version": "1.0.0",
+    "description": "The MCP inspector is a developer tool for testing and debugging MCP servers. Includes both CLI and UI modes for interactive debugging.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of inspector to install. Accepts versions with 'v' prefix."
+        }
+    }
+}
