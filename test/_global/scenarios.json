@@ -19,7 +19,8 @@
             "zarf": {},
             "codex": {},
             "just": {},
-            "opencode": {}
+            "opencode": {},
+            "flutter": {}
         }
     },
     "flux-specific-version": {
@@ -145,6 +146,14 @@
         "features": {
             "opencode": {
                 "version": "0.10.0"
+            }
+        }
+    },
+    "flutter-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "flutter": {
+                "version": "3.24.5"
             }
         }
     }

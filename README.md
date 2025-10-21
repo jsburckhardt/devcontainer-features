@@ -26,6 +26,7 @@ This repository contains a _collection_ of Features.
 | Ruff | https://docs.astral.sh/ruff/ | An extremely fast Python linter and code formatter, written in Rust. |
 | OpenCode | https://opencode.ai/ | AI coding agent, built for the terminal. An open-source alternative to Claude Code with support for multiple LLM providers. |
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
+| Flutter | https://flutter.dev/ | Flutter SDK - Build apps for any screen. Google's UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase. |
 
 
 
@@ -335,3 +336,21 @@ Running `just` inside the built container will print the help menu of just.
 ```bash
 just --version
 ```
+
+### `flutter`
+
+Running `flutter` inside the built container will print the help menu of flutter.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/flutter:1": {}
+    }
+}
+```
+
+```bash
+flutter --version
+```
+
