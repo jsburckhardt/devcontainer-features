@@ -26,69 +26,20 @@ check_packages() {
 }
 
 # Make sure we have required packages
-check_packages curl git ca-certificates xz-utils libglu1-mesa file unzip jq
+# git, unzip, xz-utils, curl, libglu1-mesa are required for Flutter
+check_packages curl git ca-certificates unzip xz-utils libglu1-mesa file
 
 echo "Installing Flutter version: $FLUTTER_VERSION"
 
-# Determine the OS and architecture
-OS=$(uname -s | tr '[:upper:]' '[:lower:]')
-ARCH=$(uname -m)
-
-case "$ARCH" in
-    x86_64)
-        ARCH_SUFFIX="x64"
-        ;;
-    aarch64 | arm64)
-        ARCH_SUFFIX="arm64"
-        ;;
-    *)
-        echo "ERROR: Unsupported architecture: $ARCH"
-        echo "Supported architectures: x86_64, aarch64/arm64"
-        exit 1
-        ;;
-esac
-
-case "$OS" in
-    linux)
-        PLATFORM="linux"
-        ;;
-    *)
-        echo "ERROR: Unsupported OS: $OS"
-        echo "Supported OS: Linux"
-        exit 1
-        ;;
-esac
-
-# Download Flutter SDK archive
-# Flutter releases: https://docs.flutter.dev/release/archive
-FLUTTER_BASE_URL="https://storage.googleapis.com/flutter_infra_release/releases"
-
-# For version support
+# Clone Flutter repository using git (most reliable method)
+echo "Cloning Flutter repository..."
+# Use shallow clone for faster download, disable SSL verification for build environment
 if [ "$FLUTTER_VERSION" = "latest" ]; then
-    # Use the stable channel zip URL directly
-    echo "Downloading latest stable Flutter version..."
-    DOWNLOAD_URL="${FLUTTER_BASE_URL}/stable/${PLATFORM}/flutter_${PLATFORM}_stable.zip"
+    GIT_SSL_NO_VERIFY=true git clone --depth 1 --branch stable https://github.com/flutter/flutter.git "$FLUTTER_INSTALL_DIR"
 else
-    # Use specified version
-    FLUTTER_VERSION_TAG="$FLUTTER_VERSION"
-    DOWNLOAD_URL="${FLUTTER_BASE_URL}/stable/${PLATFORM}/flutter_${PLATFORM}_${FLUTTER_VERSION}-stable.zip"
+    # Clone with specific version tag
+    GIT_SSL_NO_VERIFY=true git clone --depth 1 --branch "$FLUTTER_VERSION" https://github.com/flutter/flutter.git "$FLUTTER_INSTALL_DIR"
 fi
-
-echo "Downloading Flutter from: ${DOWNLOAD_URL}"
-
-# Create temporary directory
-TMP_DIR=$(mktemp -d)
-trap 'rm -rf "$TMP_DIR"' EXIT
-
-cd "$TMP_DIR"
-
-# Download Flutter SDK (using -k to skip SSL verification during build)
-curl -k -fL --retry 3 --retry-delay 2 -o "flutter.zip" "${DOWNLOAD_URL}"
-
-# Extract to install directory
-echo "Extracting Flutter SDK..."
-mkdir -p "$(dirname "$FLUTTER_INSTALL_DIR")"
-unzip -q "flutter.zip" -d "$(dirname "$FLUTTER_INSTALL_DIR")"
 
 # Add Flutter to PATH for all users
 echo "Adding Flutter to PATH..."
@@ -106,13 +57,10 @@ ln -sf "$FLUTTER_INSTALL_DIR/bin/dart" /usr/local/bin/dart
 chmod -R a+rw "$FLUTTER_INSTALL_DIR"
 
 # Clean up
-cd - >/dev/null
 rm -rf /var/lib/apt/lists/*
 
-# Verify installation
-echo "Verifying installation..."
-flutter --version
-
 echo "Flutter SDK installation completed!"
+echo "Note: Dart SDK and other components will be downloaded automatically on first use."
+echo "Run 'flutter doctor' to complete the setup and download necessary components."
 echo "Done!"
 
