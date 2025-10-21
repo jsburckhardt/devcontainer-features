@@ -3,7 +3,6 @@
 # Variables
 FLUTTER_VERSION="${VERSION:-"latest"}"
 FLUTTER_INSTALL_DIR="/opt/flutter"
-FLUTTER_CHANNEL="${CHANNEL:-"stable"}"
 
 set -euo pipefail
 
@@ -27,7 +26,7 @@ check_packages() {
 }
 
 # Make sure we have required packages
-check_packages curl git ca-certificates xz-utils libglu1-mesa file
+check_packages curl git ca-certificates xz-utils libglu1-mesa file unzip jq
 
 echo "Installing Flutter version: $FLUTTER_VERSION"
 
@@ -60,23 +59,36 @@ case "$OS" in
         ;;
 esac
 
-# Clone the Flutter repository
-echo "Cloning Flutter repository..."
-git clone https://github.com/flutter/flutter.git -b stable "$FLUTTER_INSTALL_DIR"
+# Download Flutter SDK archive
+# Flutter releases: https://docs.flutter.dev/release/archive
+FLUTTER_BASE_URL="https://storage.googleapis.com/flutter_infra_release/releases"
 
-cd "$FLUTTER_INSTALL_DIR"
-
-# If a specific version is requested, checkout that version
-if [ "$FLUTTER_VERSION" != "latest" ]; then
-    echo "Checking out Flutter version: $FLUTTER_VERSION"
-    git checkout "$FLUTTER_VERSION"
+# For version support
+if [ "$FLUTTER_VERSION" = "latest" ]; then
+    # Use the stable channel zip URL directly
+    echo "Downloading latest stable Flutter version..."
+    DOWNLOAD_URL="${FLUTTER_BASE_URL}/stable/${PLATFORM}/flutter_${PLATFORM}_stable.zip"
 else
-    echo "Using latest stable version"
+    # Use specified version
+    FLUTTER_VERSION_TAG="$FLUTTER_VERSION"
+    DOWNLOAD_URL="${FLUTTER_BASE_URL}/stable/${PLATFORM}/flutter_${PLATFORM}_${FLUTTER_VERSION}-stable.zip"
 fi
 
-# Run Flutter precache to download necessary artifacts
-echo "Running flutter precache..."
-"$FLUTTER_INSTALL_DIR/bin/flutter" precache
+echo "Downloading Flutter from: ${DOWNLOAD_URL}"
+
+# Create temporary directory
+TMP_DIR=$(mktemp -d)
+trap 'rm -rf "$TMP_DIR"' EXIT
+
+cd "$TMP_DIR"
+
+# Download Flutter SDK (using -k to skip SSL verification during build)
+curl -k -fL --retry 3 --retry-delay 2 -o "flutter.zip" "${DOWNLOAD_URL}"
+
+# Extract to install directory
+echo "Extracting Flutter SDK..."
+mkdir -p "$(dirname "$FLUTTER_INSTALL_DIR")"
+unzip -q "flutter.zip" -d "$(dirname "$FLUTTER_INSTALL_DIR")"
 
 # Add Flutter to PATH for all users
 echo "Adding Flutter to PATH..."
@@ -94,10 +106,13 @@ ln -sf "$FLUTTER_INSTALL_DIR/bin/dart" /usr/local/bin/dart
 chmod -R a+rw "$FLUTTER_INSTALL_DIR"
 
 # Clean up
+cd - >/dev/null
 rm -rf /var/lib/apt/lists/*
 
 # Verify installation
 echo "Verifying installation..."
 flutter --version
 
+echo "Flutter SDK installation completed!"
 echo "Done!"
+
