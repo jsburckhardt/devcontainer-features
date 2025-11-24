@@ -18,5 +18,6 @@ check "zarf" zarf version
 check "codex" codex --version
 check "just" just --version
 check "opencode" opencode --version
+check "flutter" test -f /opt/flutter/bin/flutter
 
 reportResults

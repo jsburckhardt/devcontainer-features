@@ -30,6 +30,7 @@ jobs:
           - bat
           - just
           - opencode
+          - flutter
         baseImage:
           - debian:latest
           - ubuntu:latest

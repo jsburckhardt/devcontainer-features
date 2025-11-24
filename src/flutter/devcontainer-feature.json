@@ -1,0 +1,21 @@
+{
+    "name": "Flutter",
+    "id": "flutter",
+    "version": "1.0.0",
+    "description": "Flutter SDK - Build apps for any screen",
+    "documentationURL": "https://docs.flutter.dev/",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of Flutter to install from GitHub releases e.g. 3.24.5"
+        }
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "Dart-Code.flutter"
+        ]
+      }
+    }
+}
