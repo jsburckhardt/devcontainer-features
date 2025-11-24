@@ -26,8 +26,8 @@ check_packages() {
     fi
 }
 
-# Make sure we have curl, ca-certificates, and unzip
-check_packages curl ca-certificates unzip jq
+# Make sure we have curl, ca-certificates, and tar
+check_packages curl ca-certificates tar jq
 
 echo "Installing OpenCode version: $OPENCODE_VERSION"
 
@@ -96,7 +96,7 @@ resolve_latest_version_fallback() {
     fi
 
     echo "Failed to resolve version from HTML, using known fallback version..." >&2
-    echo "0.10.4"  # Known recent version as last resort
+    echo "1.0.107"  # Known recent version as last resort
     return 1
 }
 
@@ -114,8 +114,8 @@ else
 fi
 
 # Construct download URL based on opencode's release pattern
-# Asset name format: opencode-{platform}-{arch}.zip
-ASSET_NAME="opencode-${PLATFORM}-${ARCH_SUFFIX}.zip"
+# Asset name format: opencode-{platform}-{arch}.tar.gz
+ASSET_NAME="opencode-${PLATFORM}-${ARCH_SUFFIX}.tar.gz"
 DOWNLOAD_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download/v${OPENCODE_VERSION}/${ASSET_NAME}"
 
 echo "Downloading OpenCode from: ${DOWNLOAD_URL}"
@@ -148,7 +148,7 @@ if [ ! -f "${ASSET_NAME}" ] || [ ! -s "${ASSET_NAME}" ]; then
 fi
 
 echo "Extracting OpenCode..."
-unzip -q "${ASSET_NAME}"
+tar -xzf "${ASSET_NAME}"
 
 # Find the binary in the extracted contents
 # The archive should contain the opencode binary
