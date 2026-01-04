@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Variables
-REPO_OWNER="sst"
+REPO_OWNER="anomalyco"
 REPO_NAME="opencode"
 OPENCODE_VERSION="${VERSION:-"latest"}"
 
@@ -26,7 +26,7 @@ check_packages() {
     fi
 }
 
-# Make sure we have curl, ca-certificates, and tar
+# Make sure we have curl, ca-certificates, tar, and jq
 check_packages curl ca-certificates tar jq
 
 echo "Installing OpenCode version: $OPENCODE_VERSION"
@@ -96,14 +96,14 @@ resolve_latest_version_fallback() {
     fi
 
     echo "Failed to resolve version from HTML, using known fallback version..." >&2
-    echo "1.0.107"  # Known recent version as last resort
+    echo "1.0.223"  # Known recent version as last resort
     return 1
 }
 
 # Resolve version
 if [ "$OPENCODE_VERSION" = "latest" ]; then
     if ! RESOLVED_VERSION=$(resolve_latest_version); then
-        RESOLVED_VERSION=$(resolve_latest_version_fallback)
+        RESOLVED_VERSION=$(resolve_latest_version_fallback) || true
     fi
     echo "Resolved latest version to: $RESOLVED_VERSION"
     OPENCODE_VERSION="$RESOLVED_VERSION"
