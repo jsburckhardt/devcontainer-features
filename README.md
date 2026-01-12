@@ -25,6 +25,7 @@ This repository contains a _collection_ of Features.
 | UV/UVX | https://docs.astral.sh/uv/ | An extremely fast Python package and project manager, written in Rust. A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more. |
 | Ruff | https://docs.astral.sh/ruff/ | An extremely fast Python linter and code formatter, written in Rust. |
 | OpenCode | https://opencode.ai/ | AI coding agent, built for the terminal. An open-source alternative to Claude Code with support for multiple LLM providers. |
+| Claude Code | https://code.claude.com/docs/en/overview | Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows -- all through natural language commands. |
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
 
 
@@ -300,6 +301,23 @@ Running `opencode` inside the built container will allow you to use the AI codin
 
 ```bash
 opencode --version
+```
+
+### `claude-code`
+
+Running `claude` inside the built container will allow you to use the Claude Code agentic coding tool.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/claude-code:1": {}
+    }
+}
+```
+
+```bash
+claude --version
 ```
 
 ### `Codex-CLI`
