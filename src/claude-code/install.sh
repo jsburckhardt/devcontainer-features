@@ -37,25 +37,33 @@ trap 'rm -rf "$TMP_DIR"' EXIT
 cd "$TMP_DIR"
 
 # Download the official install script from claude.ai
+# The script is the same regardless of version; version is passed as an argument
 echo "Downloading Claude Code installer..."
-if [ "$CLAUDE_VERSION" = "latest" ]; then
-    curl -fsSL https://claude.ai/install.sh -o install.sh
-else
-    # The official script accepts version as an argument
-    curl -fsSL https://claude.ai/install.sh -o install.sh
-fi
+curl -fsSL https://claude.ai/install.sh -o install.sh
 
 # Make the script executable
 chmod +x install.sh
 
 # Run the installation script
-# Pass version as argument if not latest
+# The official installer accepts version as an argument according to documentation:
+# curl -fsSL https://claude.ai/install.sh | bash -s latest
+# curl -fsSL https://claude.ai/install.sh | bash -s 1.0.58
 if [ "$CLAUDE_VERSION" = "latest" ]; then
     echo "Installing latest version of Claude Code..."
-    bash install.sh
+    bash install.sh || {
+        echo "Warning: Installation script failed. This may be expected if the official installer doesn't support unattended installation."
+        exit 1
+    }
 else
     echo "Installing Claude Code version $CLAUDE_VERSION..."
-    bash install.sh "$CLAUDE_VERSION"
+    bash install.sh "$CLAUDE_VERSION" || {
+        echo "Warning: Installation script with version argument failed."
+        echo "Retrying without version argument..."
+        bash install.sh || {
+            echo "Warning: Installation script failed. This may be expected if the official installer doesn't support unattended installation."
+            exit 1
+        }
+    }
 fi
 
 # Clean up
