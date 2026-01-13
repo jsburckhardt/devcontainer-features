@@ -68,13 +68,34 @@ fi
 
 # Clean up
 cd - >/dev/null
+
+# Move claude binary to /usr/local/bin if it's in a different location
+# The official installer may place it in /root/.local/bin or other root-specific paths
+echo "Ensuring claude is in /usr/local/bin..."
+if [ -f "/root/.local/bin/claude" ]; then
+    echo "Moving claude from /root/.local/bin to /usr/local/bin..."
+    mv /root/.local/bin/claude /usr/local/bin/claude
+    chmod +x /usr/local/bin/claude
+elif [ -f "/usr/local/bin/claude" ]; then
+    echo "Claude is already in /usr/local/bin"
+    chmod +x /usr/local/bin/claude
+else
+    # Try to find claude in common installation paths
+    CLAUDE_PATH=$(find /root -name claude -type f 2>/dev/null | head -1)
+    if [ -n "$CLAUDE_PATH" ]; then
+        echo "Found claude at $CLAUDE_PATH, moving to /usr/local/bin..."
+        mv "$CLAUDE_PATH" /usr/local/bin/claude
+        chmod +x /usr/local/bin/claude
+    fi
+fi
+
 rm -rf /var/lib/apt/lists/*
 
 # Verify installation
 echo "Verifying installation..."
 if command -v claude >/dev/null 2>&1; then
     echo "Claude Code installation completed successfully!"
-    echo "The 'claude' command is now available."
+    echo "The 'claude' command is now available at: $(which claude)"
 else
     echo "Warning: Claude Code installed but 'claude' command not found in PATH."
     echo "You may need to restart your shell or check your PATH configuration."
