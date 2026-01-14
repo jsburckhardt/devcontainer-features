@@ -18,5 +18,6 @@ check "zarf" zarf version
 check "codex" codex --version
 check "just" just --version
 check "opencode" opencode --version
+check "vibe-kanban" vibe-kanban --version
 
 reportResults

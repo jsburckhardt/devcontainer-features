@@ -1,0 +1,21 @@
+{
+    "name": "Vibe Kanban",
+    "id": "vibe-kanban",
+    "version": "1.0.0",
+    "description": "Get 10X more out of Claude Code, Gemini CLI, Codex, Amp and other coding agents. Orchestrate AI coding agents with a visual kanban board.",
+    "documentationURL": "https://vibekanban.com/docs",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of vibe-kanban to install from npm e.g. 0.1.0"
+        }
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "bloop.vibe-kanban"
+        ]
+      }
+    }
+}

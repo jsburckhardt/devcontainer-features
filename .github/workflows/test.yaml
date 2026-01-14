@@ -30,6 +30,7 @@ jobs:
           - bat
           - just
           - opencode
+          - vibe-kanban
         baseImage:
           - debian:latest
           - ubuntu:latest

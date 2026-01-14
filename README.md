@@ -25,6 +25,7 @@ This repository contains a _collection_ of Features.
 | UV/UVX | https://docs.astral.sh/uv/ | An extremely fast Python package and project manager, written in Rust. A single tool to replace pip, pip-tools, pipx, poetry, pyenv, virtualenv, and more. |
 | Ruff | https://docs.astral.sh/ruff/ | An extremely fast Python linter and code formatter, written in Rust. |
 | OpenCode | https://opencode.ai/ | AI coding agent, built for the terminal. An open-source alternative to Claude Code with support for multiple LLM providers. |
+| Vibe Kanban | https://vibekanban.com/ | Get 10X more out of Claude Code, Gemini CLI, Codex, Amp and other coding agents. Orchestrate AI coding agents with a visual kanban board. |
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
 
 
@@ -300,6 +301,23 @@ Running `opencode` inside the built container will allow you to use the AI codin
 
 ```bash
 opencode --version
+```
+
+### `vibe-kanban`
+
+Running `vibe-kanban` inside the built container will launch the kanban board for orchestrating AI coding agents.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/vibe-kanban:1": {}
+    }
+}
+```
+
+```bash
+vibe-kanban --version
 ```
 
 ### `Codex-CLI`
