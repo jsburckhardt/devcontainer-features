@@ -27,6 +27,9 @@ check_packages() {
 # Make sure we have curl and ca-certificates
 check_packages curl ca-certificates
 
+# Update CA certificates to ensure SSL works properly
+update-ca-certificates
+
 echo "Installing Vibe Kanban version: $VIBE_KANBAN_VERSION"
 
 # Check if node and npm are available
@@ -47,12 +50,14 @@ echo "Node.js version: $(node --version)"
 echo "npm version: $(npm --version)"
 
 # Install vibe-kanban globally
+# Note: In some Docker environments, npm may encounter SSL certificate issues.
+# If installation fails, users should ensure ca-certificates package is up to date.
 if [ "$VIBE_KANBAN_VERSION" = "latest" ]; then
     echo "Installing latest version of vibe-kanban..."
-    npm install -g vibe-kanban --strict-ssl=false
+    npm install -g vibe-kanban || npm install -g vibe-kanban --strict-ssl=false
 else
     echo "Installing vibe-kanban version $VIBE_KANBAN_VERSION..."
-    npm install -g vibe-kanban@"$VIBE_KANBAN_VERSION" --strict-ssl=false
+    npm install -g vibe-kanban@"$VIBE_KANBAN_VERSION" || npm install -g vibe-kanban@"$VIBE_KANBAN_VERSION" --strict-ssl=false
 fi
 
 # Clean up
