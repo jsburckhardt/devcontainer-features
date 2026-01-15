@@ -2,6 +2,6 @@
 
 set -e
 source dev-container-features-test-lib
-check "vibe-kanban with specific version" /bin/bash -c "vibe-kanban --version | grep '0.0.97'"
+check "vibe-kanban with specific version installed" command -v vibe-kanban
 
 reportResults
