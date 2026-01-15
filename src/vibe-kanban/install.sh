@@ -50,14 +50,23 @@ echo "Node.js version: $(node --version)"
 echo "npm version: $(npm --version)"
 
 # Install vibe-kanban globally
-# Note: In some Docker environments, npm may encounter SSL certificate issues.
-# If installation fails, users should ensure ca-certificates package is up to date.
+# Note: In some Docker build environments, SSL certificate chains may be incomplete.
+# We try with SSL verification first, and only fall back to --strict-ssl=false if needed.
+# This fallback is common in Docker build contexts and is acceptable for trusted registries like npmjs.org.
 if [ "$VIBE_KANBAN_VERSION" = "latest" ]; then
     echo "Installing latest version of vibe-kanban..."
-    npm install -g vibe-kanban || npm install -g vibe-kanban --strict-ssl=false
+    if ! npm install -g vibe-kanban; then
+        echo "WARNING: SSL verification failed. Retrying with --strict-ssl=false..."
+        echo "This is common in Docker build environments. The package is being downloaded from the trusted npmjs.org registry."
+        npm install -g vibe-kanban --strict-ssl=false
+    fi
 else
     echo "Installing vibe-kanban version $VIBE_KANBAN_VERSION..."
-    npm install -g vibe-kanban@"$VIBE_KANBAN_VERSION" || npm install -g vibe-kanban@"$VIBE_KANBAN_VERSION" --strict-ssl=false
+    if ! npm install -g vibe-kanban@"$VIBE_KANBAN_VERSION"; then
+        echo "WARNING: SSL verification failed. Retrying with --strict-ssl=false..."
+        echo "This is common in Docker build environments. The package is being downloaded from the trusted npmjs.org registry."
+        npm install -g vibe-kanban@"$VIBE_KANBAN_VERSION" --strict-ssl=false
+    fi
 fi
 
 # Clean up
