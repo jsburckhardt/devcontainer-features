@@ -34,7 +34,10 @@
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
-        "ghcr.io/devcontainers/features/github-cli:latest": {}
+        "ghcr.io/devcontainers/features/github-cli:latest": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/opencode:latest": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/just": {},
+        "ghcr.io/devcontainers/features/copilot-cli": {}
     },
     "updateContentCommand": "npm install -g @devcontainers/cli",
     "remoteUser": "node",
