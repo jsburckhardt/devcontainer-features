@@ -1,5 +1,7 @@
 # Juan's Devcontainer Features:
 
+[![APS version](https://img.shields.io/github/v/release/chris-buckley/agnostic-prompt-standard?label=APS&logo=github)](https://github.com/chris-buckley/agnostic-prompt-standard/releases/tag/v1.1.16)
+
 set of features I use and I think should be included in the registry.
 
 ## Features
