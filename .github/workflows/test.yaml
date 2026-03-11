@@ -30,6 +30,7 @@ jobs:
           - bat
           - just
           - opencode
+          - ccc
         baseImage:
           - debian:latest
           - ubuntu:latest

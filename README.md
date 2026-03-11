@@ -28,6 +28,7 @@ This repository contains a _collection_ of Features.
 | Ruff | https://docs.astral.sh/ruff/ | An extremely fast Python linter and code formatter, written in Rust. |
 | OpenCode | https://opencode.ai/ | AI coding agent, built for the terminal. An open-source alternative to Claude Code with support for multiple LLM providers. |
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
+| ccc | https://github.com/jsburckhardt/co-config | A TUI tool to interactively configure and view GitHub Copilot CLI settings. |
 
 
 
@@ -336,4 +337,21 @@ Running `just` inside the built container will print the help menu of just.
 
 ```bash
 just --version
+```
+
+### `ccc`
+
+Running `ccc` inside the built container will print the version of ccc (Copilot Config CLI).
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/ccc:1": {}
+    }
+}
+```
+
+```bash
+ccc --version
 ```
