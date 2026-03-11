@@ -19,7 +19,8 @@
             "zarf": {},
             "codex": {},
             "just": {},
-            "opencode": {}
+            "opencode": {},
+            "vibe-kanban": {}
         }
     },
     "flux-specific-version": {
@@ -145,6 +146,14 @@
         "features": {
             "opencode": {
                 "version": "1.0.107"
+            }
+        }
+    },
+    "vibe-kanban-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "vibe-kanban": {
+                "version": "0.0.97"
             }
         }
     }
