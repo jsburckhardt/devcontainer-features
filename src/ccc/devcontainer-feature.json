@@ -1,0 +1,13 @@
+{
+    "name": "ccc",
+    "id": "ccc",
+    "version": "1.0.0",
+    "description": "A TUI tool to interactively configure and view GitHub Copilot CLI settings.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of ccc to install from GitHub releases e.g. v0.1.5"
+        }
+    }
+}

@@ -19,7 +19,8 @@
             "zarf": {},
             "codex": {},
             "just": {},
-            "opencode": {}
+            "opencode": {},
+            "ccc": {}
         }
     },
     "flux-specific-version": {
@@ -145,6 +146,14 @@
         "features": {
             "opencode": {
                 "version": "1.0.107"
+            }
+        }
+    },
+    "ccc-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ccc": {
+                "version": "v0.1.5"
             }
         }
     }
