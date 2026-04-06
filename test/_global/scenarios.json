@@ -20,7 +20,8 @@
             "codex": {},
             "just": {},
             "opencode": {},
-            "ccc": {}
+            "ccc": {},
+            "yazi": {}
         }
     },
     "flux-specific-version": {
@@ -154,6 +155,14 @@
         "features": {
             "ccc": {
                 "version": "v0.1.5"
+            }
+        }
+    },
+    "yazi-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "yazi": {
+                "version": "v26.1.22"
             }
         }
     }

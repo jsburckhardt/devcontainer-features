@@ -180,6 +180,35 @@ MILESTONE "title"
 SNAP [SYM1, SYM2 ...] [delta=true|false] [redact=[SYM_A, SYM_B ...]]
 ```
 
+## External tools and MCP
+
+APS treats MCP tools and other external tools as normal tool names after the host engine registers
+or aliases them.
+
+Rules:
+
+- A `USE` statement MUST reference the tool name that the engine exposes at runtime.
+- The prompt MUST NOT declare transport, server URLs, headers, or MCP config inside `USE`.
+  Put those settings in external host files.
+- Hosts MAY expose the raw MCP `Tool.name`, a host-decorated name, or a canonical APS alias.
+- If a host uses decorated names (for example `mcp__docs__search_docs`), the engine SHOULD map
+  that runtime name to one stable APS tool id through external ALIAS config.
+- A platform adapter MAY require a host-specific runtime name. In that case, the adapter decides the
+  final `tool_name` form.
+
+Examples:
+
+```text
+USE `search_docs` where: query="adapter constants"
+USE `mcp__docs__search_docs` where: query="adapter constants"
+```
+
+The two examples show different runtime naming styles. A host should expose one stable name to the
+prompt at run time.
+
+For how to declare imported MCP signatures in `predefinedTools.json`, see **04 Schemas and
+types**.
+
 ## Arguments and values
 
 ```yaml

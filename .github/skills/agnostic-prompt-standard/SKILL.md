@@ -7,8 +7,8 @@ metadata:
   author: "Christopher Buckley"
   co_authors: "Juan Burckhardt; Anastasiya Smirnova"
   spec_version: "1.0"
-  framework_revision: "1.1.16"
-  last_updated: "2026-02-18"
+  framework_revision: "1.2.1"
+  last_updated: "2026-03-12"
 ---
 
 # Agnostic Prompt Standard (APS) v1.0 — Skill Entry
@@ -38,6 +38,9 @@ This `SKILL.md` is the **entrypoint** for the Agnostic Prompt Standard (APS) v1.
     - `constants-json-block-v1.0.0.example.md`
     - `constants-text-block-v1.0.0.example.md`
     - `constants-csv-block-v1.0.0.example.md`
+  - `composites/` — combined reference examples.
+    - `gui-component-spec-v1.0.0.example.md`
+    - `mcp-tool-bridge-v1.0.0.example.md`
   - `formats/` — example format blocks.
     - `format-code-changes-full-v1.0.0.example.md`
     - `format-code-map-v1.0.0.example.md`
@@ -56,12 +59,16 @@ This `SKILL.md` is the **entrypoint** for the Agnostic Prompt Standard (APS) v1.
   - `build-skill.md` — process for building new APS-compliant skills.
 - `guides/` — reference documents for humans and agents.
   - `skill-authoring-v1.0.0.guide.md` — skill authoring reference.
+  - `mcp-tool-bridge-v1.0.0.guide.md` — MCP tool bridge integration guide.
+  - `subagent-architecture-v1.0.0.guide.md` — cross-platform subagent architecture and interface mapping guide.
 - `platforms/` — **non-normative** platform adapters. Each platform has a single `adaptor.md` file.
   - `README.md` — platforms overview and contract.
   - `_template/` — skeleton for new platform adapters.
     - `adaptor.md`
   - `claude-code/` — Claude Code CLI adapter.
     - `adaptor.md` — platform constants, tool registry, and format contracts.
+  - `generic/` — generic / external tools adapter.
+    - `adaptor.md` — neutral tool mapping guidance for MCP or other external tool layers.
   - `opencode/` — OpenCode adapter.
     - `adaptor.md` — platform constants.
   - `vscode-copilot/` — VS Code + GitHub Copilot adapter.
@@ -72,9 +79,11 @@ This `SKILL.md` is the **entrypoint** for the Agnostic Prompt Standard (APS) v1.
 
 ## Platform adapters
 
-Platform-specific details (file discovery, frontmatter dialects, tool naming) are documented in `platforms/`.
+Platform-specific details (file discovery, frontmatter dialects, tool naming, and coordinator/worker orchestration) are documented in `platforms/`.
 
 → See [platforms/README.md](platforms/README.md) for overview and how to add new adapters.
+
+→ See [guides/subagent-architecture-v1.0.0.guide.md](guides/subagent-architecture-v1.0.0.guide.md) for portable coordinator/worker authoring guidance.
 
 ### VS Code + GitHub Copilot
 
