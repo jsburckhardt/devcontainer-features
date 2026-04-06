@@ -117,6 +117,64 @@ Style guidelines:
 - Engines that emit `predefinedTools.json` SHOULD preserve or adopt the one-line-per-tool layout;
   engines MUST accept any valid JSON layout.
 
+## MCP tool declaration pattern (external)
+
+Intent: let an engine import MCP tool signatures into `predefinedTools.json` without putting host
+config inside the prompt.
+
+When an engine imports an MCP `Tool` from `tools/list`, it SHOULD:
+
+1. Create one canonical tool entry per MCP tool.
+2. Use `Tool.name` as the canonical APS tool id unless a platform adapter requires a different
+   stable id.
+3. Preserve `inputSchema` as the primary parameter contract.
+4. Preserve `outputSchema` when it is present.
+5. Derive the display label in this order: `title`, `annotations.title`, `name`.
+6. Treat `readOnlyHint`, `destructiveHint`, `idempotentHint`, and `openWorldHint` as advisory
+   metadata only.
+7. Record MCP origin metadata such as the server id and original tool name.
+
+If a host exposes decorated runtime names (for example `mcp__server__tool`), the engine SHOULD:
+
+- keep one canonical tool object in `predefinedTools.json`
+- map the decorated runtime name to the canonical APS tool id with `config.json` ALIAS entries
+- avoid duplicate tool objects that differ only by host wrapper syntax.
+
+A collision between a host tool name, an MCP-imported tool name, or an ALIAS target/source MUST
+raise `AG-034`.
+
+### Recommended object shape for `predefinedTools.json`
+
+This shape is RECOMMENDED for imported MCP tools. Engines MAY add extra fields.
+
+```json
+{
+  "name": "search_docs",
+  "displayName": "Search Docs",
+  "description": "Search the documentation site.",
+  "inputSchema": { "type": "object", "properties": { "query": { "type": "string" } }, "required": ["query"] },
+  "outputSchema": { "type": "object", "properties": { "matches": { "type": "array" } } },
+  "hints": {
+    "readOnly": true,
+    "destructive": false,
+    "idempotent": true,
+    "openWorld": true
+  },
+  "source": {
+    "kind": "mcp",
+    "server": "docs",
+    "toolName": "search_docs"
+  }
+}
+```
+
+Notes:
+
+- `name` is the canonical APS tool id.
+- `displayName` is for humans and UI only.
+- `hints` do not change the true behavior of a tool. They are advisory.
+- `source` gives provenance for lint, IDE help, and debug output.
+
 ## Example format contracts
 
 - Minimal error contract: [../assets/formats/format-error-v1.0.0.example.md](../assets/formats/format-error-v1.0.0.example.md)
@@ -127,6 +185,8 @@ Style guidelines:
 - Markdown table: [../assets/formats/format-markdown-table-v1.0.0.example.md](../assets/formats/format-markdown-table-v1.0.0.example.md)
 - Code changes full: [../assets/formats/format-code-changes-full-v1.0.0.example.md](../assets/formats/format-code-changes-full-v1.0.0.example.md)
 - SMEAC plan: [../assets/formats/format-smeac-plan-v1.0.0.example.md](../assets/formats/format-smeac-plan-v1.0.0.example.md)
+
+- MCP tool bridge example: [../assets/composites/mcp-tool-bridge-v1.0.0.example.md](../assets/composites/mcp-tool-bridge-v1.0.0.example.md)
 
 ## Example constants
 

@@ -1,6 +1,6 @@
 ---
-name: APS v1.1.16 Agent
-description: "Generate APS v1.1.16 .agent.md or .prompt.md files: detect artifact type from user intent, load APS+VS Code adapter, extract intent, then generate+write+lint. Author: Christopher Buckley. Co-authors: Juan Burckhardt, Anastasiya Smirnova. URL: https://github.com/chris-buckley/agnostic-prompt-standard"
+name: APS v1.2.1 Agent
+description: "Generate APS v1.2.1 .agent.md or .prompt.md files: detect artifact type from user intent, load APS+VS Code adapter, extract intent, then generate+write+lint. Author: Christopher Buckley. Co-authors: Juan Burckhardt, Anastasiya Smirnova. URL: https://github.com/chris-buckley/agnostic-prompt-standard"
 tools:
   - execute/runInTerminal
   - read/readFile
