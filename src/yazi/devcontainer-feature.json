@@ -1,0 +1,13 @@
+{
+    "name": "Yazi",
+    "id": "yazi",
+    "version": "1.0.0",
+    "description": "Blazing fast terminal file manager written in Rust, based on async I/O.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of yazi to install from GitHub releases e.g. v26.1.22"
+        }
+    }
+}

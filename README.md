@@ -29,6 +29,7 @@ This repository contains a _collection_ of Features.
 | OpenCode | https://opencode.ai/ | AI coding agent, built for the terminal. An open-source alternative to Claude Code with support for multiple LLM providers. |
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
 | ccc | https://github.com/jsburckhardt/co-config | A TUI tool to interactively configure and view GitHub Copilot CLI settings. |
+| Yazi | https://github.com/sxyazi/yazi | Blazing fast terminal file manager written in Rust, based on async I/O. |
 
 
 
@@ -354,4 +355,21 @@ Running `ccc` inside the built container will print the version of ccc (Copilot 
 
 ```bash
 ccc --version
+```
+
+### `yazi`
+
+Running `yazi --version` inside the built container will print the version of yazi.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/yazi:1": {}
+    }
+}
+```
+
+```bash
+yazi --version
 ```
