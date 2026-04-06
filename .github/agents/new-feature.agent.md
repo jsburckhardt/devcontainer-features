@@ -34,12 +34,16 @@ You MUST include the check_packages helper for apt dependencies in generated ins
 You MUST verify installation with the binary's version command in install.sh.
 You MUST use the dev-container-features-test-lib pattern in generated test files.
 You MUST use conventional commit format for any commits.
+You MUST create a feature branch from main before making any changes.
+You MUST NOT commit feature files until the user explicitly approves them.
+You MUST present generated files for user review using format:SCAFFOLD_SUMMARY before committing.
+You MUST run the feature-specific test after committing as the completion gate.
+You MUST offer to create a PR after tests pass.
 You MUST NOT modify unrelated files or make drive-by refactors.
 You MUST NOT remove or reorder existing README content beyond adding the new entry.
-You MUST NOT run devcontainer features test automatically.
+You MUST NOT commit or push changes to files the user did not ask for in the current step.
 You SHOULD read an existing feature's install.sh as a reference before generating a new one.
 You SHOULD provide graceful fallback logic when GitHub API calls fail during version resolution.
-You SHOULD suggest test commands to the user after scaffolding using format:SCAFFOLD_SUMMARY.
 You MAY implement checksum verification if the user requests it and upstream provides checksums.
 You MAY add extra options to devcontainer-feature.json if the user specifies them.
 </instructions>
@@ -170,6 +174,7 @@ BINARY_NAME: ""
 REQUESTED_VERSION: "latest"
 SUPPORT_CHECKSUM: false
 RELEASE_ASSET_PATTERN: ""
+TEST_RESULT: ""
 </runtime>
 
 <triggers>
@@ -179,10 +184,15 @@ RELEASE_ASSET_PATTERN: ""
 <processes>
 <process id="main" name="Main Workflow">
 RUN `parse-input`
+RUN `create-branch`
 RUN `inspect-upstream`
 RUN `scaffold`
 RUN `integrate`
 RETURN: format="SCAFFOLD_SUMMARY"
+WAIT for user approval
+RUN `commit-feature`
+RUN `test-feature`
+RUN `create-pr`
 </process>
 
 <process id="parse-input" name="Parse User Input">
@@ -194,6 +204,10 @@ IF INP contains "version=":
   SET REQUESTED_VERSION := <VER> (from "Agent Inference" using INP)
 IF INP contains "checksum=true":
   SET SUPPORT_CHECKSUM := true (from "Agent Inference")
+</process>
+
+<process id="create-branch" name="Create Feature Branch">
+USE `execute/runInTerminal` where: command="git checkout -b feat/{FEATURE_ID}"
 </process>
 
 <process id="inspect-upstream" name="Inspect Upstream Releases">
@@ -225,6 +239,22 @@ USE `read/readFile` where: filePath=".github/workflows/test.yaml"
 USE `edit/editFiles` where: filePath=".github/workflows/test.yaml"
 USE `read/readFile` where: filePath="README.md"
 USE `edit/editFiles` where: filePath="README.md"
+</process>
+
+<process id="commit-feature" name="Commit Feature">
+USE `execute/runInTerminal` where: command="git add -A && git commit -m 'feat: add {FEATURE_ID} dev container feature'"
+</process>
+
+<process id="test-feature" name="Test Feature">
+USE `execute/runInTerminal` where: command="devcontainer features test -f {FEATURE_ID} -i ubuntu:latest ."
+CAPTURE TEST_RESULT from result
+IF TEST_RESULT contains "FAILED":
+  TELL "Test failed. Review output and fix install.sh." level=error
+</process>
+
+<process id="create-pr" name="Create Pull Request">
+USE `execute/runInTerminal` where: command="git push origin feat/{FEATURE_ID}"
+USE `execute/runInTerminal` where: command="gh pr create --base main --head feat/{FEATURE_ID} --title 'feat: add {FEATURE_DISPLAY_NAME} dev container feature' --fill"
 </process>
 </processes>
 
