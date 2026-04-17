@@ -1,0 +1,17 @@
+{
+    "name": "Copilot Persistence",
+    "id": "copilot-persistence",
+    "version": "1.0.0",
+    "description": "Preserve ~/.copilot folder across container instances (avoids losing Copilot configuration after rebuilding)",
+    "options": {},
+    "mounts": [
+        {
+            "source": "${devcontainerId}-copilot",
+            "target": "/dc/copilot",
+            "type": "volume"
+        }
+    ],
+    "onCreateCommand": {
+        "copilot-persistence": "/usr/local/share/jsburckhardt-devcontainer-features/copilot-persistence/scripts/oncreate.sh"
+    }
+}

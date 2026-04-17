@@ -165,5 +165,11 @@
                 "version": "v26.1.22"
             }
         }
+    },
+    "copilot-persistence": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "copilot-persistence": {}
+        }
     }
 }

@@ -30,6 +30,7 @@ This repository contains a _collection_ of Features.
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
 | ccc | https://github.com/jsburckhardt/co-config | A TUI tool to interactively configure and view GitHub Copilot CLI settings. |
 | Yazi | https://github.com/sxyazi/yazi | Blazing fast terminal file manager written in Rust, based on async I/O. |
+| Copilot Persistence | — | Preserve ~/.copilot folder across container instances (avoids losing Copilot configuration after rebuilding). |
 
 
 
@@ -372,4 +373,22 @@ Running `yazi --version` inside the built container will print the version of ya
 
 ```bash
 yazi --version
+```
+
+### `copilot-persistence`
+
+Persists the `~/.copilot` directory across container rebuilds using a Docker volume and symlink, so you don't lose your Copilot configuration when rebuilding your dev container.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/copilot-persistence:1": {}
+    }
+}
+```
+
+```bash
+# Verify the symlink exists
+test -L "$HOME/.copilot" && echo "copilot-persistence is active"
 ```
