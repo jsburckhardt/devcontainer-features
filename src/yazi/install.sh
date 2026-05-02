@@ -47,15 +47,21 @@ fi
 # Determine the OS and architecture
 ARCH=$(uname -m)
 
+# Prefer musl builds (statically linked) so the binary doesn't depend on
+# the host's GLIBC version. Recent yazi releases require GLIBC >= 2.39 for
+# the -gnu builds, which is newer than Debian/Ubuntu stable provide.
 case "$ARCH" in
     x86_64)
         ARCH="x86_64"
+        LIBC="musl"
         ;;
     aarch64)
         ARCH="aarch64"
+        LIBC="musl"
         ;;
     i686)
         ARCH="i686"
+        LIBC="gnu"
         ;;
     *)
         echo "Unsupported architecture: $ARCH"
@@ -64,8 +70,8 @@ case "$ARCH" in
 esac
 
 # Construct the download URL
-# Asset pattern: yazi-{ARCH}-unknown-linux-gnu.zip
-ASSET_NAME="${BINARY_NAME}-${ARCH}-unknown-linux-gnu"
+# Asset pattern: yazi-{ARCH}-unknown-linux-{LIBC}.zip
+ASSET_NAME="${BINARY_NAME}-${ARCH}-unknown-linux-${LIBC}"
 DOWNLOAD_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download/${YAZI_VERSION}/${ASSET_NAME}.zip"
 
 # Create a temporary directory for the download
