@@ -36,7 +36,8 @@
         "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
         "ghcr.io/devcontainers/features/github-cli:latest": {},
         "ghcr.io/jsburckhardt/devcontainer-features/tmux:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/yazi:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/yazi:1": {},
+        "ghcr.io/devcontainers/features/copilot-cli": {}
     },
     "updateContentCommand": "npm install -g @devcontainers/cli",
     "postStartCommand": "tmux -S .devcontainer/.tmux-shared has-session -t devcontainer-features 2>/dev/null || tmux -S .devcontainer/.tmux-shared new -d -s devcontainer-features",
