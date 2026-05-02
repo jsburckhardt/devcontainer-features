@@ -30,6 +30,7 @@ This repository contains a _collection_ of Features.
 | Codex-cli | https://github.com/openai/codex | Codex CLI is an experimental project under active development. |
 | ccc | https://github.com/jsburckhardt/co-config | A TUI tool to interactively configure and view GitHub Copilot CLI settings. |
 | Yazi | https://github.com/sxyazi/yazi | Blazing fast terminal file manager written in Rust, based on async I/O. |
+| tmux | https://github.com/tmux/tmux | tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal. |
 
 
 
@@ -372,4 +373,21 @@ Running `yazi --version` inside the built container will print the version of ya
 
 ```bash
 yazi --version
+```
+
+### `tmux`
+
+Running `tmux -V` inside the built container will print the version of tmux.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/tmux:1": {}
+    }
+}
+```
+
+```bash
+tmux -V
 ```

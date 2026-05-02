@@ -21,7 +21,8 @@
             "just": {},
             "opencode": {},
             "ccc": {},
-            "yazi": {}
+            "yazi": {},
+            "tmux": {}
         }
     },
     "flux-specific-version": {
@@ -164,6 +165,12 @@
             "yazi": {
                 "version": "v26.1.22"
             }
+        }
+    },
+    "tmux-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "tmux": {}
         }
     }
 }
