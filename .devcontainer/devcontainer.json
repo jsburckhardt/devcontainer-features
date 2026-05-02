@@ -34,9 +34,11 @@
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {},
         "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
-        "ghcr.io/devcontainers/features/github-cli:latest": {}
+        "ghcr.io/devcontainers/features/github-cli:latest": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/tmux:1": {}
     },
     "updateContentCommand": "npm install -g @devcontainers/cli",
+    "postStartCommand": "tmux has-session -t devcontainer-features 2>/dev/null || tmux -S .devcontainer/.tmux-shared new -d -s devcontainer-features",
     "remoteUser": "node",
     "mounts": [
 		// map host ssh to container
