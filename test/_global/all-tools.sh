@@ -20,5 +20,6 @@ check "just" just --version
 check "opencode" opencode --version
 check "ccc" ccc --version
 check "yazi" yazi --version
+check "tmux" tmux -V
 
 reportResults

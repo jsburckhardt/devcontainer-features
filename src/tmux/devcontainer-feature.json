@@ -1,0 +1,13 @@
+{
+    "name": "tmux",
+    "id": "tmux",
+    "version": "1.0.0",
+    "description": "tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "os-provided",
+            "description": "Version of tmux to install (installs the version provided by the OS package manager)"
+        }
+    }
+}
