@@ -22,7 +22,16 @@
             "opencode": {},
             "ccc": {},
             "yazi": {},
-            "tmux": {}
+            "tmux": {},
+            "fd": {}
+        }
+    },
+    "fd-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "fd": {
+                "version": "v10.2.0"
+            }
         }
     },
     "flux-specific-version": {

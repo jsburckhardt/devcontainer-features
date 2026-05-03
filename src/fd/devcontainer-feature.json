@@ -1,0 +1,13 @@
+{
+    "name": "fd",
+    "id": "fd",
+    "version": "1.0.0",
+    "description": "A simple, fast and user-friendly alternative to 'find'.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of fd to install from GitHub releases e.g. v10.2.0"
+        }
+    }
+}

@@ -21,5 +21,6 @@ check "opencode" opencode --version
 check "ccc" ccc --version
 check "yazi" yazi --version
 check "tmux" tmux -V
+check "fd" fd --version
 
 reportResults
