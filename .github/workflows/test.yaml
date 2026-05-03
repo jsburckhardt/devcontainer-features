@@ -32,6 +32,7 @@ jobs:
           - opencode
           - ccc
           - tmux
+          - hurl
         baseImage:
           - debian:latest
           - ubuntu:latest

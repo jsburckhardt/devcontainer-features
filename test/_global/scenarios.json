@@ -22,7 +22,8 @@
             "opencode": {},
             "ccc": {},
             "yazi": {},
-            "tmux": {}
+            "tmux": {},
+            "hurl": {}
         }
     },
     "flux-specific-version": {
@@ -171,6 +172,14 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "tmux": {}
+        }
+    },
+    "hurl-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "hurl": {
+                "version": "6.0.0"
+            }
         }
     }
 }
