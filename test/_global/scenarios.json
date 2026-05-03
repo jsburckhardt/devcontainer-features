@@ -22,7 +22,8 @@
             "opencode": {},
             "ccc": {},
             "yazi": {},
-            "tmux": {}
+            "tmux": {},
+            "zoxide": {}
         }
     },
     "flux-specific-version": {
@@ -171,6 +172,14 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "tmux": {}
+        }
+    },
+    "zoxide-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "zoxide": {
+                "version": "v0.9.6"
+            }
         }
     }
 }

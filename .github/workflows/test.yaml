@@ -32,6 +32,7 @@ jobs:
           - opencode
           - ccc
           - tmux
+          - zoxide
         baseImage:
           - debian:latest
           - ubuntu:latest
