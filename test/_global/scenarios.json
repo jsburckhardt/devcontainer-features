@@ -22,7 +22,8 @@
             "opencode": {},
             "ccc": {},
             "yazi": {},
-            "tmux": {}
+            "tmux": {},
+            "hyperfine": {}
         }
     },
     "flux-specific-version": {
@@ -171,6 +172,14 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "tmux": {}
+        }
+    },
+    "hyperfine-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "hyperfine": {
+                "version": "v1.19.0"
+            }
         }
     }
 }
