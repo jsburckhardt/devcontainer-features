@@ -31,6 +31,7 @@ This repository contains a _collection_ of Features.
 | ccc | https://github.com/jsburckhardt/co-config | A TUI tool to interactively configure and view GitHub Copilot CLI settings. |
 | Yazi | https://github.com/sxyazi/yazi | Blazing fast terminal file manager written in Rust, based on async I/O. |
 | tmux | https://github.com/tmux/tmux | tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal. |
+| fx | https://github.com/antonmedv/fx | Terminal JSON viewer & processor. |
 
 
 
@@ -390,4 +391,21 @@ Running `tmux -V` inside the built container will print the version of tmux.
 
 ```bash
 tmux -V
+```
+
+### `fx`
+
+Running `fx --version` inside the built container will print the version of fx.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/fx:1": {}
+    }
+}
+```
+
+```bash
+fx --version
 ```
