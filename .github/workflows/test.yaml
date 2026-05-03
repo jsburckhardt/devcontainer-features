@@ -32,6 +32,7 @@ jobs:
           - opencode
           - ccc
           - tmux
+          - lazygit
         baseImage:
           - debian:latest
           - ubuntu:latest

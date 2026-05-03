@@ -22,7 +22,8 @@
             "opencode": {},
             "ccc": {},
             "yazi": {},
-            "tmux": {}
+            "tmux": {},
+            "lazygit": {}
         }
     },
     "flux-specific-version": {
@@ -164,6 +165,14 @@
         "features": {
             "yazi": {
                 "version": "v26.1.22"
+            }
+        }
+    },
+    "lazygit-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "lazygit": {
+                "version": "v0.44.0"
             }
         }
     },
