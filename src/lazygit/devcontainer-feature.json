@@ -1,0 +1,13 @@
+{
+    "name": "lazygit",
+    "id": "lazygit",
+    "version": "1.0.0",
+    "description": "Simple terminal UI for git commands.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of lazygit to install from GitHub releases e.g. v0.61.1"
+        }
+    }
+}

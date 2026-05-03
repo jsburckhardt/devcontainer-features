@@ -1,0 +1,13 @@
+{
+    "name": "ripgrep",
+    "id": "ripgrep",
+    "version": "1.0.0",
+    "description": "Recursively searches directories for a regex pattern while respecting your gitignore.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of ripgrep to install from GitHub releases e.g. 14.1.1"
+        }
+    }
+}

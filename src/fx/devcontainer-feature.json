@@ -1,0 +1,13 @@
+{
+    "name": "fx",
+    "id": "fx",
+    "version": "1.0.0",
+    "description": "Terminal JSON viewer & processor",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of fx to install from GitHub releases e.g. 39.2.0"
+        }
+    }
+}

@@ -32,6 +32,16 @@ jobs:
           - opencode
           - ccc
           - tmux
+          - fzf
+          - lazygit
+          - ripgrep
+          - fd
+          - rtk
+          - zoxide
+          - hyperfine
+          - glow
+          - fx
+          - hurl
         baseImage:
           - debian:latest
           - ubuntu:latest
