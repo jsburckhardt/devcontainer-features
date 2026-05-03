@@ -32,6 +32,7 @@ jobs:
           - opencode
           - ccc
           - tmux
+          - fzf
         baseImage:
           - debian:latest
           - ubuntu:latest
