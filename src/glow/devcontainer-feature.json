@@ -1,0 +1,13 @@
+{
+    "name": "Glow",
+    "id": "glow",
+    "version": "1.0.0",
+    "description": "Render markdown on the CLI, with pizzazz! 💅🏻",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of glow to install from GitHub releases e.g. v2.1.2"
+        }
+    }
+}

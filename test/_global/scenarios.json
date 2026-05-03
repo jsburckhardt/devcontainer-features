@@ -22,7 +22,8 @@
             "opencode": {},
             "ccc": {},
             "yazi": {},
-            "tmux": {}
+            "tmux": {},
+            "glow": {}
         }
     },
     "flux-specific-version": {
@@ -171,6 +172,14 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "tmux": {}
+        }
+    },
+    "glow-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "glow": {
+                "version": "v2.1.2"
+            }
         }
     }
 }
