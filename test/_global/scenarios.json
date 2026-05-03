@@ -22,7 +22,8 @@
             "opencode": {},
             "ccc": {},
             "yazi": {},
-            "tmux": {}
+            "tmux": {},
+            "ripgrep": {}
         }
     },
     "flux-specific-version": {
@@ -171,6 +172,14 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "tmux": {}
+        }
+    },
+    "ripgrep-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ripgrep": {
+                "version": "14.1.1"
+            }
         }
     }
 }

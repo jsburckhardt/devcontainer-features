@@ -31,6 +31,7 @@ This repository contains a _collection_ of Features.
 | ccc | https://github.com/jsburckhardt/co-config | A TUI tool to interactively configure and view GitHub Copilot CLI settings. |
 | Yazi | https://github.com/sxyazi/yazi | Blazing fast terminal file manager written in Rust, based on async I/O. |
 | tmux | https://github.com/tmux/tmux | tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal. |
+| ripgrep | https://github.com/BurntSushi/ripgrep | Recursively searches directories for a regex pattern while respecting your gitignore. |
 
 
 
@@ -390,4 +391,21 @@ Running `tmux -V` inside the built container will print the version of tmux.
 
 ```bash
 tmux -V
+```
+
+### `ripgrep`
+
+Running `rg --version` inside the built container will print the version of ripgrep.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/ripgrep:1": {}
+    }
+}
+```
+
+```bash
+rg --version
 ```
