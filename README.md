@@ -31,6 +31,7 @@ This repository contains a _collection_ of Features.
 | ccc | https://github.com/jsburckhardt/co-config | A TUI tool to interactively configure and view GitHub Copilot CLI settings. |
 | Yazi | https://github.com/sxyazi/yazi | Blazing fast terminal file manager written in Rust, based on async I/O. |
 | tmux | https://github.com/tmux/tmux | tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal. |
+| rtk | https://github.com/rtk-ai/rtk | CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies. |
 
 
 
@@ -390,4 +391,21 @@ Running `tmux -V` inside the built container will print the version of tmux.
 
 ```bash
 tmux -V
+```
+
+### `rtk`
+
+Running `rtk --version` inside the built container will print the version of rtk.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/rtk:1": {}
+    }
+}
+```
+
+```bash
+rtk --version
 ```
