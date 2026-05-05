@@ -1,0 +1,13 @@
+{
+    "name": "hyperfine",
+    "id": "hyperfine",
+    "version": "1.0.0",
+    "description": "A command-line benchmarking tool.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of hyperfine to install from GitHub releases e.g. v1.20.0"
+        }
+    }
+}

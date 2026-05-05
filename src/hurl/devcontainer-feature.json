@@ -1,0 +1,13 @@
+{
+    "name": "hurl",
+    "id": "hurl",
+    "version": "1.0.0",
+    "description": "Run and test HTTP requests with plain text.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of hurl to install from GitHub releases e.g. 8.0.1"
+        }
+    }
+}
