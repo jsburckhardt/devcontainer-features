@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Variables
+REPO_OWNER="tmux"
+REPO_NAME="tmux"
+BINARY_NAME="tmux"
+TMUX_VERSION="${VERSION:-"latest"}"
+GITHUB_API_REPO_URL="https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases"
+
 set -e
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -21,9 +28,48 @@ check_packages() {
     fi
 }
 
-# Install tmux
+# Make sure we have required dependencies
+check_packages curl jq ca-certificates build-essential pkg-config libevent-dev libncurses-dev bison tar
+
+# Function to get the latest version from GitHub API
+get_latest_version() {
+    curl -s "${GITHUB_API_REPO_URL}/latest" | jq -r ".tag_name"
+}
+
+# Check if a version is passed as an argument
+if [ -z "$TMUX_VERSION" ] || [ "$TMUX_VERSION" == "latest" ]; then
+    TMUX_VERSION=$(get_latest_version)
+    echo "No version provided or 'latest' specified, installing the latest version: $TMUX_VERSION"
+else
+    echo "Installing version from environment variable: $TMUX_VERSION"
+fi
+
+# Construct the download URL
+DOWNLOAD_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download/${TMUX_VERSION}/tmux-${TMUX_VERSION}.tar.gz"
+
+# Create a temporary directory for the download
+TMP_DIR=$(mktemp -d)
+cd "$TMP_DIR" || exit
+
+echo "Downloading tmux from $DOWNLOAD_URL"
+curl -sSL "$DOWNLOAD_URL" -o "tmux.tar.gz"
+
+# Extract the tarball
+echo "Extracting tmux..."
+tar -xzf "tmux.tar.gz"
+
+# Build from source
+cd "tmux-${TMUX_VERSION}" || exit
+echo "Configuring tmux..."
+./configure --prefix=/usr/local
+echo "Building tmux..."
+make -j"$(nproc)"
 echo "Installing tmux..."
-check_packages tmux
+make install
+
+# Cleanup
+cd / || exit
+rm -rf "$TMP_DIR"
 
 # Clean up
 rm -rf /var/lib/apt/lists/*
