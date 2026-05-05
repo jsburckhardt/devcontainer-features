@@ -28,8 +28,26 @@ check_packages() {
     fi
 }
 
-# Make sure we have curl, jq, and hurl runtime dependencies
-check_packages curl jq ca-certificates libxml2 libcurl4 libssl3
+# Make sure we have curl and jq
+check_packages curl jq ca-certificates
+
+# Install libxml2 runtime dependency
+# On newer Ubuntu (25.04+), the package is libxml2-16 and provides libxml2.so.16
+# but hurl is linked against libxml2.so.2, so we need a compatibility symlink
+if [ "$(find /var/lib/apt/lists/* 2>/dev/null | wc -l)" = "0" ]; then
+    apt-get update -y
+fi
+if apt-cache show libxml2 2>&1 | grep -q "^Version:"; then
+    check_packages libxml2
+else
+    check_packages libxml2-16
+    # Create compatibility symlink for binaries expecting libxml2.so.2
+    LIBXML2_SO=$(find /usr/lib -name "libxml2.so.*" ! -name "*.so.*.*" | head -1)
+    if [ -n "$LIBXML2_SO" ] && [ ! -e "$(dirname "$LIBXML2_SO")/libxml2.so.2" ]; then
+        ln -s "$LIBXML2_SO" "$(dirname "$LIBXML2_SO")/libxml2.so.2"
+        ldconfig
+    fi
+fi
 
 # Function to get the latest version from GitHub API
 get_latest_version() {
@@ -38,7 +56,6 @@ get_latest_version() {
 
 # Check if a version is passed as an argument
 if [ -z "$HURL_VERSION" ] || [ "$HURL_VERSION" == "latest" ]; then
-    # No version provided, get the latest version
     HURL_VERSION=$(get_latest_version)
     echo "No version provided or 'latest' specified, installing the latest version: $HURL_VERSION"
 else
@@ -46,9 +63,7 @@ else
 fi
 
 # Determine the OS and architecture
-OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 ARCH=$(uname -m)
-
 case "$ARCH" in
     x86_64)
         ARCH="x86_64"
@@ -62,21 +77,8 @@ case "$ARCH" in
         ;;
 esac
 
-case "$OS" in
-    linux)
-        OS="unknown-linux-gnu"
-        ;;
-    darwin)
-        OS="apple-darwin"
-        ;;
-    *)
-        echo "Unsupported OS: $OS"
-        exit 1
-        ;;
-esac
-
 # Construct the download URL
-DOWNLOAD_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download/${HURL_VERSION}/hurl-${HURL_VERSION}-${ARCH}-${OS}.tar.gz"
+DOWNLOAD_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download/${HURL_VERSION}/hurl-${HURL_VERSION}-${ARCH}-unknown-linux-gnu.tar.gz"
 
 # Create a temporary directory for the download
 TMP_DIR=$(mktemp -d)
@@ -102,7 +104,7 @@ mv "${EXTRACTED_DIR}/bin/hurl" /usr/local/bin/
 mv "${EXTRACTED_DIR}/bin/hurlfmt" /usr/local/bin/
 
 # Cleanup
-cd - || exit
+cd / || exit
 rm -rf "$TMP_DIR"
 
 # Clean up

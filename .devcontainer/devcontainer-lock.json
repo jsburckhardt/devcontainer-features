@@ -1,0 +1,34 @@
+{
+  "features": {
+    "ghcr.io/devcontainers/features/copilot-cli": {
+      "version": "1.1.2",
+      "resolved": "ghcr.io/devcontainers/features/copilot-cli@sha256:757c6c2899dc902c44a9f6164c1f7392832ced13c6bb632d8d60a880f2e92456",
+      "integrity": "sha256:757c6c2899dc902c44a9f6164c1f7392832ced13c6bb632d8d60a880f2e92456"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "2.16.1",
+      "resolved": "ghcr.io/devcontainers/features/docker-in-docker@sha256:ce078b7bf7d9ef3bcb9813b32103795d8d72172446890b64772cbe1dec6baafd",
+      "integrity": "sha256:ce078b7bf7d9ef3bcb9813b32103795d8d72172446890b64772cbe1dec6baafd"
+    },
+    "ghcr.io/devcontainers/features/github-cli:latest": {
+      "version": "1.1.0",
+      "resolved": "ghcr.io/devcontainers/features/github-cli@sha256:d22f50b70ed75339b4eed1ba9ecde3a1791f90e88d37936517e3bace0bbad671",
+      "integrity": "sha256:d22f50b70ed75339b4eed1ba9ecde3a1791f90e88d37936517e3bace0bbad671"
+    },
+    "ghcr.io/jsburckhardt/devcontainer-features/tmux:1": {
+      "version": "1.0.0",
+      "resolved": "ghcr.io/jsburckhardt/devcontainer-features/tmux@sha256:f75eb8e2c8f9ea30980729d5303b96071a4f17ad3d5eccab0c75efc5d8271498",
+      "integrity": "sha256:f75eb8e2c8f9ea30980729d5303b96071a4f17ad3d5eccab0c75efc5d8271498"
+    },
+    "ghcr.io/jsburckhardt/devcontainer-features/yazi:1.0.1": {
+      "version": "1.0.1",
+      "resolved": "ghcr.io/jsburckhardt/devcontainer-features/yazi@sha256:35383727c0eee36d02f89ee7e805cbd94dfabe6c86d24c2e07e33b1a678e098a",
+      "integrity": "sha256:35383727c0eee36d02f89ee7e805cbd94dfabe6c86d24c2e07e33b1a678e098a"
+    },
+    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {
+      "version": "0.0.6",
+      "resolved": "ghcr.io/stuartleeks/dev-container-features/shell-history@sha256:f266af2d093e0611921ccf510046e53affeccb353405ee05d2b91fcc4f69c1c9",
+      "integrity": "sha256:f266af2d093e0611921ccf510046e53affeccb353405ee05d2b91fcc4f69c1c9"
+    }
+  }
+}

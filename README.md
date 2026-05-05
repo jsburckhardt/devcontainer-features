@@ -437,15 +437,15 @@ Running `hurl --version` inside the built container will print the version of hu
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/jsburckhardt/devcontainer-features/fzf:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/lazygit:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/ripgrep:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/fd:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/rtk:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/zoxide:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/hyperfine:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/glow:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/fx:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/fzf:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/lazygit:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/ripgrep:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/fd:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/rtk:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/zoxide:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/hyperfine:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/glow:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/fx:1": {},
         "ghcr.io/jsburckhardt/devcontainer-features/hurl:1": {}
     }
 }
