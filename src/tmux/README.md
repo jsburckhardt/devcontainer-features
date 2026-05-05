@@ -7,7 +7,7 @@ tmux is a terminal multiplexer. It lets you switch easily between several progra
 
 ```json
 "features": {
-    "ghcr.io/jsburckhardt/devcontainer-features/tmux:1": {}
+    "ghcr.io/jsburckhardt/devcontainer-features/tmux:2": {}
 }
 ```
 
@@ -15,7 +15,7 @@ tmux is a terminal multiplexer. It lets you switch easily between several progra
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| version | Version of tmux to install (installs the version provided by the OS package manager) | string | os-provided |
+| version | Version of tmux to install from GitHub releases (e.g. '3.6a', 'latest') | string | latest |
 
 
 
