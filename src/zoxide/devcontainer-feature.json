@@ -1,0 +1,13 @@
+{
+    "name": "zoxide",
+    "id": "zoxide",
+    "version": "1.0.0",
+    "description": "A smarter cd command. Supports all major shells.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of zoxide to install from GitHub releases e.g. v0.9.9"
+        }
+    }
+}

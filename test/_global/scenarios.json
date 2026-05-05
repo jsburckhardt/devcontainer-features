@@ -23,7 +23,16 @@
             "ccc": {},
             "yazi": {},
             "tmux": {},
-            "hurl": {}
+            "hurl": {},
+            "fzf": {},
+            "lazygit": {},
+            "ripgrep": {},
+            "fd": {},
+            "rtk": {},
+            "zoxide": {},
+            "hyperfine": {},
+            "glow": {},
+            "fx": {}
         }
     },
     "flux-specific-version": {
@@ -179,6 +188,78 @@
         "features": {
             "hurl": {
                 "version": "6.0.0"
+            }
+        }
+    },
+    "fzf-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "fzf": {
+                "version": "v0.58.0"
+            }
+        }
+    },
+    "lazygit-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "lazygit": {
+                "version": "v0.44.0"
+            }
+        }
+    },
+    "ripgrep-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ripgrep": {
+                "version": "14.1.1"
+            }
+        }
+    },
+    "fd-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "fd": {
+                "version": "v10.2.0"
+            }
+        }
+    },
+    "rtk-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "rtk": {
+                "version": "v0.38.0"
+            }
+        }
+    },
+    "zoxide-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "zoxide": {
+                "version": "v0.9.6"
+            }
+        }
+    },
+    "hyperfine-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "hyperfine": {
+                "version": "v1.19.0"
+            }
+        }
+    },
+    "glow-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "glow": {
+                "version": "v2.1.2"
+            }
+        }
+    },
+    "fx-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "fx": {
+                "version": "35.0.0"
             }
         }
     }

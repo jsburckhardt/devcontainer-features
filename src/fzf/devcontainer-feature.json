@@ -1,0 +1,13 @@
+{
+    "name": "fzf",
+    "id": "fzf",
+    "version": "1.0.0",
+    "description": "A command-line fuzzy finder.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of fzf to install from GitHub releases e.g. v0.72.0"
+        }
+    }
+}

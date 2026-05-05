@@ -21,6 +21,15 @@ check "opencode" opencode --version
 check "ccc" ccc --version
 check "yazi" yazi --version
 check "tmux" tmux -V
+check "fzf" fzf --version
+check "lazygit" lazygit --version
+check "ripgrep" rg --version
+check "fd" fd --version
+check "rtk" rtk --version
+check "zoxide" zoxide --version
+check "hyperfine" hyperfine --version
+check "glow" glow --version
+check "fx" fx --version
 check "hurl" hurl --version
 
 reportResults
