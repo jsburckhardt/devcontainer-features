@@ -1,13 +1,18 @@
 {
     "name": "rtk",
     "id": "rtk",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies.",
     "options": {
         "version": {
             "type": "string",
             "default": "latest",
             "description": "Version of rtk to install from GitHub releases e.g. v0.38.0"
+        },
+        "ghtoken": {
+            "type": "string",
+            "default": "",
+            "description": "GitHub token to use for accessing 'latest' release API (optional, but recommended to avoid rate limits)"
         }
     }
 }
