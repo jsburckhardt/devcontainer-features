@@ -48,6 +48,7 @@ This repository contains a _collection_ of Features.
 | difftastic | https://github.com/Wilfred/difftastic | Syntax-aware structural diffs that are much easier to read than plain text diffs. |
 | delta | https://github.com/dandavison/delta | Better pager for git diff, grep, rg --json, and blame output with syntax highlighting. |
 | actionlint | https://github.com/rhysd/actionlint | Static checker for GitHub Actions workflow files. |
+| zizmor | https://github.com/zizmorcore/zizmor | Static security analysis for GitHub Actions workflows. |
 
 
 
@@ -554,6 +555,9 @@ Running `markitdown --version` inside the built container will print the version
 ### `ast-grep`
 
 Running `sg --version` inside the built container will print the version of ast-grep.
+### `zizmor`
+
+Running `zizmor --version` inside the built container will print the version of zizmor.
 
 ```jsonc
 {
@@ -561,6 +565,7 @@ Running `sg --version` inside the built container will print the version of ast-
     "features": {
         "ghcr.io/jsburckhardt/devcontainer-features/markitdown:1": {}
         "ghcr.io/jsburckhardt/devcontainer-features/ast-grep:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/zizmor:1": {}
     }
 }
 ```
@@ -568,4 +573,5 @@ Running `sg --version` inside the built container will print the version of ast-
 ```bash
 markitdown --version
 sg --version
+zizmor --version
 ```
