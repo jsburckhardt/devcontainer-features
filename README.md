@@ -42,6 +42,7 @@ This repository contains a _collection_ of Features.
 | fx | https://github.com/antonmedv/fx | Terminal JSON viewer & processor. |
 | hurl | https://github.com/Orange-OpenSource/hurl | Run and test HTTP requests with plain text. |
 | MarkItDown | https://github.com/microsoft/markitdown | Convert PDFs, Office docs, images, audio, HTML, CSV/JSON/XML, ZIPs, and more into Markdown from the CLI. |
+| ast-grep | https://github.com/ast-grep/ast-grep | Structural code search, linting, and rewriting using AST-aware patterns. |
 
 
 
@@ -468,16 +469,21 @@ hurl --version
 ### `markitdown`
 
 Running `markitdown --version` inside the built container will print the version of markitdown.
+### `ast-grep`
+
+Running `sg --version` inside the built container will print the version of ast-grep.
 
 ```jsonc
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
         "ghcr.io/jsburckhardt/devcontainer-features/markitdown:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/ast-grep:1": {}
     }
 }
 ```
 
 ```bash
 markitdown --version
+sg --version
 ```
