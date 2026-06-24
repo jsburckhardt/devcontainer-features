@@ -36,7 +36,8 @@
             "markitdown": {},
             "ast-grep": {},
             "mise": {},
-            "jj": {}
+            "jj": {},
+            "difftastic": {}
         }
     },
     "flux-specific-version": {
@@ -298,6 +299,14 @@
         "features": {
             "jj": {
                 "version": "v0.42.0"
+            }
+        }
+    },
+    "difftastic-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "difftastic": {
+                "version": "0.63.0"
             }
         }
     }

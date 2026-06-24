@@ -46,6 +46,7 @@ jobs:
           - ast-grep
           - mise
           - jj
+          - difftastic
         baseImage:
           - debian:latest
           - ubuntu:latest
