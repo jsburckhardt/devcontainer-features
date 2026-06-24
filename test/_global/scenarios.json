@@ -126,7 +126,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "zarf": {
-                "version": "v0.61.2"
+                "version": "v0.79.0"
             }
         }
     },
