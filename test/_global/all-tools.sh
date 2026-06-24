@@ -34,5 +34,6 @@ check "hurl" hurl --version
 check "markitdown" markitdown --version
 check "ast-grep" sg --version
 check "mise" mise --version
+check "jj" jj --version
 
 reportResults

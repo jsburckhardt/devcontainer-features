@@ -44,6 +44,7 @@ This repository contains a _collection_ of Features.
 | MarkItDown | https://github.com/microsoft/markitdown | Convert PDFs, Office docs, images, audio, HTML, CSV/JSON/XML, ZIPs, and more into Markdown from the CLI. |
 | ast-grep | https://github.com/ast-grep/ast-grep | Structural code search, linting, and rewriting using AST-aware patterns. |
 | mise | https://github.com/jdx/mise | Manage dev tool versions, environment variables, and project tasks in one CLI. |
+| jj | https://github.com/jj-vcs/jj | Git-compatible version control with a cleaner workflow for commits, branches, rebasing, and history editing. |
 
 
 
@@ -452,6 +453,23 @@ Running `mise --version` inside the built container will print the version of mi
 mise --version
 ```
 
+### `jj`
+
+Running `jj --version` inside the built container will print the version of jj.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/jj:1": {}
+    }
+}
+```
+
+```bash
+jj --version
+```
+
 ```jsonc
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
@@ -465,7 +483,8 @@ mise --version
         "ghcr.io/jsburckhardt/devcontainer-features/hyperfine:1": {},
         "ghcr.io/jsburckhardt/devcontainer-features/glow:1": {},
         "ghcr.io/jsburckhardt/devcontainer-features/fx:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/hurl:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/hurl:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/jj:1": {}
     }
 }
 ```
@@ -481,6 +500,7 @@ hyperfine --version
 glow --version
 fx --version
 hurl --version
+jj --version
 ```
 
 ### `markitdown`
