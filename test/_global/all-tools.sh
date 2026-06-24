@@ -37,5 +37,6 @@ check "mise" mise --version
 check "jj" jj --version
 check "difftastic" difft --version
 check "delta" delta --version
+check "actionlint" actionlint --version
 
 reportResults

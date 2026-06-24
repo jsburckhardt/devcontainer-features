@@ -1,0 +1,13 @@
+{
+    "name": "actionlint",
+    "id": "actionlint",
+    "version": "1.0.0",
+    "description": "Static checker for GitHub Actions workflow files.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version to install from GitHub releases"
+        }
+    }
+}
