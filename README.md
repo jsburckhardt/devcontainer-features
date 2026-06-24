@@ -43,6 +43,7 @@ This repository contains a _collection_ of Features.
 | hurl | https://github.com/Orange-OpenSource/hurl | Run and test HTTP requests with plain text. |
 | MarkItDown | https://github.com/microsoft/markitdown | Convert PDFs, Office docs, images, audio, HTML, CSV/JSON/XML, ZIPs, and more into Markdown from the CLI. |
 | ast-grep | https://github.com/ast-grep/ast-grep | Structural code search, linting, and rewriting using AST-aware patterns. |
+| mise | https://github.com/jdx/mise | Manage dev tool versions, environment variables, and project tasks in one CLI. |
 
 
 
@@ -434,6 +435,22 @@ Running `fx --version` inside the built container will print the version of fx.
 ### `hurl`
 
 Running `hurl --version` inside the built container will print the version of hurl.
+### `mise`
+
+Running `mise --version` inside the built container will print the version of mise.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/mise:1": {}
+    }
+}
+```
+
+```bash
+mise --version
+```
 
 ```jsonc
 {

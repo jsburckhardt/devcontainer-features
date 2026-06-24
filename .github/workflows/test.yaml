@@ -44,6 +44,7 @@ jobs:
           - hurl
           - markitdown
           - ast-grep
+          - mise
         baseImage:
           - debian:latest
           - ubuntu:latest

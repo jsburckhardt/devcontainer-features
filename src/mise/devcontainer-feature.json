@@ -1,0 +1,13 @@
+{
+    "name": "mise",
+    "id": "mise",
+    "version": "1.0.0",
+    "description": "Manage dev tool versions, environment variables, and project tasks in one CLI.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version to install from GitHub releases (e.g., v2024.7.1)"
+        }
+    }
+}

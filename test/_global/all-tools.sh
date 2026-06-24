@@ -33,5 +33,6 @@ check "fx" fx --version
 check "hurl" hurl --version
 check "markitdown" markitdown --version
 check "ast-grep" sg --version
+check "mise" mise --version
 
 reportResults
