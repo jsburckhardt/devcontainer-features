@@ -34,7 +34,7 @@
             "glow": {},
             "fx": {},
             "markitdown": {},
-            "ast-grep": {}
+            "ast-grep": {},
             "mise": {}
         }
     },
@@ -281,6 +281,9 @@
         "features": {
             "ast-grep": {
                 "version": "0.36.0"
+            }
+        }
+    },
     "mise-specific-version": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
