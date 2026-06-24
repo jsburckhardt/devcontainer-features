@@ -35,5 +35,6 @@ check "markitdown" markitdown --version
 check "ast-grep" sg --version
 check "mise" mise --version
 check "jj" jj --version
+check "difftastic" difft --version
 
 reportResults

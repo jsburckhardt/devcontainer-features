@@ -1,0 +1,13 @@
+{
+    "name": "Difftastic",
+    "id": "difftastic",
+    "version": "1.0.0",
+    "description": "Syntax-aware structural diffs that are much easier to read than plain text diffs.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version to install from GitHub releases"
+        }
+    }
+}
