@@ -190,7 +190,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "hurl": {
-                "version": "6.0.0"
+                "version": "7.1.0"
             }
         }
     },
