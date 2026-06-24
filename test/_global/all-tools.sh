@@ -39,5 +39,6 @@ check "difftastic" difft --version
 check "delta" delta --version
 check "actionlint" actionlint --version
 check "zizmor" zizmor --version
+check "open-code-review" opencodereview --version
 
 reportResults

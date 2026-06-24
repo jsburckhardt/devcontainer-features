@@ -1,0 +1,13 @@
+{
+    "name": "Open Code Review",
+    "id": "open-code-review",
+    "version": "1.0.0",
+    "description": "CLI-oriented code review tool for diffs with deterministic checks plus optional LLM review.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version to install from GitHub releases (e.g., v1.5.0)"
+        }
+    }
+}
