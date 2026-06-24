@@ -1,0 +1,13 @@
+{
+    "name": "delta",
+    "id": "delta",
+    "version": "1.0.0",
+    "description": "Better pager for git diff, grep, rg --json, and blame output with syntax highlighting.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of delta to install from GitHub releases e.g. 0.19.2"
+        }
+    }
+}

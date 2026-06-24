@@ -46,6 +46,7 @@ This repository contains a _collection_ of Features.
 | mise | https://github.com/jdx/mise | Manage dev tool versions, environment variables, and project tasks in one CLI. |
 | jj | https://github.com/jj-vcs/jj | Git-compatible version control with a cleaner workflow for commits, branches, rebasing, and history editing. |
 | difftastic | https://github.com/Wilfred/difftastic | Syntax-aware structural diffs that are much easier to read than plain text diffs. |
+| delta | https://github.com/dandavison/delta | Better pager for git diff, grep, rg --json, and blame output with syntax highlighting. |
 
 
 
@@ -476,6 +477,23 @@ jj --version
 difft --version
 ```
 
+### `delta`
+
+Running `delta --version` inside the built container will print the version of delta.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/delta:1": {}
+    }
+}
+```
+
+```bash
+delta --version
+```
+
 ```jsonc
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
@@ -491,6 +509,7 @@ difft --version
         "ghcr.io/jsburckhardt/devcontainer-features/fx:1": {},
         "ghcr.io/jsburckhardt/devcontainer-features/hurl:1": {},
         "ghcr.io/jsburckhardt/devcontainer-features/jj:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/delta:1": {}
     }
 }
 ```
@@ -507,6 +526,7 @@ glow --version
 fx --version
 hurl --version
 jj --version
+delta --version
 ```
 
 ### `markitdown`

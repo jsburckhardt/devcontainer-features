@@ -37,7 +37,8 @@
             "ast-grep": {},
             "mise": {},
             "jj": {},
-            "difftastic": {}
+            "difftastic": {},
+            "delta": {}
         }
     },
     "flux-specific-version": {
@@ -307,6 +308,14 @@
         "features": {
             "difftastic": {
                 "version": "0.63.0"
+            }
+        }
+    },
+    "delta-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "delta": {
+                "version": "0.18.2"
             }
         }
     }

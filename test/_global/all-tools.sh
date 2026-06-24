@@ -36,5 +36,6 @@ check "ast-grep" sg --version
 check "mise" mise --version
 check "jj" jj --version
 check "difftastic" difft --version
+check "delta" delta --version
 
 reportResults
