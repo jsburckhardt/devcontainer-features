@@ -1,0 +1,13 @@
+{
+    "name": "ast-grep",
+    "id": "ast-grep",
+    "version": "1.0.0",
+    "description": "Structural code search, linting, and rewriting using AST-aware patterns.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version to install from GitHub releases"
+        }
+    }
+}

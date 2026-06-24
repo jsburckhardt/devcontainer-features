@@ -43,6 +43,7 @@ jobs:
           - fx
           - hurl
           - markitdown
+          - ast-grep
         baseImage:
           - debian:latest
           - ubuntu:latest

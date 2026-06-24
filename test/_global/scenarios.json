@@ -34,6 +34,7 @@
             "glow": {},
             "fx": {},
             "markitdown": {}
+            "ast-grep": {}
         }
     },
     "flux-specific-version": {
@@ -271,6 +272,11 @@
         "features": {
             "markitdown": {
                 "version": "0.1.6"
+    "ast-grep-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ast-grep": {
+                "version": "0.36.0"
             }
         }
     }
