@@ -38,7 +38,8 @@
             "mise": {},
             "jj": {},
             "difftastic": {},
-            "delta": {}
+            "delta": {},
+            "actionlint": {}
         }
     },
     "flux-specific-version": {
@@ -316,6 +317,14 @@
         "features": {
             "delta": {
                 "version": "0.18.2"
+            }
+        }
+    },
+    "actionlint-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "actionlint": {
+                "version": "v1.7.7"
             }
         }
     }

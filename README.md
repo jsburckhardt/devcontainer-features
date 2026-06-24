@@ -47,6 +47,7 @@ This repository contains a _collection_ of Features.
 | jj | https://github.com/jj-vcs/jj | Git-compatible version control with a cleaner workflow for commits, branches, rebasing, and history editing. |
 | difftastic | https://github.com/Wilfred/difftastic | Syntax-aware structural diffs that are much easier to read than plain text diffs. |
 | delta | https://github.com/dandavison/delta | Better pager for git diff, grep, rg --json, and blame output with syntax highlighting. |
+| actionlint | https://github.com/rhysd/actionlint | Static checker for GitHub Actions workflow files. |
 
 
 
@@ -527,6 +528,24 @@ fx --version
 hurl --version
 jj --version
 delta --version
+actionlint --version
+```
+
+### `actionlint`
+
+Running `actionlint` inside the built container will check GitHub Actions workflow files.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/actionlint:1": {}
+    }
+}
+```
+
+```bash
+actionlint --version
 ```
 
 ### `markitdown`

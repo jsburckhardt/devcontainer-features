@@ -48,6 +48,7 @@ jobs:
           - jj
           - difftastic
           - delta
+          - actionlint
         baseImage:
           - debian:latest
           - ubuntu:latest
