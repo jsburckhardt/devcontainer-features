@@ -51,6 +51,7 @@ jobs:
           - actionlint
           - zizmor
           - open-code-review
+          - skillspector
         baseImage:
           - debian:latest
           - ubuntu:latest

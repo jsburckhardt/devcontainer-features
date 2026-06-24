@@ -1,0 +1,13 @@
+{
+    "name": "SkillSpector",
+    "id": "skillspector",
+    "version": "1.0.0",
+    "description": "Standalone security scanner for local AI-agent skill/config files; useful only if you want an AI-dev-security feature.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of skillspector to install from GitHub releases e.g. v1.0.0"
+        }
+    }
+}
