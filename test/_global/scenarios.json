@@ -35,7 +35,8 @@
             "fx": {},
             "markitdown": {},
             "ast-grep": {},
-            "mise": {}
+            "mise": {},
+            "jj": {}
         }
     },
     "flux-specific-version": {
@@ -289,6 +290,14 @@
         "features": {
             "mise": {
                 "version": "v2024.7.1"
+            }
+        }
+    },
+    "jj-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "jj": {
+                "version": "v0.42.0"
             }
         }
     }

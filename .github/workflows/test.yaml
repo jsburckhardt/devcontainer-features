@@ -45,6 +45,7 @@ jobs:
           - markitdown
           - ast-grep
           - mise
+          - jj
         baseImage:
           - debian:latest
           - ubuntu:latest

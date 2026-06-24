@@ -1,0 +1,13 @@
+{
+    "name": "jj",
+    "id": "jj",
+    "version": "1.0.0",
+    "description": "Git-compatible version control with a cleaner workflow for commits, branches, rebasing, and history editing.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version to install from GitHub releases"
+        }
+    }
+}
