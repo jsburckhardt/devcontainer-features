@@ -33,7 +33,7 @@
             "hyperfine": {},
             "glow": {},
             "fx": {},
-            "markitdown": {}
+            "markitdown": {},
             "ast-grep": {}
         }
     },
@@ -272,6 +272,9 @@
         "features": {
             "markitdown": {
                 "version": "0.1.6"
+            }
+        }
+    },
     "ast-grep-specific-version": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
