@@ -50,6 +50,7 @@ jobs:
           - delta
           - actionlint
           - zizmor
+          - open-code-review
         baseImage:
           - debian:latest
           - ubuntu:latest

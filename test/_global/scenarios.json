@@ -40,7 +40,8 @@
             "difftastic": {},
             "delta": {},
             "actionlint": {},
-            "zizmor": {}
+            "zizmor": {},
+            "open-code-review": {}
         }
     },
     "flux-specific-version": {
@@ -334,6 +335,14 @@
         "features": {
             "zizmor": {
                 "version": "v1.23.1"
+            }
+        }
+    },
+    "open-code-review-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "open-code-review": {
+                "version": "v1.4.1"
             }
         }
     }

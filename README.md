@@ -49,6 +49,7 @@ This repository contains a _collection_ of Features.
 | delta | https://github.com/dandavison/delta | Better pager for git diff, grep, rg --json, and blame output with syntax highlighting. |
 | actionlint | https://github.com/rhysd/actionlint | Static checker for GitHub Actions workflow files. |
 | zizmor | https://github.com/zizmorcore/zizmor | Static security analysis for GitHub Actions workflows. |
+| open-code-review | https://github.com/alibaba/open-code-review | CLI-oriented code review tool for diffs with deterministic checks plus optional LLM review. |
 
 
 
@@ -558,6 +559,9 @@ Running `sg --version` inside the built container will print the version of ast-
 ### `zizmor`
 
 Running `zizmor --version` inside the built container will print the version of zizmor.
+### `open-code-review`
+
+Running `opencodereview --version` inside the built container will print the version of open-code-review.
 
 ```jsonc
 {
@@ -566,6 +570,7 @@ Running `zizmor --version` inside the built container will print the version of 
         "ghcr.io/jsburckhardt/devcontainer-features/markitdown:1": {}
         "ghcr.io/jsburckhardt/devcontainer-features/ast-grep:1": {}
         "ghcr.io/jsburckhardt/devcontainer-features/zizmor:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/open-code-review:1": {}
     }
 }
 ```
@@ -574,4 +579,5 @@ Running `zizmor --version` inside the built container will print the version of 
 markitdown --version
 sg --version
 zizmor --version
+opencodereview --version
 ```
