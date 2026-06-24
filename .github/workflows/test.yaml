@@ -47,6 +47,7 @@ jobs:
           - mise
           - jj
           - difftastic
+          - delta
         baseImage:
           - debian:latest
           - ubuntu:latest
