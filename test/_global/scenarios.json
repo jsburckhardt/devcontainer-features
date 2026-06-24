@@ -32,7 +32,8 @@
             "zoxide": {},
             "hyperfine": {},
             "glow": {},
-            "fx": {}
+            "fx": {},
+            "markitdown": {}
         }
     },
     "flux-specific-version": {
@@ -125,7 +126,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "zarf": {
-                "version": "v0.61.2"
+                "version": "v0.79.0"
             }
         }
     },
@@ -189,7 +190,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "hurl": {
-                "version": "6.0.0"
+                "version": "7.1.0"
             }
         }
     },
@@ -262,6 +263,14 @@
         "features": {
             "fx": {
                 "version": "35.0.0"
+            }
+        }
+    },
+    "markitdown-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "markitdown": {
+                "version": "0.1.6"
             }
         }
     }

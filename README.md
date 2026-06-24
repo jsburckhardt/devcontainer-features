@@ -41,6 +41,7 @@ This repository contains a _collection_ of Features.
 | Glow | https://github.com/charmbracelet/glow | Render markdown on the CLI, with pizzazz! 💅🏻 |
 | fx | https://github.com/antonmedv/fx | Terminal JSON viewer & processor. |
 | hurl | https://github.com/Orange-OpenSource/hurl | Run and test HTTP requests with plain text. |
+| MarkItDown | https://github.com/microsoft/markitdown | Convert PDFs, Office docs, images, audio, HTML, CSV/JSON/XML, ZIPs, and more into Markdown from the CLI. |
 
 
 
@@ -462,4 +463,21 @@ hyperfine --version
 glow --version
 fx --version
 hurl --version
+```
+
+### `markitdown`
+
+Running `markitdown --version` inside the built container will print the version of markitdown.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/markitdown:1": {}
+    }
+}
+```
+
+```bash
+markitdown --version
 ```

@@ -31,5 +31,6 @@ check "hyperfine" hyperfine --version
 check "glow" glow --version
 check "fx" fx --version
 check "hurl" hurl --version
+check "markitdown" markitdown --version
 
 reportResults

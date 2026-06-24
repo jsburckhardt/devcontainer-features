@@ -1,0 +1,13 @@
+{
+    "name": "MarkItDown",
+    "id": "markitdown",
+    "version": "1.0.0",
+    "description": "Convert PDFs, Office docs, images, audio, HTML, CSV/JSON/XML, ZIPs, and more into Markdown from the CLI.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version to install (e.g. 0.1.6). Set to 'latest' to install the most recent version."
+        }
+    }
+}
