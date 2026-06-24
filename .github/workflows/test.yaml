@@ -42,6 +42,7 @@ jobs:
           - glow
           - fx
           - hurl
+          - markitdown
         baseImage:
           - debian:latest
           - ubuntu:latest

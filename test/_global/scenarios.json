@@ -32,7 +32,8 @@
             "zoxide": {},
             "hyperfine": {},
             "glow": {},
-            "fx": {}
+            "fx": {},
+            "markitdown": {}
         }
     },
     "flux-specific-version": {
@@ -262,6 +263,14 @@
         "features": {
             "fx": {
                 "version": "35.0.0"
+            }
+        }
+    },
+    "markitdown-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "markitdown": {
+                "version": "0.1.6"
             }
         }
     }
