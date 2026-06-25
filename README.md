@@ -50,6 +50,7 @@ This repository contains a _collection_ of Features.
 | actionlint | https://github.com/rhysd/actionlint | Static checker for GitHub Actions workflow files. |
 | zizmor | https://github.com/zizmorcore/zizmor | Static security analysis for GitHub Actions workflows. |
 | open-code-review | https://github.com/alibaba/open-code-review | CLI-oriented code review tool for diffs with deterministic checks plus optional LLM review. |
+| SkillSpector | https://github.com/NVIDIA/SkillSpector | Standalone security scanner for local AI-agent skill/config files; useful only if you want an AI-dev-security feature. |
 
 
 
@@ -517,6 +518,19 @@ delta --version
 }
 ```
 
+### `skillspector`
+
+Running `skillspector --version` inside the built container will print the version of skillspector.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/skillspector:1": {}
+    }
+}
+```
+
 ```bash
 fzf --version
 lazygit --version
@@ -548,6 +562,7 @@ Running `actionlint` inside the built container will check GitHub Actions workfl
 
 ```bash
 actionlint --version
+skillspector --version
 ```
 
 ### `markitdown`
