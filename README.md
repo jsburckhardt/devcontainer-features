@@ -415,46 +415,216 @@ tmux -V
 ### `fzf`
 
 Running `fzf --version` inside the built container will print the version of fzf.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/fzf:1": {}
+    }
+}
+```
+
+```bash
+fzf --version
+```
+
 ### `lazygit`
 
 Running `lazygit --version` inside the built container will print the version of lazygit.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/lazygit:1": {}
+    }
+}
+```
+
+```bash
+lazygit --version
+```
+
 ### `ripgrep`
 
 Running `rg --version` inside the built container will print the version of ripgrep.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/ripgrep:1": {}
+    }
+}
+```
+
+```bash
+rg --version
+```
+
 ### `fd`
 
 Running `fd --version` inside the built container will print the version of fd.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/fd:1": {}
+    }
+}
+```
+
+```bash
+fd --version
+```
+
 ### `rtk`
 
 Running `rtk --version` inside the built container will print the version of rtk.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/rtk:1": {}
+    }
+}
+```
+
+```bash
+rtk --version
+```
+
 ### `zoxide`
 
 Running `zoxide --version` inside the built container will print the version of zoxide.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/zoxide:1": {}
+    }
+}
+```
+
+```bash
+zoxide --version
+```
+
 ### `hyperfine`
 
 Running `hyperfine --version` inside the built container will print the version of hyperfine.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/hyperfine:1": {}
+    }
+}
+```
+
+```bash
+hyperfine --version
+```
+
 ### `glow`
 
 Running `glow --version` inside the built container will print the version of glow.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/glow:1": {}
+    }
+}
+```
+
+```bash
+glow --version
+```
+
 ### `fx`
 
 Running `fx --version` inside the built container will print the version of fx.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/fx:1": {}
+    }
+}
+```
+
+```bash
+fx --version
+```
+
 ### `hurl`
 
 Running `hurl --version` inside the built container will print the version of hurl.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/hurl:1": {}
+    }
+}
+```
+
+```bash
+hurl --version
+```
+
+### `markitdown`
+
+Running `markitdown --version` inside the built container will print the version of markitdown.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/markitdown:1": {}
+    }
+}
+```
+
+```bash
+markitdown --version
+```
+
+### `ast-grep`
+
+Running `sg --version` inside the built container will print the version of ast-grep.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/ast-grep:1": {}
+    }
+}
+```
+
+```bash
+sg --version
+```
+
 ### `mise`
 
 Running `mise --version` inside the built container will print the version of mise.
-### `difftastic`
-
-Running `difft --version` inside the built container will print the version of difftastic.
 
 ```jsonc
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
         "ghcr.io/jsburckhardt/devcontainer-features/mise:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/difftastic:1": {}
     }
 }
 ```
@@ -478,6 +648,22 @@ Running `jj --version` inside the built container will print the version of jj.
 
 ```bash
 jj --version
+```
+
+### `difftastic`
+
+Running `difft --version` inside the built container will print the version of difftastic.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/difftastic:1": {}
+    }
+}
+```
+
+```bash
 difft --version
 ```
 
@@ -498,24 +684,55 @@ Running `delta --version` inside the built container will print the version of d
 delta --version
 ```
 
+### `actionlint`
+
+Running `actionlint --version` inside the built container will print the version of actionlint.
+
 ```jsonc
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/jsburckhardt/devcontainer-features/fzf:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/lazygit:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/ripgrep:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/fd:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/rtk:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/zoxide:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/hyperfine:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/glow:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/fx:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/hurl:1": {},
-        "ghcr.io/jsburckhardt/devcontainer-features/jj:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/delta:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/actionlint:1": {}
     }
 }
+```
+
+```bash
+actionlint --version
+```
+
+### `zizmor`
+
+Running `zizmor --version` inside the built container will print the version of zizmor.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/zizmor:1": {}
+    }
+}
+```
+
+```bash
+zizmor --version
+```
+
+### `open-code-review`
+
+Running `opencodereview --version` inside the built container will print the version of open-code-review.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/open-code-review:1": {}
+    }
+}
+```
+
+```bash
+opencodereview --version
 ```
 
 ### `skillspector`
@@ -532,67 +749,6 @@ Running `skillspector --version` inside the built container will print the versi
 ```
 
 ```bash
-fzf --version
-lazygit --version
-rg --version
-fd --version
-rtk --version
-zoxide --version
-hyperfine --version
-glow --version
-fx --version
-hurl --version
-jj --version
-delta --version
-actionlint --version
-```
-
-### `actionlint`
-
-Running `actionlint` inside the built container will check GitHub Actions workflow files.
-
-```jsonc
-{
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "features": {
-        "ghcr.io/jsburckhardt/devcontainer-features/actionlint:1": {}
-    }
-}
-```
-
-```bash
-actionlint --version
 skillspector --version
 ```
 
-### `markitdown`
-
-Running `markitdown --version` inside the built container will print the version of markitdown.
-### `ast-grep`
-
-Running `sg --version` inside the built container will print the version of ast-grep.
-### `zizmor`
-
-Running `zizmor --version` inside the built container will print the version of zizmor.
-### `open-code-review`
-
-Running `opencodereview --version` inside the built container will print the version of open-code-review.
-
-```jsonc
-{
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-    "features": {
-        "ghcr.io/jsburckhardt/devcontainer-features/markitdown:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/ast-grep:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/zizmor:1": {}
-        "ghcr.io/jsburckhardt/devcontainer-features/open-code-review:1": {}
-    }
-}
-```
-
-```bash
-markitdown --version
-sg --version
-zizmor --version
-opencodereview --version
-```
