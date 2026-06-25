@@ -38,5 +38,6 @@ check "jj" jj --version
 check "difftastic" difft --version
 check "delta" delta --version
 check "actionlint" actionlint --version
+check "zizmor" zizmor --version
 
 reportResults

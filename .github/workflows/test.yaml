@@ -49,6 +49,7 @@ jobs:
           - difftastic
           - delta
           - actionlint
+          - zizmor
         baseImage:
           - debian:latest
           - ubuntu:latest

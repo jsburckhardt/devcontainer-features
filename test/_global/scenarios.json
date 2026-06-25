@@ -39,7 +39,8 @@
             "jj": {},
             "difftastic": {},
             "delta": {},
-            "actionlint": {}
+            "actionlint": {},
+            "zizmor": {}
         }
     },
     "flux-specific-version": {
@@ -325,6 +326,14 @@
         "features": {
             "actionlint": {
                 "version": "v1.7.7"
+            }
+        }
+    },
+    "zizmor-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "zizmor": {
+                "version": "v1.23.1"
             }
         }
     }
