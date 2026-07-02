@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 K3D_VERSION="${VERSION:-"latest"}"
-GITHUB_API_REPO_URL="https://api.github.com/repos/k3d-io/k3d/releases"
+REPO_OWNER="k3d-io"
+REPO_NAME="k3d"
 URL_RELEASES="https://github.com/k3d-io/k3d/releases"
 
 set -e
@@ -49,32 +50,15 @@ check_packages() {
     fi
 }
 
-# Figure out correct version of a three part version number is not passed
-validate_version_exists() {
-    local variable_name=$1
-    local requested_version=${2}
-    if [ "${requested_version}" = "latest" ]; then 
-        requested_version=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name")
-        echo "Latest version is ${requested_version}"
-    fi
-    local version_list
-    version_list=$(curl -sL ${GITHUB_API_REPO_URL} | jq -r ".[].tag_name")
-    if ! echo "${version_list}" | grep "${requested_version}" >/dev/null 2>&1; then
-        echo -e "Invalid ${variable_name} value: ${requested_version}\nValid values:\n${version_list}" >&2
-        exit 1
-    fi
-    echo "${variable_name}=${requested_version}"
-}
+# Make sure we have curl
+check_packages curl ca-certificates
 
-# Make sure we have curl and jq
-check_packages curl jq ca-certificates
-
-# Make sure version is available
-if [ "${K3D_VERSION}" = "latest" ]; then 
-    K3D_VERSION=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name")
-    echo "Latest version is ${K3D_VERSION}"
+# get latest version via redirect if not specified
+if [ "${K3D_VERSION}" = "latest" ]; then
+    K3D_VERSION=$(curl -sI "https://github.com/$REPO_OWNER/$REPO_NAME/releases/latest" \
+        | grep -i '^location:' | sed 's|.*/tag/||;s/\r//')
+    echo "No version provided or 'latest' specified, installing the latest version: $K3D_VERSION"
 fi
-validate_version_exists K3D_VERSION "${K3D_VERSION}"
 
 # Download and install binary
 K3D_DIST="k3d-${OS}-${ARCH}"

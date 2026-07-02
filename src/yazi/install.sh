@@ -5,8 +5,6 @@ REPO_OWNER="sxyazi"
 REPO_NAME="yazi"
 BINARY_NAME="yazi"
 YAZI_VERSION="${VERSION:-"latest"}"
-GITHUB_API_REPO_URL="https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases"
-
 set -e
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -28,12 +26,13 @@ check_packages() {
     fi
 }
 
-# Make sure we have curl, jq, and unzip
-check_packages curl jq ca-certificates unzip
+# Make sure we have curl and unzip
+check_packages curl ca-certificates unzip
 
-# Function to get the latest version from GitHub API
+# Function to get the latest version by following the GitHub releases redirect
 get_latest_version() {
-    curl -s "${GITHUB_API_REPO_URL}/latest" | jq -r ".tag_name"
+    curl -sI "https://github.com/$REPO_OWNER/$REPO_NAME/releases/latest" \
+        | grep -i '^location:' | sed 's|.*/tag/||;s/\r//'
 }
 
 # Check if a version is passed as an argument
