@@ -42,7 +42,8 @@
             "actionlint": {},
             "zizmor": {},
             "open-code-review": {},
-            "skillspector": {}
+            "skillspector": {},
+            "herdr": {}
         }
     },
     "flux-specific-version": {
@@ -352,6 +353,14 @@
         "features": {
             "skillspector": {
                 "version": "8f37cfa1ebc2"
+            }
+        }
+    },
+    "herdr-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "herdr": {
+                "version": "v0.7.3"
             }
         }
     }

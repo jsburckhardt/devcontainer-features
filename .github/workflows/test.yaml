@@ -52,6 +52,7 @@ jobs:
           - zizmor
           - open-code-review
           - skillspector
+          - herdr
         baseImage:
           - debian:latest
           - ubuntu:latest
