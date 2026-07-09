@@ -1,0 +1,13 @@
+{
+    "name": "herdr",
+    "id": "herdr",
+    "version": "1.0.0",
+    "description": "herdr is a fast, cross-platform CLI tool from ogulcancelik/herdr distributed as a static binary via GitHub releases.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of herdr to install (e.g. 'latest' or a specific tag like 'v0.7.3')."
+        }
+    }
+}

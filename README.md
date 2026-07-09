@@ -51,6 +51,7 @@ This repository contains a _collection_ of Features.
 | zizmor | https://github.com/zizmorcore/zizmor | Static security analysis for GitHub Actions workflows. |
 | open-code-review | https://github.com/alibaba/open-code-review | CLI-oriented code review tool for diffs with deterministic checks plus optional LLM review. |
 | SkillSpector | https://github.com/NVIDIA/SkillSpector | Standalone security scanner for local AI-agent skill/config files; useful only if you want an AI-dev-security feature. |
+| herdr | https://github.com/ogulcancelik/herdr | Fast, cross-platform CLI tool distributed as a static binary via GitHub releases. |
 
 
 
@@ -752,3 +753,20 @@ Running `skillspector --version` inside the built container will print the versi
 skillspector --version
 ```
 
+
+### `herdr`
+
+Running `herdr --version` inside the built container will print the version of herdr.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/herdr:1": {}
+    }
+}
+```
+
+```bash
+herdr --version
+```
