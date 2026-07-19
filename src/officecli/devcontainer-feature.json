@@ -1,0 +1,13 @@
+{
+    "name": "officecli",
+    "id": "officecli",
+    "version": "1.0.0",
+    "description": "AI-friendly CLI to read, edit, and automate Microsoft Office files (.docx, .xlsx, .pptx) as a single static binary — no Office installation required.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of officecli to install from GitHub releases (e.g. 'latest' or 'v1.0.139')."
+        }
+    }
+}

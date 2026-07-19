@@ -52,6 +52,7 @@ This repository contains a _collection_ of Features.
 | open-code-review | https://github.com/alibaba/open-code-review | CLI-oriented code review tool for diffs with deterministic checks plus optional LLM review. |
 | SkillSpector | https://github.com/NVIDIA/SkillSpector | Standalone security scanner for local AI-agent skill/config files; useful only if you want an AI-dev-security feature. |
 | herdr | https://github.com/ogulcancelik/herdr | Fast, cross-platform CLI tool distributed as a static binary via GitHub releases. |
+| officecli | https://github.com/iOfficeAI/OfficeCLI | AI-friendly CLI to read, edit, and automate Word, Excel, and PowerPoint files — single static binary, no Office install required. |
 
 
 
@@ -769,4 +770,21 @@ Running `herdr --version` inside the built container will print the version of h
 
 ```bash
 herdr --version
+```
+
+### `officecli`
+
+Running `officecli --version` inside the built container will print the version of officecli.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/officecli:1": {}
+    }
+}
+```
+
+```bash
+officecli --version
 ```

@@ -42,5 +42,6 @@ check "zizmor" zizmor --version
 check "open-code-review" opencodereview --version
 check "skillspector" skillspector --version
 check "herdr" herdr --version
+check "officecli" officecli --version
 
 reportResults
