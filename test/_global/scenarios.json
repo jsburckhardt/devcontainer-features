@@ -45,7 +45,8 @@
             "skillspector": {},
             "herdr": {},
             "officecli": {},
-            "strix": {}
+            "strix": {},
+            "colibri": {}
         }
     },
     "flux-specific-version": {
@@ -379,6 +380,14 @@
         "features": {
             "strix": {
                 "version": "1.0.4"
+            }
+        }
+    },
+    "colibri-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "colibri": {
+                "version": "v1.0.0"
             }
         }
     }

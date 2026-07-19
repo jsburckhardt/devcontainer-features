@@ -44,5 +44,6 @@ check "skillspector" skillspector --version
 check "herdr" herdr --version
 check "officecli" officecli --version
 check "strix" strix --version
+check "colibri" bash -c "command -v colibri"
 
 reportResults
