@@ -54,6 +54,7 @@ jobs:
           - skillspector
           - herdr
           - officecli
+          - strix
         baseImage:
           - debian:latest
           - ubuntu:latest

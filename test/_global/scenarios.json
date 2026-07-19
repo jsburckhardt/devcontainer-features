@@ -44,7 +44,8 @@
             "open-code-review": {},
             "skillspector": {},
             "herdr": {},
-            "officecli": {}
+            "officecli": {},
+            "strix": {}
         }
     },
     "flux-specific-version": {
@@ -370,6 +371,14 @@
         "features": {
             "officecli": {
                 "version": "v1.0.139"
+            }
+        }
+    },
+    "strix-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "strix": {
+                "version": "1.0.4"
             }
         }
     }
