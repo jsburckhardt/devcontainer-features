@@ -53,6 +53,7 @@ jobs:
           - open-code-review
           - skillspector
           - herdr
+          - officecli
         baseImage:
           - debian:latest
           - ubuntu:latest

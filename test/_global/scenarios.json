@@ -43,7 +43,8 @@
             "zizmor": {},
             "open-code-review": {},
             "skillspector": {},
-            "herdr": {}
+            "herdr": {},
+            "officecli": {}
         }
     },
     "flux-specific-version": {
@@ -74,7 +75,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "kyverno": {
-                "version": "v1.15.2"
+                "version": "v1.18.2"
             }
         }
     },
@@ -361,6 +362,14 @@
         "features": {
             "herdr": {
                 "version": "v0.7.3"
+            }
+        }
+    },
+    "officecli-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "officecli": {
+                "version": "v1.0.139"
             }
         }
     }
