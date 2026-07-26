@@ -54,6 +54,7 @@ This repository contains a _collection_ of Features.
 | herdr | https://github.com/ogulcancelik/herdr | Fast, cross-platform CLI tool distributed as a static binary via GitHub releases. |
 | officecli | https://github.com/iOfficeAI/OfficeCLI | AI-friendly CLI to read, edit, and automate Word, Excel, and PowerPoint files — single static binary, no Office install required. |
 | strix | https://github.com/usestrix/strix | Open-source AI penetration testing tool to find and fix your app's vulnerabilities. |
+| colibri | https://github.com/JustVugg/colibri | Run GLM-5.2 (744B MoE) on a consumer machine — pure C, zero deps, experts streamed from disk. |
 
 
 
@@ -773,19 +774,20 @@ Running `herdr --version` inside the built container will print the version of h
 herdr --version
 ```
 
-### `strix`
+### `colibri`
 
-Running `strix --version` inside the built container will print the version of strix.
+Running `colibri` inside the built container will print the usage banner of colibri. The installed version is recorded in `/usr/local/share/colibri/VERSION`.
 
 ```jsonc
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/jsburckhardt/devcontainer-features/strix:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/colibri:1": {}
     }
 }
 ```
 
 ```bash
-strix --version
+colibri
+cat /usr/local/share/colibri/VERSION
 ```

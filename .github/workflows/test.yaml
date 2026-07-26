@@ -55,6 +55,7 @@ jobs:
           - herdr
           - officecli
           - strix
+          - colibri
         baseImage:
           - debian:latest
           - ubuntu:latest
