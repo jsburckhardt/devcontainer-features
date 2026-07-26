@@ -53,6 +53,7 @@ This repository contains a _collection_ of Features.
 | SkillSpector | https://github.com/NVIDIA/SkillSpector | Standalone security scanner for local AI-agent skill/config files; useful only if you want an AI-dev-security feature. |
 | herdr | https://github.com/ogulcancelik/herdr | Fast, cross-platform CLI tool distributed as a static binary via GitHub releases. |
 | officecli | https://github.com/iOfficeAI/OfficeCLI | AI-friendly CLI to read, edit, and automate Word, Excel, and PowerPoint files — single static binary, no Office install required. |
+| strix | https://github.com/usestrix/strix | Open-source AI penetration testing tool to find and fix your app's vulnerabilities. |
 
 
 
@@ -772,19 +773,19 @@ Running `herdr --version` inside the built container will print the version of h
 herdr --version
 ```
 
-### `officecli`
+### `strix`
 
-Running `officecli --version` inside the built container will print the version of officecli.
+Running `strix --version` inside the built container will print the version of strix.
 
 ```jsonc
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/jsburckhardt/devcontainer-features/officecli:1": {}
+        "ghcr.io/jsburckhardt/devcontainer-features/strix:1": {}
     }
 }
 ```
 
 ```bash
-officecli --version
+strix --version
 ```

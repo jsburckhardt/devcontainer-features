@@ -43,5 +43,6 @@ check "open-code-review" opencodereview --version
 check "skillspector" skillspector --version
 check "herdr" herdr --version
 check "officecli" officecli --version
+check "strix" strix --version
 
 reportResults

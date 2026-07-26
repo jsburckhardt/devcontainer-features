@@ -1,0 +1,14 @@
+{
+    "name": "Strix",
+    "id": "strix",
+    "version": "1.0.0",
+    "description": "Open-source AI penetration testing tool to find and fix your app's vulnerabilities. Installs the strix CLI from GitHub releases.",
+    "documentationURL": "https://github.com/usestrix/strix",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of strix to install from GitHub releases e.g. 1.1.0"
+        }
+    }
+}
