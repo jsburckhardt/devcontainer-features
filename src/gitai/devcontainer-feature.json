@@ -1,0 +1,13 @@
+{
+    "name": "Git AI",
+    "id": "gitai",
+    "version": "1.0.0",
+    "description": "A Git extension for tracking AI-generated code through every commit, merge, rebase, cherry-pick, etc.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of git-ai to install from GitHub releases e.g. v1.6.21"
+        }
+    }
+}

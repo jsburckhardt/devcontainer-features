@@ -46,7 +46,8 @@
             "herdr": {},
             "officecli": {},
             "strix": {},
-            "colibri": {}
+            "colibri": {},
+            "gitai": {}
         }
     },
     "flux-specific-version": {
@@ -388,6 +389,14 @@
         "features": {
             "colibri": {
                 "version": "v1.0.0"
+            }
+        }
+    },
+    "gitai-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "gitai": {
+                "version": "v1.6.21"
             }
         }
     }

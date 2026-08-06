@@ -56,6 +56,7 @@ jobs:
           - officecli
           - strix
           - colibri
+          - gitai
         baseImage:
           - debian:latest
           - ubuntu:latest
