@@ -55,6 +55,7 @@ This repository contains a _collection_ of Features.
 | officecli | https://github.com/iOfficeAI/OfficeCLI | AI-friendly CLI to read, edit, and automate Word, Excel, and PowerPoint files — single static binary, no Office install required. |
 | strix | https://github.com/usestrix/strix | Open-source AI penetration testing tool to find and fix your app's vulnerabilities. |
 | colibri | https://github.com/JustVugg/colibri | Run GLM-5.2 (744B MoE) on a consumer machine — pure C, zero deps, experts streamed from disk. |
+| gitai | https://github.com/git-ai-project/git-ai | A Git extension for tracking AI-generated code through every commit, merge, rebase, cherry-pick, etc. |
 
 
 
@@ -790,4 +791,21 @@ Running `colibri` inside the built container will print the usage banner of coli
 ```bash
 colibri
 cat /usr/local/share/colibri/VERSION
+```
+
+### `gitai`
+
+Running `git-ai` inside the built container will print the version of the Git AI extension for tracking AI-generated code across commits, merges, rebases, and cherry-picks.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/gitai:1": {}
+    }
+}
+```
+
+```bash
+git-ai --version
 ```

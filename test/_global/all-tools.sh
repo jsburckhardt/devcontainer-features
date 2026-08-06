@@ -45,5 +45,6 @@ check "herdr" herdr --version
 check "officecli" officecli --version
 check "strix" strix --version
 check "colibri" bash -c "command -v colibri"
+check "gitai" git-ai --version
 
 reportResults
