@@ -3,7 +3,7 @@
 set -e
 
 # Variables
-REPO_OWNER="ogulcancelik"
+REPO_OWNER="herdrdev"
 REPO_NAME="herdr"
 BINARY_NAME="herdr"
 
@@ -32,7 +32,7 @@ check_packages curl ca-certificates jq tar
 # Function to get the latest version from GitHub API
 get_latest_version() {
     LATEST_URL="https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases/latest"
-    curl -s "$LATEST_URL" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+    curl -sL "$LATEST_URL" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
 }
 
 # Resolve version
