@@ -51,7 +51,7 @@ This repository contains a _collection_ of Features.
 | zizmor | https://github.com/zizmorcore/zizmor | Static security analysis for GitHub Actions workflows. |
 | open-code-review | https://github.com/alibaba/open-code-review | CLI-oriented code review tool for diffs with deterministic checks plus optional LLM review. |
 | SkillSpector | https://github.com/NVIDIA/SkillSpector | Standalone security scanner for local AI-agent skill/config files; useful only if you want an AI-dev-security feature. |
-| herdr | https://github.com/ogulcancelik/herdr | Fast, cross-platform CLI tool distributed as a static binary via GitHub releases. |
+| herdr | https://github.com/herdrdev/herdr | Fast, cross-platform CLI tool distributed as a static binary via GitHub releases. |
 | officecli | https://github.com/iOfficeAI/OfficeCLI | AI-friendly CLI to read, edit, and automate Word, Excel, and PowerPoint files — single static binary, no Office install required. |
 | strix | https://github.com/usestrix/strix | Open-source AI penetration testing tool to find and fix your app's vulnerabilities. |
 | colibri | https://github.com/JustVugg/colibri | Run GLM-5.2 (744B MoE) on a consumer machine — pure C, zero deps, experts streamed from disk. |

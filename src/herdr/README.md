@@ -1,7 +1,7 @@
 
 # herdr (herdr)
 
-herdr is a fast, cross-platform CLI tool from ogulcancelik/herdr distributed as a static binary via GitHub releases.
+herdr is a fast, cross-platform CLI tool from herdrdev/herdr distributed as a static binary via GitHub releases.
 
 ## Example Usage
 
