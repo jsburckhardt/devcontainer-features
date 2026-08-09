@@ -4,8 +4,6 @@
 REPO_OWNER="ynqa"
 REPO_NAME="jnv"
 JNV_VERSION="${VERSION:-"latest"}"
-GITHUB_API_REPO_URL="https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases"
-
 set -e
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -57,13 +55,14 @@ check_packages() {
     fi
 }
 
-# Function to get the latest version from GitHub API
+# Function to get the latest version by following the GitHub releases redirect
 get_latest_version() {
-    curl -s "${GITHUB_API_REPO_URL}/latest" | jq -r ".tag_name"
+    curl -sI "https://github.com/$REPO_OWNER/$REPO_NAME/releases/latest" \
+        | grep -i '^location:' | sed 's|.*/tag/||;s/\r//'
 }
 
 # Make sure we have required packages
-check_packages curl tar jq ca-certificates xz-utils
+check_packages curl tar ca-certificates xz-utils
 
 # Check if a version is passed as an argument
 if [ -z "$JNV_VERSION" ] || [ "$JNV_VERSION" == "latest" ]; then

@@ -5,8 +5,6 @@ REPO_OWNER="tmux"
 REPO_NAME="tmux"
 BINARY_NAME="tmux"
 TMUX_VERSION="${VERSION:-"latest"}"
-GITHUB_API_REPO_URL="https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases"
-
 set -e
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -29,11 +27,12 @@ check_packages() {
 }
 
 # Make sure we have required dependencies
-check_packages curl jq ca-certificates build-essential pkg-config libevent-dev libncurses-dev bison tar
+check_packages curl ca-certificates build-essential pkg-config libevent-dev libncurses-dev bison tar
 
-# Function to get the latest version from GitHub API
+# Function to get the latest version by following the GitHub releases redirect
 get_latest_version() {
-    curl -s "${GITHUB_API_REPO_URL}/latest" | jq -r ".tag_name"
+    curl -sI "https://github.com/$REPO_OWNER/$REPO_NAME/releases/latest" \
+        | grep -i '^location:' | sed 's|.*/tag/||;s/\r//'
 }
 
 # Check if a version is passed as an argument

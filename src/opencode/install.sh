@@ -60,51 +60,18 @@ case "$OS" in
         ;;
 esac
 
-# Function to resolve the latest version using GitHub API
+# Function to resolve the latest version by following the GitHub releases redirect
 resolve_latest_version() {
-    echo "Resolving latest version using GitHub API..." >&2
-    local api_response
-    api_response=$(curl -s --max-time 10 "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases/latest" 2>/dev/null || echo "")
-
-    if [ -n "$api_response" ] && echo "$api_response" | jq -e '.tag_name' >/dev/null 2>&1; then
-        local version_tag
-        version_tag=$(echo "$api_response" | jq -r '.tag_name')
-        # Remove 'v' prefix if present
-        echo "${version_tag#v}"
-        return 0
-    else
-        echo "GitHub API failed, falling back to HTML parsing..." >&2
-        return 1
-    fi
-}
-
-# Function to resolve latest version by parsing HTML (fallback)
-resolve_latest_version_fallback() {
-    echo "Attempting to resolve latest version from releases page HTML..." >&2
-    local releases_page
-    releases_page=$(curl -s --max-time 10 "https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/latest" 2>/dev/null || echo "")
-
-    if [ -n "$releases_page" ]; then
-        # Look for version tag in the HTML
-        local version_tag
-        version_tag=$(echo "$releases_page" | grep -oE 'releases/tag/v?[0-9]+\.[0-9]+\.[0-9]+' | head -1 | sed 's/.*releases\/tag\/v\?\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/')
-
-        if [ -n "$version_tag" ] && [[ "$version_tag" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "$version_tag"
-            return 0
-        fi
-    fi
-
-    echo "Failed to resolve version from HTML, using known fallback version..." >&2
-    echo "1.0.223"  # Known recent version as last resort
-    return 1
+    echo "Resolving latest version..." >&2
+    local version_tag
+    version_tag=$(curl -sI "https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/latest" \
+        | grep -i '^location:' | sed 's|.*/tag/||;s/\r//')
+    echo "${version_tag#v}"
 }
 
 # Resolve version
 if [ "$OPENCODE_VERSION" = "latest" ]; then
-    if ! RESOLVED_VERSION=$(resolve_latest_version); then
-        RESOLVED_VERSION=$(resolve_latest_version_fallback) || true
-    fi
+    RESOLVED_VERSION=$(resolve_latest_version)
     echo "Resolved latest version to: $RESOLVED_VERSION"
     OPENCODE_VERSION="$RESOLVED_VERSION"
 else
