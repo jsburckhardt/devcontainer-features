@@ -47,7 +47,8 @@
             "officecli": {},
             "strix": {},
             "colibri": {},
-            "gitai": {}
+            "gitai": {},
+            "floci": {}
         }
     },
     "flux-specific-version": {
@@ -397,6 +398,14 @@
         "features": {
             "gitai": {
                 "version": "v1.6.21"
+            }
+        }
+    },
+    "floci-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "floci": {
+                "version": "0.2.3"
             }
         }
     }
