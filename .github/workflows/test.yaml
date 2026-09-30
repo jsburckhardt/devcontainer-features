@@ -57,6 +57,7 @@ jobs:
           - strix
           - colibri
           - gitai
+          - worktrunk
         baseImage:
           - debian:latest
           - ubuntu:latest

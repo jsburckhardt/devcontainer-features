@@ -56,6 +56,7 @@ This repository contains a _collection_ of Features.
 | strix | https://github.com/usestrix/strix | Open-source AI penetration testing tool to find and fix your app's vulnerabilities. |
 | colibri | https://github.com/JustVugg/colibri | Run GLM-5.2 (744B MoE) on a consumer machine — pure C, zero deps, experts streamed from disk. |
 | gitai | https://github.com/git-ai-project/git-ai | A Git extension for tracking AI-generated code through every commit, merge, rebase, cherry-pick, etc. |
+| worktrunk | https://github.com/max-sixty/worktrunk | A CLI for Git worktree management, designed for parallel AI agent workflows. |
 
 
 
@@ -808,4 +809,21 @@ Running `git-ai` inside the built container will print the version of the Git AI
 
 ```bash
 git-ai --version
+```
+
+### `worktrunk`
+
+Running `wt --version` inside the built container will print the installed Worktrunk version.
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/worktrunk:1": {}
+    }
+}
+```
+
+```bash
+wt --version
 ```
