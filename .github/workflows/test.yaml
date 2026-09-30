@@ -57,6 +57,7 @@ jobs:
           - strix
           - colibri
           - gitai
+          - ripwire
         baseImage:
           - debian:latest
           - ubuntu:latest

@@ -1,0 +1,13 @@
+{
+    "name": "ripwire",
+    "id": "ripwire",
+    "version": "1.0.0",
+    "description": "The ripgrep of AI context: a zero-dependency CLI and MCP server for coding agents.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of ripwire to install from GitHub releases, for example v0.6.4"
+        }
+    }
+}

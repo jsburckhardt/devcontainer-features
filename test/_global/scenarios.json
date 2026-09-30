@@ -47,7 +47,8 @@
             "officecli": {},
             "strix": {},
             "colibri": {},
-            "gitai": {}
+            "gitai": {},
+            "ripwire": {}
         }
     },
     "flux-specific-version": {
@@ -397,6 +398,14 @@
         "features": {
             "gitai": {
                 "version": "v1.6.21"
+            }
+        }
+    },
+    "ripwire-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "ripwire": {
+                "version": "v0.6.4"
             }
         }
     }
