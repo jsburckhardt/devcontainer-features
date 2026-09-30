@@ -47,7 +47,8 @@
             "officecli": {},
             "strix": {},
             "colibri": {},
-            "gitai": {}
+            "gitai": {},
+            "worktrunk": {}
         }
     },
     "flux-specific-version": {
@@ -397,6 +398,14 @@
         "features": {
             "gitai": {
                 "version": "v1.6.21"
+            }
+        }
+    },
+    "worktrunk-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "worktrunk": {
+                "version": "v0.79.0"
             }
         }
     }

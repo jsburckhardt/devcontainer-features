@@ -1,0 +1,13 @@
+{
+    "name": "Worktrunk",
+    "id": "worktrunk",
+    "version": "1.0.0",
+    "description": "A CLI for Git worktree management, designed for parallel AI agent workflows.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version to install from GitHub releases"
+        }
+    }
+}
