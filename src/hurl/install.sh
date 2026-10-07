@@ -5,8 +5,6 @@ REPO_OWNER="Orange-OpenSource"
 REPO_NAME="hurl"
 BINARY_NAME="hurl"
 HURL_VERSION="${VERSION:-"latest"}"
-GITHUB_API_REPO_URL="https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases"
-
 set -e
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -28,8 +26,8 @@ check_packages() {
     fi
 }
 
-# Make sure we have curl and jq
-check_packages curl jq ca-certificates
+# Make sure we have curl
+check_packages curl ca-certificates
 
 # Install libxml2 runtime dependency
 # On newer Ubuntu (25.04+), the package is libxml2-16 and provides libxml2.so.16
@@ -49,9 +47,10 @@ else
     fi
 fi
 
-# Function to get the latest version from GitHub API
+# Function to get the latest version by following the GitHub releases redirect
 get_latest_version() {
-    curl -s "${GITHUB_API_REPO_URL}/latest" | jq -r ".tag_name"
+    curl -sI "https://github.com/$REPO_OWNER/$REPO_NAME/releases/latest" \
+        | grep -i '^location:' | sed 's|.*/tag/||;s/\r//'
 }
 
 # Check if a version is passed as an argument

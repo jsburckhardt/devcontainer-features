@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 GITLEAKS_VERSION="${VERSION:-"latest"}"
-GITHUB_API_REPO_URL="https://api.github.com/repos/gitleaks/gitleaks/releases"
+REPO_OWNER="gitleaks"
+REPO_NAME="gitleaks"
 URL_RELEASES="https://github.com/gitleaks/gitleaks/releases"
 
 set -e
@@ -46,26 +47,15 @@ check_packages() {
 	fi
 }
 
-# Figure out correct version of a three part version number is not passed
-validate_version_exists() {
-	local variable_name=$1
-    local requested_version=$2
-	if [ "${requested_version}" = "latest" ]; then requested_version=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name"); fi
-	local version_list
-    version_list=$(curl -sL ${GITHUB_API_REPO_URL} | jq -r ".[].tag_name")
-	if [ -z "${variable_name}" ] || ! echo "${version_list}" | grep "${requested_version}" >/dev/null 2>&1; then
-		echo -e "Invalid ${variable_name} value: ${requested_version}\nValid values:\n${version_list}" >&2
-		exit 1
-	fi
-	echo "${variable_name}=${requested_version}"
-}
-
 # make sure we have curl
-check_packages curl tar jq ca-certificates
+check_packages curl tar ca-certificates
 
-# make sure version is available
-if [ "${GITLEAKS_VERSION}" = "latest" ]; then GITLEAKS_VERSION=$(curl -sL ${GITHUB_API_REPO_URL}/latest | jq -r ".tag_name"); fi
-validate_version_exists GITLEAKS_VERSION "${GITLEAKS_VERSION}"
+# get latest version via redirect if not specified
+if [ "${GITLEAKS_VERSION}" = "latest" ]; then
+    GITLEAKS_VERSION=$(curl -sI "https://github.com/$REPO_OWNER/$REPO_NAME/releases/latest" \
+        | grep -i '^location:' | sed 's|.*/tag/||;s/\r//')
+    echo "No version provided or 'latest' specified, installing the latest version: $GITLEAKS_VERSION"
+fi
 
 # download and install binary
 GITLEAKS_FILENAME=gitleaks_${GITLEAKS_VERSION#v}_${OS}_${architecture}.tar.gz

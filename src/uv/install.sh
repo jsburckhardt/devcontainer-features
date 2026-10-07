@@ -28,10 +28,10 @@ check_packages() {
 # make sure we have packages
 check_packages curl tar jq ca-certificates
 
-# Function to get the latest version from GitHub API
+# Function to get the latest version by following the GitHub releases redirect
 get_latest_version() {
-    LATEST_URL="https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases/latest"
-    curl -s "$LATEST_URL" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/'
+    curl -sI "https://github.com/$REPO_OWNER/$REPO_NAME/releases/latest" \
+        | grep -i '^location:' | sed 's|.*/tag/||;s/\r//'
 }
 
 # Check if a version is passed as an argument
