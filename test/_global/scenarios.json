@@ -320,6 +320,14 @@
             }
         }
     },
+    "difftastic-versioned-asset": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "difftastic": {
+                "version": "0.71.0"
+            }
+        }
+    },
     "delta-specific-version": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {

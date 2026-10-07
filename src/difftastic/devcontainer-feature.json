@@ -1,7 +1,7 @@
 {
     "name": "Difftastic",
     "id": "difftastic",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Syntax-aware structural diffs that are much easier to read than plain text diffs.",
     "options": {
         "version": {
