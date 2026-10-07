@@ -28,21 +28,23 @@ check_packages() {
     fi
 }
 
-# Make sure we have curl and jq
-check_packages curl jq ca-certificates
+# Make sure we have the download and extraction dependencies
+check_packages curl jq ca-certificates tar
 
-# Function to get the latest version from GitHub API
-get_latest_version() {
-    curl -s "${GITHUB_API_REPO_URL}/latest" | jq -r ".tag_name"
+# Fetch release metadata from GitHub API
+get_release() {
+    curl -fsSL "${GITHUB_API_REPO_URL}/$1"
 }
 
 # Check if a version is passed as an argument
 if [ -z "$DIFFTASTIC_VERSION" ] || [ "$DIFFTASTIC_VERSION" == "latest" ]; then
     # No version provided, get the latest version
-    DIFFTASTIC_VERSION=$(get_latest_version)
+    RELEASE=$(get_release latest)
+    DIFFTASTIC_VERSION=$(jq -er '.tag_name' <<< "$RELEASE")
     echo "No version provided or 'latest' specified, installing the latest version: $DIFFTASTIC_VERSION"
 else
     echo "Installing version from environment variable: $DIFFTASTIC_VERSION"
+    RELEASE=$(get_release "tags/${DIFFTASTIC_VERSION}")
 fi
 
 # Determine the OS and architecture
@@ -75,15 +77,21 @@ case "$OS" in
         ;;
 esac
 
-# Construct the download URL
-DOWNLOAD_URL="https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download/${DIFFTASTIC_VERSION}/difft-${ARCH}-${OS}.tar.gz"
+# Releases before 0.71.0 omit the version from the asset name.
+DOWNLOAD_URL=$(jq -er \
+    --arg legacy_name "difft-${ARCH}-${OS}.tar.gz" \
+    --arg versioned_name "difft-${DIFFTASTIC_VERSION}-${ARCH}-${OS}.tar.gz" \
+    '.assets | map(select(.name == $legacy_name or .name == $versioned_name)) |
+    if length == 1 then .[0].browser_download_url
+    else error("Expected exactly one matching difftastic release asset")
+    end' <<< "$RELEASE")
 
 # Create a temporary directory for the download
 TMP_DIR=$(mktemp -d)
 cd "$TMP_DIR" || exit
 
 echo "Downloading difftastic from $DOWNLOAD_URL"
-curl -sSL "$DOWNLOAD_URL" -o "difft.tar.gz"
+curl -fsSL "$DOWNLOAD_URL" -o "difft.tar.gz"
 
 # Extract the tarball
 echo "Extracting difftastic..."
