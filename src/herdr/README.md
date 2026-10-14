@@ -24,7 +24,7 @@ herdr is a fast, cross-platform CLI tool from herdrdev/herdr distributed as a st
 Outside mode installs the same release binary but makes `herdr` a client-only
 wrapper. Native API commands use `HERDR_SOCKET_PATH` (or `containerSocketPath`
 when unset). Bare `herdr`, server/TUI launch, and session/remote routing are
-rejected: no local server is automatically started. Help and version work
+rejected: no local server is automatically started. Top-level help and version work
 without a socket. Default mode remains unchanged.
 
 Use compatible host/container versions. The example pins both to **v0.9.4**,
@@ -145,6 +145,16 @@ and [agent automation](https://herdr.dev/docs/agent-automation/) for the install
 version. This Feature does not install a Copilot lifecycle integration.
 The host still owns terminal input/output; prompt delivery, status, and
 `--wait` depend on correct detection/reporting, not just socket connectivity.
+**Copilot limitation in v0.9.4:** Herdr verifies host foreground process identity
+before `agent prompt`/`agent send-keys`. A `devcontainer exec` wrapper hides
+Copilot's identity, so these commands return `agent_not_ready` despite a state
+report. Do not spoof identity to bypass this check. `agent list`, `agent get`,
+and `agent read` can still use the reported host pane. Native `pane send-text`
+and `pane send-keys` can address it directly, but do not provide `agent prompt`'s
+readiness checks/wait semantics. Validate integration with `herdr agent explain`
+and `herdr pane process-info`. Fully automated Copilot prompting through
+`devcontainer exec` needs upstream Herdr container-wrapper detection support;
+this Feature provides connectivity, not that missing integration.
 
 From any of the three containers:
 
