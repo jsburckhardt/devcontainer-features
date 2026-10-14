@@ -33,7 +33,13 @@ check_packages curl jq ca-certificates
 
 # Function to get the latest version from GitHub API
 get_latest_version() {
-    curl -s "${GITHUB_API_REPO_URL}/latest" | jq -r ".tag_name"
+    if [ -n "$GHTOKEN" ]; then
+        # Use the token for authentication to avoid rate limits
+        AUTH_HEADER="-H \"Authorization: Bearer $GHTOKEN\""
+    else
+        AUTH_HEADER=""
+    fi
+    curl -s ${AUTH_HEADER} "${GITHUB_API_REPO_URL}/latest" | jq -r ".tag_name"
 }
 
 # Check if a version is passed as an argument
