@@ -1,0 +1,13 @@
+{
+    "name": "floci",
+    "id": "floci",
+    "version": "1.0.0",
+    "description": "Official CLI for managing Floci local cloud emulators.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of floci to install (for example, latest or 0.2.3)."
+        }
+    }
+}

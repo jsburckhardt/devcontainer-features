@@ -57,6 +57,7 @@ jobs:
           - strix
           - colibri
           - gitai
+          - floci
         baseImage:
           - debian:latest
           - ubuntu:latest
