@@ -775,6 +775,13 @@ Running `herdr --version` inside the built container will print the version of h
 herdr --version
 ```
 
+To share a host Herdr server across Dev Containers, enable `outsideOfContainer`
+and explicitly bind mount its socket directory at runtime. See the
+[Herdr Feature guide](src/herdr/README.md#share-one-host-herdr-server-linux) for
+the required configuration, UID permissions, multi-container agent setup,
+platform limitations, and security risks. Enabling the option alone does not
+mount the host socket or register agents.
+
 ### `colibri`
 
 Running `colibri` inside the built container will print the usage banner of colibri. The installed version is recorded in `/usr/local/share/colibri/VERSION`.
