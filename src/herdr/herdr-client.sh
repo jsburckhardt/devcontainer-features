@@ -8,12 +8,14 @@ fail() {
 }
 
 case "${1:-}" in
-    --version|-V|--help|-h)
+    --version|-V|--help|-h|--skill|--default-config)
         [ "$#" -eq 1 ] || fail "Use a single help/version flag, or a native API subcommand."
         exec /usr/local/lib/herdr/herdr "$@"
         ;;
-    agent|api|workspace|worktree|tab|pane|notification|wait|status) ;;
-    *) fail "Use native API commands such as 'herdr agent list'. Local server/TUI launch is disabled; start Herdr on the host." ;;
+    # Bare herdr/options launch the TUI; these commands start or manage a local server/install.
+    ""|-*|server|session|update|channel|machine)
+        fail "Use native API commands such as 'herdr agent list'. Local server/TUI launch is disabled; start Herdr on the host."
+        ;;
 esac
 
 # Explicit session selection overrides HERDR_SOCKET_PATH in Herdr.

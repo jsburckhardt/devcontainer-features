@@ -33,38 +33,46 @@ for _ in $(seq 1 100); do
     [ ! -S "$HERDR_SOCKET_PATH" ] || break
     sleep 0.1
 done
+check "external server fixture started" test -S "$HERDR_SOCKET_PATH"
 
+check "no local launch via other commands" reject update
 check "real external API connection" herdr api snapshot
 check "discover agents through external API" herdr agent list
 check "workspace status through external API" herdr workspace list
 check "configured socket used without environment override" env -u HERDR_SOCKET_PATH herdr api snapshot
 
-# Deterministic shell fixtures emulate recognized processes, not real Copilot.
+# Plain shell panes stand in for host-owned panes running agents via devcontainer exec.
+declare -A panes
 for name in frontend backend; do
-    pane=$(herdr workspace create --label "$name" --cwd "$SOCKET_DIR" | jq -er '.result.root_pane.pane_id')
-    herdr pane run "$pane" 'exec -a copilot bash --noprofile --norc'
-    sleep 0.5
-    herdr pane report-agent "$pane" --source test-fixture --agent copilot --state idle --seq 1
-    herdr agent rename "$pane" "$name"
+    panes[$name]=$(herdr workspace create --label "$name" --cwd "$SOCKET_DIR" | jq -er '.result.root_pane.pane_id')
+    herdr pane report-agent "${panes[$name]}" --source test-fixture --agent copilot --state idle --seq 1 >/dev/null
+    herdr agent rename "${panes[$name]}" "$name" >/dev/null
 done
 check "shared agent identifiers" /bin/bash -c 'herdr agent list | jq -e ".result.agents | length == 2"'
-check "native prompt delivery" herdr agent prompt backend "echo external-response"
-check "reverse native prompt delivery" herdr agent prompt frontend "echo reverse-response"
-sleep 1
-check "native response retrieval" /bin/bash -c 'herdr agent read backend --source recent --lines 30 | grep -Fx external-response'
-check "reverse response retrieval" /bin/bash -c 'herdr agent read frontend --source recent --lines 30 | grep -Fx reverse-response'
-# The pane's shell, not this test process, must expand HERDR_PANE_ID.
-# shellcheck disable=SC2016
-check "native lifecycle wait" herdr agent prompt backend \
-    '/usr/local/lib/herdr/herdr pane report-agent "$HERDR_PANE_ID" --source test-fixture --agent copilot --state working --seq 2 >/dev/null; sleep 0.5; /usr/local/lib/herdr/herdr pane report-agent "$HERDR_PANE_ID" --source test-fixture --agent copilot --state idle --seq 3 >/dev/null' \
-    --wait --timeout 10000
 
-chmod 755 "$SOCKET_DIR"
+deliver() {
+    local name=$1 text=$2
+    herdr pane run "${panes[$name]}" "echo $text" >/dev/null &&
+        herdr pane wait-output "${panes[$name]}" --regex "(?m)^$text\$" --timeout 10000 >/dev/null &&
+        herdr agent read "$name" --source recent --lines 30 | grep -Fqx "$text"
+}
+check "message delivery and response" deliver backend external-response
+check "reverse message delivery and response" deliver frontend reverse-response
+
+# Documented limitation: the pane foreground process is not the reported agent.
+check "agent prompt reports agent_not_ready" /bin/bash -c \
+    '! output=$(herdr agent prompt backend "echo hi" 2>&1) && [[ "$output" == *agent_not_ready* ]]'
+
+herdr pane report-agent "${panes[backend]}" --source test-fixture --agent copilot --state working --seq 2 >/dev/null
+check "lifecycle state wait" herdr agent wait backend --until working --timeout 10000
+check "agent release" herdr pane release-agent "${panes[backend]}" --source test-fixture --agent copilot --seq 3
+
+# Removing write access emulates a socket owned by a different host UID.
+chmod 400 "$HERDR_SOCKET_PATH"
 # shellcheck disable=SC2016
-check "different UID receives a permission diagnostic" /bin/bash -c \
-    'output=$(su -s /bin/bash nobody -c "HERDR_SOCKET_PATH=$1 herdr agent list" 2>&1) && exit 1; [[ "$output" == *"not writable by UID"* ]]' \
-    _ "$HERDR_SOCKET_PATH"
-chmod 700 "$SOCKET_DIR"
+check "unwritable socket receives a permission diagnostic" /bin/bash -c \
+    'output=$(herdr agent list 2>&1) && exit 1; [[ "$output" == *"not writable by UID"* ]]'
+chmod 600 "$HERDR_SOCKET_PATH"
 
 export HERDR_SOCKET_PATH="$SOCKET_DIR/unavailable.sock"
 check "runtime socket override diagnostic" reject agent list
