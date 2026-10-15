@@ -1,23 +1,13 @@
 {
     "name": "herdr",
     "id": "herdr",
-    "version": "1.1.0",
+    "version": "1.0.0",
     "description": "herdr is a fast, cross-platform CLI tool from herdrdev/herdr distributed as a static binary via GitHub releases.",
     "options": {
         "version": {
             "type": "string",
             "default": "latest",
             "description": "Version of herdr to install (e.g. 'latest' or a specific tag like 'v0.7.3')."
-        },
-        "outsideOfContainer": {
-            "type": "boolean",
-            "default": false,
-            "description": "Use only the external Herdr control API. Requires an explicit runtime socket-directory bind mount in devcontainer.json; does not start a local server."
-        },
-        "containerSocketPath": {
-            "type": "string",
-            "default": "/run/herdr-host/herdr.sock",
-            "description": "Absolute path to the mounted host API socket inside the container when outsideOfContainer is enabled. Host source paths are configured in devcontainer.json mounts."
         }
     }
 }

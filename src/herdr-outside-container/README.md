@@ -1,10 +1,30 @@
+
+# herdr (outside of container) (herdr-outside-container)
+
+Client-only herdr CLI (herdrdev/herdr) that talks to a Herdr server running on the host through a bind-mounted Unix socket. Never starts a local server or TUI, so several dev containers can share one host Herdr server.
+
+## Example Usage
+
+```json
+"features": {
+    "ghcr.io/jsburckhardt/devcontainer-features/herdr-outside-container:1": {}
+}
+```
+
+## Options
+
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| version | Version of herdr to install (e.g. 'latest' or a specific tag like 'v0.9.4'). Match the host Herdr server version. | string | latest |
+| containerSocketPath | Absolute path to the mounted host API socket inside the container. Host source paths are configured in devcontainer.json mounts. | string | /run/herdr-host/herdr.sock |
+
 ## Share one host Herdr server (Linux)
 
-With `outsideOfContainer: true`, `herdr` becomes a client-only wrapper around the
-release binary. API commands (`agent`, `pane`, `workspace`, `api`, ...) talk to
+This Feature installs `herdr` as a client-only wrapper around the release
+binary. API commands (`agent`, `pane`, `workspace`, `api`, ...) talk to
 `HERDR_SOCKET_PATH`, or `containerSocketPath` when unset. Launching the TUI or a
-server, and `--session`/`--remote`/`--machine` routing, are rejected. Default
-mode is unchanged.
+server, and `--session`/`--remote`/`--machine` routing, are rejected. Use the
+`herdr` Feature instead if you want a local Herdr inside the container.
 
 Pin the same Herdr version on host and container. On the Linux Docker host,
 start **one** server:
@@ -22,9 +42,8 @@ In each repository's `.devcontainer/devcontainer.json`:
     "remoteUser": "vscode",
     "updateRemoteUserUID": true,
     "features": {
-        "ghcr.io/jsburckhardt/devcontainer-features/herdr:1": {
-            "version": "v0.9.4",
-            "outsideOfContainer": true
+        "ghcr.io/jsburckhardt/devcontainer-features/herdr-outside-container:1": {
+            "version": "v0.9.4"
         }
     },
     "mounts": [
@@ -33,11 +52,15 @@ In each repository's `.devcontainer/devcontainer.json`:
 }
 ```
 
-**The mount is required.** Feature mounts cannot depend on options, so the
-Feature never mounts host sockets itself. Mount the socket **directory**, not
-the socket file: Herdr recreates the socket on restart and a file mount would
-keep a stale inode. Create the host directory before building the container.
-`readonly` only prevents filesystem changes, not API writes.
+**The mount is required.** The Feature never mounts host sockets itself, because
+the host path differs per machine. Mount the socket **directory**, not the
+socket file: Herdr recreates the socket on restart and a file mount would keep a
+stale inode. Create the host directory before building the container. If you
+change the mount `target`, set `containerSocketPath` to match. `readonly` only
+prevents filesystem changes, not API writes.
+
+Do not combine this Feature with the `herdr` Feature in the same container: both
+install `/usr/local/bin/herdr`.
 
 ### Permissions and troubleshooting
 
@@ -90,8 +113,8 @@ the agent with `herdr pane release-agent` when it exits. See
 Supported only where the Herdr server and the Docker daemon share a Linux
 filesystem: native Linux, or WSL2 with both in the same distribution (not under
 `/mnt/c`). Docker Desktop on macOS, native Windows (named pipes), Codespaces and
-remote Docker hosts cannot mount a local socket; consider Herdr's SSH
-[machine support](https://herdr.dev/docs/connecting-machines/) in default mode.
+remote Docker hosts cannot mount a local socket; consider the `herdr` Feature
+with Herdr's SSH [machine support](https://herdr.dev/docs/connecting-machines/).
 
 ### Security
 
@@ -100,3 +123,8 @@ server: clients can type commands and read other agents' output, including
 secrets. There is no per-agent authorization, and the wrapper is not a sandbox.
 Share a server only between trusted repositories, use separate servers for
 separate trust domains, and avoid approval-skipping modes such as `--yolo`.
+
+
+---
+
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/jsburckhardt/devcontainer-features/blob/main/src/herdr-outside-container/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

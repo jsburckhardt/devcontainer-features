@@ -2,9 +2,8 @@
     "outside-of-container": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "herdr": {
+            "herdr-outside-container": {
                 "version": "v0.9.4",
-                "outsideOfContainer": true,
                 "containerSocketPath": "/tmp/herdr-external-test/herdr.sock"
             }
         }

@@ -6,20 +6,6 @@ set -e
 REPO_OWNER="herdrdev"
 REPO_NAME="herdr"
 BINARY_NAME="herdr"
-FEATURE_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-OUTSIDE_OF_CONTAINER="${OUTSIDEOFCONTAINER:-false}"
-CONTAINER_SOCKET_PATH="${CONTAINERSOCKETPATH:-/run/herdr-host/herdr.sock}"
-
-if [ "$OUTSIDE_OF_CONTAINER" = "true" ]; then
-    case "$CONTAINER_SOCKET_PATH" in
-        /*) ;;
-        *) echo "containerSocketPath must be an absolute Unix socket path." >&2; exit 1 ;;
-    esac
-    if [[ "$CONTAINER_SOCKET_PATH" == *$'\n'* || "$CONTAINER_SOCKET_PATH" == *$'\r'* ]]; then
-        echo "containerSocketPath must not contain line breaks." >&2
-        exit 1
-    fi
-fi
 
 # Root check
 if [ "$(id -u)" -ne 0 ]; then
@@ -98,11 +84,3 @@ rm -rf /var/lib/apt/lists/*
 # Verify installation
 echo "Verifying installation"
 "$BINARY_NAME" --version
-
-if [ "$OUTSIDE_OF_CONTAINER" = "true" ]; then
-    install -d /usr/local/lib/herdr /usr/local/share/herdr
-    mv /usr/local/bin/herdr /usr/local/lib/herdr/herdr
-    printf '%s\n' "$CONTAINER_SOCKET_PATH" > /usr/local/share/herdr/socket-path
-    install -m 0755 "$FEATURE_DIR/herdr-client.sh" /usr/local/bin/herdr
-    echo "Herdr external-client mode enabled. Bind mount the host socket directory at runtime; see the Herdr Feature README."
-fi
