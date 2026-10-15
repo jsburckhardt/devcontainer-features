@@ -53,6 +53,7 @@ jobs:
           - open-code-review
           - skillspector
           - herdr
+          - herdr-outside-container
           - officecli
           - strix
           - colibri

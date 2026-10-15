@@ -42,6 +42,8 @@ check "zizmor" zizmor --version
 check "open-code-review" opencodereview --version
 check "skillspector" skillspector --version
 check "herdr" herdr --version
+# herdr-outside-container is intentionally not in all-tools: it also installs /usr/local/bin/herdr
+# (client-only wrapper) and would conflict with the herdr feature. See herdr-outside-container-specific-version.
 check "officecli" officecli --version
 check "strix" strix --version
 check "colibri" bash -c "command -v colibri"

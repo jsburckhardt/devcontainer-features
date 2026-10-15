@@ -376,6 +376,14 @@
             }
         }
     },
+    "herdr-outside-container-specific-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "herdr-outside-container": {
+                "version": "v0.9.4"
+            }
+        }
+    },
     "officecli-specific-version": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {

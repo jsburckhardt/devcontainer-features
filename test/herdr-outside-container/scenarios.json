@@ -1,0 +1,11 @@
+{
+    "outside-of-container": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "herdr-outside-container": {
+                "version": "v0.9.4",
+                "containerSocketPath": "/tmp/herdr-external-test/herdr.sock"
+            }
+        }
+    }
+}

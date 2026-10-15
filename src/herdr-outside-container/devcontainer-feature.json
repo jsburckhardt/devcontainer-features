@@ -1,0 +1,18 @@
+{
+    "name": "herdr (outside of container)",
+    "id": "herdr-outside-container",
+    "version": "1.0.0",
+    "description": "Client-only herdr CLI (herdrdev/herdr) that talks to a Herdr server running on the host through a bind-mounted Unix socket. Never starts a local server or TUI, so several dev containers can share one host Herdr server.",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Version of herdr to install (e.g. 'latest' or a specific tag like 'v0.9.4'). Match the host Herdr server version."
+        },
+        "containerSocketPath": {
+            "type": "string",
+            "default": "/run/herdr-host/herdr.sock",
+            "description": "Absolute path to the mounted host API socket inside the container. Host source paths are configured in devcontainer.json mounts."
+        }
+    }
+}

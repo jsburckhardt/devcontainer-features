@@ -52,6 +52,7 @@ This repository contains a _collection_ of Features.
 | open-code-review | https://github.com/alibaba/open-code-review | CLI-oriented code review tool for diffs with deterministic checks plus optional LLM review. |
 | SkillSpector | https://github.com/NVIDIA/SkillSpector | Standalone security scanner for local AI-agent skill/config files; useful only if you want an AI-dev-security feature. |
 | herdr | https://github.com/herdrdev/herdr | Fast, cross-platform CLI tool distributed as a static binary via GitHub releases. |
+| herdr-outside-container | https://github.com/herdrdev/herdr | Client-only herdr CLI that controls a Herdr server on the host via a bind-mounted Unix socket, so several dev containers can share one server. |
 | officecli | https://github.com/iOfficeAI/OfficeCLI | AI-friendly CLI to read, edit, and automate Word, Excel, and PowerPoint files — single static binary, no Office install required. |
 | strix | https://github.com/usestrix/strix | Open-source AI penetration testing tool to find and fix your app's vulnerabilities. |
 | colibri | https://github.com/JustVugg/colibri | Run GLM-5.2 (744B MoE) on a consumer machine — pure C, zero deps, experts streamed from disk. |
@@ -773,6 +774,31 @@ Running `herdr --version` inside the built container will print the version of h
 
 ```bash
 herdr --version
+```
+
+### `herdr-outside-container`
+
+Installs `herdr` as a client-only wrapper that talks to a Herdr server running on the host through a bind-mounted socket directory. It never starts a local server or TUI. The mount is required; see [src/herdr-outside-container/README.md](src/herdr-outside-container/README.md) for setup, permissions, and security notes. Do not combine with the `herdr` feature (both install `/usr/local/bin/herdr`).
+
+```jsonc
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "remoteUser": "vscode",
+    "updateRemoteUserUID": true,
+    "features": {
+        "ghcr.io/jsburckhardt/devcontainer-features/herdr-outside-container:1": {
+            "version": "v0.9.4"
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.local/share/herdr-control,target=/run/herdr-host,type=bind,readonly"
+    ]
+}
+```
+
+```bash
+herdr --version
+herdr api snapshot
 ```
 
 ### `colibri`
